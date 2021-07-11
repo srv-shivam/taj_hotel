@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="10dp"
+    app:cardElevation="10dp"
+    app:cardCornerRadius="10dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="130dp">
+
+        <TextView
+            android:id="@+id/cart_food_item_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hyderabadi Mutton Biryani"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="10dp"
+            android:textSize="16sp"
+            android:layout_alignParentTop="true"
+            android:fontFamily="@font/mclaren"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:id="@+id/cart_food_item_description"
+            android:layout_width="190dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/cart_food_item_name"
+            android:layout_marginStart="12dp"
+            android:lines="2"
+            android:layout_marginTop="2dp"
+            android:textSize="12sp"
+            android:textColor="@color/backgroundBottomColor"
+            android:text="Authentice spicy Hyderabadi Mutton Biryani"/>
+
+        <RatingBar
+            android:id="@+id/cart_food_item_ratings"
+            style="?android:attr/ratingBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/cart_food_item_description"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="6dp"
+            android:numStars="5"
+            android:progressBackgroundTint="#388E3C"
+            android:progressTint="#388E3C"
+            android:rating="3.5"
+            android:scaleX="1.1"
+            android:scaleY="1"
+            android:secondaryProgressTint="#00796B" />
+
+        <TextView
+            android:id="@+id/cart_food_item_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="23dp"
+            android:layout_toEndOf="@id/cart_food_item_ratings"
+            android:text="₹100"
+            android:textColor="@color/black"
+            android:textSize="30sp" />
+
+        <Spinner
+            android:id="@+id/cart_food_item_quantity"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/cart_food_item_ratings"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="12dp" />
+
+        <ImageView
+            android:id="@+id/cart_food_item_img"
+            android:layout_width="140dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/mutton_biriyani"
+            android:scaleType="centerCrop"
+            android:layout_alignParentEnd="true"/>
+
+        <ImageView
+            android:id="@+id/cart_delete_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="10dp"
+            android:src="@drawable/ic_remove_delete_svgrepo_com"/>
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

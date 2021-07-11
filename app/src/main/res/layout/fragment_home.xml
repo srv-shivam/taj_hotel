@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:animateLayoutChanges="true"
+    android:scrollbarDefaultDelayBeforeFade="@integer/material_motion_duration_long_1">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/top_linear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/home_bottom_design"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <com.denzcoskun.imageslider.ImageSlider
+                android:id="@+id/banner_slider"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:animateLayoutChanges="true"
+                android:elevation="50dp"
+                android:outlineAmbientShadowColor="@color/white"
+                app:auto_cycle="true"
+                app:corner_radius="30"
+                app:delay="10"
+                app:error_image="@drawable/background_grey_img"
+                app:period="1000"
+                app:placeholder="@drawable/home_card_image1" />
+
+            <TextView
+                android:id="@+id/categories_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/home_top_recycler"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:text="Categories"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/categories_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="110dp"
+                android:layout_below="@id/categories_txt"
+                android:layout_marginTop="10dp" />
+
+            <TextView
+                android:id="@+id/choose_the_food_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="8dp"
+                android:fontFamily="casual"
+                android:padding="2dp"
+                android:text="Choose the Food that you Love"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/top_picks"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/top_linear"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:drawableLeft="@drawable/ic_like_svgrepo_com"
+            android:fontFamily="@font/atma_semibold"
+            android:text="   Top Picks For You"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:visibility="gone" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/food_item_display_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/top_picks"
+            android:layout_marginBottom="10dp"
+            android:padding="8dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/customer_reviews"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/food_item_display_recycler_view"
+            android:layout_margin="20dp"
+            android:fontFamily="casual"
+            android:text="Customer Reviews"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <com.denzcoskun.imageslider.ImageSlider
+            android:id="@+id/banner_slider_down"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_below="@id/customer_reviews"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:animateLayoutChanges="true"
+            android:elevation="10dp"
+            android:paddingBottom="8dp"
+            app:auto_cycle="true"
+            app:corner_radius="30"
+            app:delay="30"
+            app:error_image="@drawable/background_grey_img"
+            app:period="2000"
+            app:placeholder="@drawable/home_card_image1" />
+
+    </RelativeLayout>
+
+</ScrollView>

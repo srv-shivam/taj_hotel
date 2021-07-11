@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn = "navigation_view">
+
+    <group
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/my_profile"
+            android:title="My Profile"
+            android:icon="@drawable/ic_baseline_perm_identity_24"/>
+        <item
+            android:id="@+id/cart"
+            android:title="Cart"
+            android:icon="@drawable/ic_cart_svgrepo_com"/>
+    </group>
+
+    <item
+        android:title="Info">
+        <menu>
+            <item
+                android:id="@+id/my_orders"
+                android:title="My Orders"
+                android:icon="@drawable/ic_delivery_bag"/>
+            <item
+                android:id="@+id/offers"
+                android:title="Offers"
+                android:icon="@drawable/ic_baseline_card_giftcard_24"/>
+
+            <item
+                android:id="@+id/notifications"
+                android:title="Notifications"
+                android:icon="@drawable/ic_baseline_notifications_none_24"/>
+        </menu>
+
+    </item>
+
+    <item
+        android:title="More">
+        <menu>
+            <item
+                android:id="@+id/log_out"
+                android:title="Log out"
+                android:icon="@drawable/ic_logout"/>
+            <item
+                android:id="@+id/exit"
+                android:title="Exit Application"
+                android:icon="@drawable/ic_baseline_exit_to_app_24"/>
+        </menu>
+
+    </item>
+</menu>
