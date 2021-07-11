@@ -6,7 +6,9 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
@@ -26,10 +28,6 @@ import java.util.ArrayList;
 public class CartFragment extends Fragment {
 
     Button payNowButton;
-//    ArrayList<String> foodName, foodPrice, foodDescription;
-//    ArrayList<Integer> foodImage;
-//    float[] foodRatings;
-//    ArrayList<Recipe_Model> food;
     RecyclerView recyclerView;
     CartFoodItemsAdapter cartFoodItemsAdapter;
     DataBaseHelper db;
@@ -42,20 +40,10 @@ public class CartFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_cart, container, false);
 
         payNowButton = rootView.findViewById(R.id.cart_pay_now_btn);
-
         recyclerView = rootView.findViewById(R.id.cart_food_list);
-
         foodList = new ArrayList<>();
 
-        /***********************************************************************************/
         displayFoodListFromDB();
-
-//        foodName = new ArrayList<>();
-//        foodDescription = new ArrayList<>();
-//        foodPrice = new ArrayList<>();
-//        foodImage = new ArrayList<>();
-//
-//        food = new ArrayList<>();
 
         payNowButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,32 +52,6 @@ public class CartFragment extends Fragment {
                 cartBottomSheetFragment.show(getParentFragmentManager(), cartBottomSheetFragment.getTag());
             }
         });
-/*********************************************************************************
-//        Bundle bundle = getArguments();
-////        foodName = bundle.getStringArrayList("Food Name");
-//        foodPrice = bundle.getStringArrayList("Food Price");
-//        foodDescription = bundle.getStringArrayList("Food Description");
-//        foodImage = bundle.getIntegerArrayList("Food Image");
-//
-//        foodRatings = new float[foodImage.size()];
-//
-//        foodRatings = bundle.getFloatArray("Food Ratings");
-//
-//        for(int i=0; i<foodName.size(); i++) {
-//            food.add(new Recipe_Model(foodImage.get(i), foodName.get(i), foodDescription.get(i),
-//                    Boolean.TRUE, foodPrice.get(i), foodRatings[i]));
-//        }
-//
-//        CartFoodItemsAdapter cartFoodItemsAdapter = new CartFoodItemsAdapter(getContext(), food);
-//        cartFoodItemsAdapter.notifyDataSetChanged();
-//
-//        LinearLayoutManager linearLayoutManager =
-//                new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
-//
-//        recyclerView.setLayoutManager(linearLayoutManager);
-//        recyclerView.setAdapter(cartFoodItemsAdapter);
-***************************************************************************************/
-
         return rootView;
     }
 

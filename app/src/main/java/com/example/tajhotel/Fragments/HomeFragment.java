@@ -1,15 +1,12 @@
 package com.example.tajhotel.Fragments;
 
 import android.os.Bundle;
-import android.os.Parcelable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -21,19 +18,16 @@ import com.denzcoskun.imageslider.models.SlideModel;
 import com.example.tajhotel.Adapters.HomeCategoriesAdapter;
 import com.example.tajhotel.Adapters.Recipe_Adapter;
 import com.example.tajhotel.CustomClasses.FoodCategories;
-import com.example.tajhotel.CustomClasses.OrderedFood;
 import com.example.tajhotel.CustomClasses.Recipe_Model;
 import com.example.tajhotel.LocalDataBase.DataBaseHelper;
 import com.example.tajhotel.R;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 public class HomeFragment extends Fragment {
 
+    DataBaseHelper db;
     private ArrayList<FoodCategories> categoriesArrayList;
     private HomeCategoriesAdapter homeCategoriesAdapter;
     private RecyclerView recyclerView;
@@ -43,8 +37,6 @@ public class HomeFragment extends Fragment {
     private Recipe_Adapter recipe_adapter;
     private int Ordered_Count = 0, RECYCLER_VISIBILITY0 = 0, RECYCLER_VISIBILITY1 = 0, RECYCLER_VISIBILITY2 = 0, RECYCLER_VISIBILITY3 = 0;
     private Animation slideLEFT;
-    TextView chooseFood;
-    DataBaseHelper db;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -60,89 +52,6 @@ public class HomeFragment extends Fragment {
         /** Initialization of Local database **/
         db = new DataBaseHelper(getContext());
 
-        /**************************************************************************/
-        /*************************************************************************/
-        /*************************************************************************/
-        /*************************************************************************/
-//        chooseFood = rootView.findViewById(R.id.choose_the_food_txt);
-//        chooseFood.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                /** This orderedFoodArrayList is containing the list of ordered food **/
-//                HashMap<Integer, Recipe_Model> orderedFoodMap = recipe_adapter.returnOrderedData();
-//                ArrayList<Recipe_Model> orderedFoodArrayList =
-//                        (ArrayList<Recipe_Model>) orderedFoodMap.values().stream().collect(Collectors.toList());
-//
-//
-//                /** Storing Cart foods to the local database **/
-//                for(int i=0; i<orderedFoodArrayList.size(); i++) {
-//
-//                    boolean checkInsert = db.insertData(orderedFoodArrayList.get(i).getFood_name(),
-//                            orderedFoodArrayList.get(i).getFood_price(),
-//                            orderedFoodArrayList.get(i).getPic(),
-//                            orderedFoodArrayList.get(i).getFood_summery(),
-//                            orderedFoodArrayList.get(i).getRating());
-//
-//                    if (checkInsert == false) {
-//                        Toast.makeText(getContext(), "Enable to save into cart", Toast.LENGTH_SHORT).show();
-//                    }
-//                }
-//
-//                /** Food Names **/
-////                ArrayList<String> foodName = new ArrayList<>();
-////                for(int i=0; i<orderedFoodArrayList.size(); i++) {
-////                    foodName.add(orderedFoodArrayList.get(0).getFood_name());
-////                }
-////
-////                /** Food Image **/
-////                ArrayList<Integer> foodImg = new ArrayList<>();
-////                for(int i=0; i<orderedFoodArrayList.size(); i++) {
-////                    foodImg.add(orderedFoodArrayList.get(0).getPic());
-////                }
-////
-////                /** Food Description **/
-////                ArrayList<String> foodDescription = new ArrayList<>();
-////                for(int i=0; i<orderedFoodArrayList.size(); i++) {
-////                    foodDescription.add(orderedFoodArrayList.get(0).getFood_summery());
-////                }
-////
-////                /** Food Ratings **/
-////                String[] s = new String[10];
-////                float foodRatings[] = new float[orderedFoodArrayList.size()];
-////                for(int i=0; i<orderedFoodArrayList.size(); i++) {
-////                    foodRatings[i] = orderedFoodArrayList.get(0).getRating();
-////                }
-////
-////                /** Food Price **/
-////                ArrayList<String> foodPrice = new ArrayList<>();
-////                for(int i=0; i<orderedFoodArrayList.size(); i++) {
-////                    foodPrice.add(orderedFoodArrayList.get(0).getFood_price());
-////                }
-////
-////
-////                Bundle bundle = new Bundle();
-////                bundle.putStringArrayList("Food Name",foodName);
-////                bundle.putStringArrayList("Food Price", foodPrice);
-////                bundle.putStringArrayList("Food Description", foodDescription);
-////                bundle.putIntegerArrayList("Food Image", foodImg);
-////                bundle.putFloatArray("Food Ratings", foodRatings);
-////
-////                CartFragment cartFragment = new CartFragment();
-////                cartFragment.setArguments(bundle);
-//
-////                for(Recipe_Model list : orderedFoodArrayList) {
-////                    Log.d("TAG Ordered To Cart", list.getFood_name());
-////                }
-//
-////                ArrayList<OrderedFood> orderedFoodArrayList = recipe_adapter.returnOrderedData();
-//                Toast.makeText(getContext(), orderedFoodArrayList.get(0).getFood_name(), Toast.LENGTH_LONG).show();
-//            }
-//        });
-        /*****************************************************************************/
-        /*****************************************************************************/
-        /*****************************************************************************/
-        /******************************************************************************/
         // Animation for food list
         slideLEFT = AnimationUtils.loadAnimation(getContext(), R.anim.food_list_recycler_animation);
 
@@ -269,7 +178,6 @@ public class HomeFragment extends Fragment {
                 list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Hamburger", "This is Hamburger", Boolean.FALSE, "4", 2));
                 list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Double Cheese Burger", "This is Cheese Burger", Boolean.FALSE, "3", 5));
                 list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Double-Decker Burgers", "This is Double-Decker Burgers", Boolean.FALSE, "10", 5));
-                Ordered_Count = 10;
                 break;
 
             case 1:
@@ -283,7 +191,6 @@ public class HomeFragment extends Fragment {
                 list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Double Cheese Noodles", "This is Double Cheese Noodles", Boolean.FALSE, "3", 2));
                 list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Paneer Noodles", "This is Paneer Noodles", Boolean.FALSE, "3", 5));
                 list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Corn Noodles", "This is Corn Noodles", Boolean.FALSE, "3", 5));
-                Ordered_Count = 10;
                 break;
 
             case 2:
@@ -297,7 +204,6 @@ public class HomeFragment extends Fragment {
                 list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Spicy Chicken Curry", "This is Spicy Chicken Curry", Boolean.FALSE, "3", 2));
                 list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Chicken Biryani", "This is Chicken Biryani", Boolean.FALSE, "3", 5));
                 list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Chicken Kebab", "This is Chicken Kebab", Boolean.FALSE, "3", 5));
-                Ordered_Count = 10;
                 break;
 
             case 3:
@@ -311,11 +217,10 @@ public class HomeFragment extends Fragment {
                 list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Hawaiian Pizza", "This is Hawaiian Pizza", Boolean.FALSE, "3", 2));
                 list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Paneer Top Pizza", "This is Paneer Top Pizza", Boolean.FALSE, "3", 5));
                 list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Extra Cheese Pizza", "This is Extra Cheese Pizza", Boolean.FALSE, "3", 5));
-                Ordered_Count = 10;
                 break;
         }
 
-        recipe_adapter = new Recipe_Adapter(getContext(), list, Ordered_Count, new DataBaseHelper(getContext()));
+        recipe_adapter = new Recipe_Adapter(getContext(), list, new DataBaseHelper(getContext()));
         recyclerViewFoodList.setLayoutManager(new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL));
 
         recyclerViewFoodList.setAdapter(recipe_adapter);

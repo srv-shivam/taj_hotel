@@ -3,9 +3,12 @@ package com.example.tajhotel.Adapters;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RatingBar;
@@ -81,15 +84,11 @@ public class CartFoodItemsAdapter extends RecyclerView.Adapter<CartFoodItemsAdap
                 });
                 builder.create();
                 builder.setTitle("Are you sure").show();
-
-//                boolean removeCheck = db.removeData(foodList.get(position).getFood_name());
-//
-//                if (removeCheck == false) {
-//                    Toast.makeText(context, "Enable to remove from cart", Toast.LENGTH_SHORT).show();
-//                }
             }
         });
     }
+
+
 
     @Override
     public int getItemCount() {
@@ -112,6 +111,12 @@ public class CartFoodItemsAdapter extends RecyclerView.Adapter<CartFoodItemsAdap
             this.foodRatings = itemView.findViewById(R.id.cart_food_item_ratings);
             this.deleteImage = itemView.findViewById(R.id.cart_delete_btn);
             this.foodQuantity = itemView.findViewById(R.id.cart_food_item_quantity);
+
+
+            ArrayAdapter<String> quantities = new ArrayAdapter<>(context, android.R.layout.simple_spinner_item,
+                    context.getResources().getStringArray(R.array.Quantity));
+            quantities.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            foodQuantity.setAdapter(quantities);
         }
     }
 }

@@ -58,7 +58,7 @@
             android:layout_height="match_parent"
             android:layout_above="@id/navigation"
             android:layout_below="@id/toolbar"
-            android:background="@color/white"/>
+            android:background="@color/white" />
 
         <com.etebarian.meowbottomnavigation.MeowBottomNavigation
             android:id="@+id/navigation"
