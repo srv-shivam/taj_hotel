@@ -59,7 +59,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:text="Upload Image"
-        android:padding="6dp"
+        android:padding="10dp"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:elevation="10dp"
@@ -70,13 +70,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/avatar_btn"
         android:layout_width="280dp"
         android:layout_height="60dp"
         android:layout_marginTop="40dp"
         android:backgroundTint="@color/yellow"
-        android:elevation="60dp"
+        android:elevation="160dp"
         android:text="Confirm"
         android:textColor="@color/black"
         android:textSize="16sp"
