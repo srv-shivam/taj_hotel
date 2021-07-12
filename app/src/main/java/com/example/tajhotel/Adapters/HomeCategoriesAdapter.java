@@ -22,10 +22,6 @@ public class HomeCategoriesAdapter extends RecyclerView.Adapter<HomeCategoriesAd
     int selectedCategory = 0;
     OnCategoryClick onCategoryClick;
 
-    public interface OnCategoryClick {
-        void onClick(int pos);
-    }
-
     public HomeCategoriesAdapter(Context context, ArrayList<FoodCategories> foodCategories, OnCategoryClick onCategoryClick) {
         this.context = context;
         this.foodCategories = foodCategories;
@@ -55,6 +51,10 @@ public class HomeCategoriesAdapter extends RecyclerView.Adapter<HomeCategoriesAd
         return foodCategories.size();
     }
 
+    public interface OnCategoryClick {
+        void onClick(int pos);
+    }
+
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         ImageView foodImageView;
@@ -71,7 +71,7 @@ public class HomeCategoriesAdapter extends RecyclerView.Adapter<HomeCategoriesAd
             cardView.setOnClickListener(v -> {
                 selectedCategory = getAdapterPosition();
                 //reset items, so that color changes when we click on card
-                if(onCategoryClick != null) {
+                if (onCategoryClick != null) {
                     onCategoryClick.onClick(getAdapterPosition());
                 }
                 notifyDataSetChanged();
