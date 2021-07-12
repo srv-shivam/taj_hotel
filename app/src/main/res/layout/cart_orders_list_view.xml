@@ -94,7 +94,7 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_margin="10dp"
-            android:src="@drawable/ic_wrong_delete_remove_trash_minus_cancel_close_2_svgrepo_com"/>
+            android:src="@drawable/ic_round_delete_button_svgrepo_com"/>
 
     </RelativeLayout>
 </androidx.cardview.widget.CardView>
