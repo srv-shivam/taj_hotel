@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="10dp"
-    app:cardElevation="10dp"
-    app:cardCornerRadius="10dp">
+    android:padding="10dp"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="10dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -15,43 +16,43 @@
             android:id="@+id/cart_food_item_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hyderabadi Mutton Biryani"
-            android:layout_marginStart="12dp"
-            android:layout_toEndOf="@id/cart_food_item_img"
-            android:layout_marginTop="8dp"
-            android:textSize="16sp"
             android:layout_alignParentTop="true"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="8dp"
+            android:layout_toEndOf="@id/cart_food_item_img"
             android:fontFamily="@font/mclaren"
-            android:textColor="@color/black"/>
+            android:text="Hyderabadi Mutton Biryani"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/cart_food_item_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="2dp"
             android:layout_below="@id/cart_food_item_name"
             android:layout_marginStart="12dp"
-            android:lines="2"
-            android:layout_toEndOf="@id/cart_food_item_img"
             android:layout_marginTop="2dp"
-            android:textSize="12sp"
+            android:layout_toEndOf="@id/cart_food_item_img"
+            android:lines="2"
+            android:padding="2dp"
+            android:text="Authentice spicy Hyderabadi Mutton Biryani"
             android:textColor="@color/backgroundBottomColor"
-            android:text="Authentice spicy Hyderabadi Mutton Biryani"/>
+            android:textSize="12sp" />
 
         <RatingBar
             android:id="@+id/cart_food_item_ratings"
             style="?android:attr/ratingBarStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_above="@id/cart_food_item_price"
             android:layout_marginStart="12dp"
             android:layout_marginTop="6dp"
+            android:layout_marginBottom="14dp"
+            android:layout_toEndOf="@id/cart_food_item_img"
             android:numStars="5"
             android:progressBackgroundTint="#388E3C"
             android:progressTint="#388E3C"
             android:rating="3.5"
-            android:layout_marginBottom="14dp"
-            android:layout_above="@id/cart_food_item_price"
-            android:layout_toEndOf="@id/cart_food_item_img"
             android:scaleX="1.1"
             android:scaleY="1"
             android:secondaryProgressTint="#00796B" />
@@ -62,39 +63,66 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_marginStart="12dp"
+            android:layout_marginBottom="4dp"
             android:layout_toEndOf="@id/cart_food_item_img"
             android:text="₹100"
             android:textColor="@color/black"
-            android:textSize="30sp"
-            android:layout_marginBottom="4dp"/>
+            android:textSize="30sp" />
 
-        <Spinner
-            android:id="@+id/cart_food_item_quantity"
-            android:layout_width="80dp"
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:layout_marginBottom="6dp"
+            android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_below="@id/cart_food_item_ratings"
-            android:layout_toEndOf="@id/cart_food_item_price"
-            android:layout_marginStart="18dp" />
+            android:padding="10dp">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/cart_food_item_minus_btn"
+                android:layout_width="30dp"
+                android:layout_height="26dp"
+                android:layout_margin="2dp"
+                android:background="@drawable/cart_button_design"
+                android:elevation="60dp"
+                android:text="-"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/cart_food_item_quantity"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_margin="2dp"
+                android:background="@color/white"
+                android:gravity="center"
+                android:text="1"
+                android:textColor="@color/black" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/cart_food_item_plus_btn"
+                android:layout_width="30dp"
+                android:layout_height="26dp"
+                android:layout_margin="2dp"
+                android:background="@drawable/cart_button_design"
+                android:elevation="60dp"
+                android:text="+"
+                android:textColor="@color/black" />
+
+        </LinearLayout>
 
         <ImageView
             android:id="@+id/cart_food_item_img"
             android:layout_width="140dp"
             android:layout_height="match_parent"
-            android:src="@drawable/mutton_biriyani"
+            android:layout_alignParentStart="true"
             android:scaleType="centerCrop"
-            android:layout_alignParentStart="true"/>
+            android:src="@drawable/mutton_biriyani" />
 
         <ImageView
             android:id="@+id/cart_delete_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_margin="10dp"
-            android:src="@drawable/ic_round_delete_button_svgrepo_com"/>
+            android:layout_margin="6dp"
+            android:src="@drawable/ic_delete_round_button_svgrepo_com" />
 
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

@@ -6,9 +6,10 @@
     android:orientation="vertical"
     app:stickyFooter="@id/footer_payment_detail">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/order_summmary_txt"
@@ -71,6 +72,18 @@
             android:layout_below="@id/cart_offer_card_view"
             android:elevation="50dp" />
 
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/gif_animation"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_above="@id/footer_payment_detail"
+            android:layout_below="@id/space"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp"
+            android:src="@drawable/empty_cart" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/cart_food_list"
             android:layout_width="match_parent"
@@ -78,14 +91,19 @@
             android:layout_below="@id/space"
             android:layout_marginStart="6dp"
             android:layout_marginEnd="6dp"
-            android:padding="8dp" />
+            android:padding="8dp"
+            android:visibility="gone" />
 
         <RelativeLayout
             android:id="@+id/footer_payment_detail"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_below="@id/cart_food_list"
-            android:layout_margin="10dp"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="10dp"
             android:background="@drawable/custom_button"
             android:elevation="60dp">
 
@@ -106,7 +124,7 @@
                 android:layout_height="match_parent"
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="4dp"
-                android:layout_marginEnd="20dp"
+                android:layout_marginEnd="15dp"
                 android:layout_marginBottom="4dp"
                 android:backgroundTint="@color/yellow"
                 android:elevation="60dp"
@@ -114,18 +132,24 @@
 
         </RelativeLayout>
 
-    </RelativeLayout>
+    </LinearLayout>
 
 </com.amar.library.ui.StickyScrollView>
 
-    <!--<androidx.appcompat.widget.AppCompatButton-->
-    <!--android:layout_width="120dp"-->
-    <!--android:layout_height="50dp"-->
-    <!--android:layout_weight="1"-->
-    <!--android:layout_gravity="center_vertical"-->
-    <!--android:layout_marginEnd="20dp"-->
+    <!--<androidx.recyclerview.widget.RecyclerView-->
+    <!--android:id="@+id/cart_food_list"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_below="@id/space"-->
+    <!--android:layout_marginStart="6dp"-->
+    <!--android:layout_marginEnd="6dp"-->
+    <!--android:padding="8dp" />-->
+
+    <!--<RelativeLayout-->
+    <!--android:id="@+id/footer_payment_detail"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="60dp"-->
+    <!--android:layout_below="@id/cart_food_list"-->
+    <!--android:layout_margin="10dp"-->
     <!--android:background="@drawable/custom_button"-->
-    <!--android:text="Pay Now"-->
-    <!--android:textColor="@color/black"-->
-    <!--android:shadowDy="@integer/material_motion_duration_long_1"-->
-    <!--android:shadowDx="@integer/material_motion_duration_long_1"/>-->
+    <!--android:elevation="60dp">-->

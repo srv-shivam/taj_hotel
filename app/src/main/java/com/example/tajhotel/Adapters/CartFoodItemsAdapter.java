@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RatingBar;
@@ -86,8 +87,43 @@ public class CartFoodItemsAdapter extends RecyclerView.Adapter<CartFoodItemsAdap
                 builder.setTitle("Are you sure").show();
             }
         });
+
+
+        holder.plusButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                increaseFoodQuantity(holder.foodQuantity);
+            }
+        });
+
+        holder.minusButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                decreaseFoodQuantity(holder.foodQuantity);
+            }
+        });
+
     }
 
+    private void decreaseFoodQuantity(TextView foodQuantity) {
+        int i = Integer.parseInt(foodQuantity.getText().toString().trim());
+        if (i<2) {
+            Toast.makeText(context, "You cannot have less than 1 quantity", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        --i;
+        foodQuantity.setText(String.valueOf(i));
+    }
+
+    private void increaseFoodQuantity(TextView foodQuantity) {
+        int i = Integer.parseInt(foodQuantity.getText().toString().trim());
+        if (i>100) {
+            Toast.makeText(context, "You cannot have more than 100 quantity", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        ++i;
+        foodQuantity.setText(String.valueOf(i));
+    }
 
 
     @Override
@@ -98,9 +134,9 @@ public class CartFoodItemsAdapter extends RecyclerView.Adapter<CartFoodItemsAdap
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         ImageView foodImage, deleteImage;
-        TextView foodName, foodDescription, foodPrice;
+        TextView foodName, foodDescription, foodPrice, foodQuantity;
         RatingBar foodRatings;
-        Spinner foodQuantity;
+        Button plusButton, minusButton;
         public ViewHolder(View itemView) {
             super(itemView);
 
@@ -111,12 +147,8 @@ public class CartFoodItemsAdapter extends RecyclerView.Adapter<CartFoodItemsAdap
             this.foodRatings = itemView.findViewById(R.id.cart_food_item_ratings);
             this.deleteImage = itemView.findViewById(R.id.cart_delete_btn);
             this.foodQuantity = itemView.findViewById(R.id.cart_food_item_quantity);
-
-
-            ArrayAdapter<String> quantities = new ArrayAdapter<>(context, android.R.layout.simple_spinner_item,
-                    context.getResources().getStringArray(R.array.Quantity));
-            quantities.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            foodQuantity.setAdapter(quantities);
+            this.plusButton = itemView.findViewById(R.id.cart_food_item_plus_btn);
+            this.minusButton = itemView.findViewById(R.id.cart_food_item_minus_btn);
         }
     }
 }

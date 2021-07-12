@@ -17,10 +17,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/yellow"
-            android:padding="15dp"
+            android:padding="10dp"
             android:text="Order Details"
             android:textColor="@color/black"
-            android:textSize="18sp" />
+            android:textSize="16sp" />
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
@@ -29,32 +29,33 @@
             android:orientation="horizontal"
             app:cardElevation="8dp">
 
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:orientation="horizontal"
                 android:background="@color/white">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/mclaren"
-                    android:padding="10dp"
+                    android:layout_weight="1"
+                    android:padding="6dp"
                     android:text="Total Items  :-"
                     android:textColor="@color/black"
-                    android:textSize="16sp" />
+                    android:textSize="14sp" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginEnd="50dp"
                     android:fontFamily="@font/mclaren"
+                    android:gravity="center"
                     android:hint="Nil"
-                    android:padding="10dp"
-                    android:text="6"
+                    android:padding="6dp"
                     android:textColor="@color/black"
                     android:textSize="16sp" />
-            </RelativeLayout>
+            </LinearLayout>
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
@@ -64,32 +65,33 @@
             android:orientation="horizontal"
             app:cardElevation="8dp">
 
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:orientation="horizontal"
                 android:background="@color/white">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/mclaren"
-                    android:padding="10dp"
+                    android:layout_weight="1"
+                    android:padding="6dp"
                     android:text="Price  :-"
                     android:textColor="@color/black"
-                    android:textSize="16sp" />
+                    android:textSize="14sp" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginEnd="30dp"
                     android:fontFamily="@font/mclaren"
+                    android:gravity="center"
                     android:hint="Nil"
-                    android:padding="10dp"
-                    android:text="₹640/-"
+                    android:padding="6dp"
                     android:textColor="@color/black"
                     android:textSize="16sp" />
-            </RelativeLayout>
+            </LinearLayout>
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
@@ -99,33 +101,33 @@
             android:orientation="horizontal"
             app:cardElevation="8dp">
 
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:orientation="horizontal"
                 android:background="@color/white">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="4dp"
                     android:fontFamily="@font/mclaren"
+                    android:layout_weight="1"
+                    android:padding="6dp"
                     android:text="Delivery Charges  :-"
                     android:textColor="@color/black"
-                    android:textSize="16sp" />
+                    android:textSize="14sp" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginEnd="50dp"
                     android:fontFamily="@font/mclaren"
+                    android:gravity="center"
                     android:hint="Nil"
-                    android:padding="10dp"
-                    android:text="Free"
+                    android:padding="6dp"
                     android:textColor="@color/black"
-                    android:textSize="12sp" />
-            </RelativeLayout>
+                    android:textSize="16sp" />
+            </LinearLayout>
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
@@ -135,32 +137,33 @@
             android:orientation="horizontal"
             app:cardElevation="8dp">
 
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:orientation="horizontal"
                 android:background="@color/white">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/mclaren"
-                    android:padding="10dp"
+                    android:layout_weight="1"
+                    android:padding="6dp"
                     android:text="Money Saved  :-"
                     android:textColor="@color/black"
-                    android:textSize="16sp" />
+                    android:textSize="14sp" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginEnd="30dp"
                     android:fontFamily="@font/mclaren"
+                    android:gravity="center"
                     android:hint="Nil"
-                    android:padding="10dp"
-                    android:text="₹80/-"
+                    android:padding="6dp"
                     android:textColor="@color/black"
                     android:textSize="16sp" />
-            </RelativeLayout>
+            </LinearLayout>
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
@@ -171,32 +174,33 @@
             android:orientation="horizontal"
             app:cardElevation="8dp">
 
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:orientation="horizontal"
                 android:background="@color/white">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/mclaren"
-                    android:padding="10dp"
+                    android:layout_weight="1"
+                    android:padding="6dp"
                     android:text="Total Price  :-"
                     android:textColor="@color/black"
-                    android:textSize="16sp" />
+                    android:textSize="14sp" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginEnd="30dp"
                     android:fontFamily="@font/mclaren"
+                    android:gravity="center"
                     android:hint="Nil"
-                    android:padding="10dp"
-                    android:text="₹560/-"
+                    android:padding="6dp"
                     android:textColor="@color/black"
                     android:textSize="16sp" />
-            </RelativeLayout>
+            </LinearLayout>
         </androidx.cardview.widget.CardView>
 
         <TextView
@@ -214,8 +218,8 @@
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="14dp"
-            app:cardCornerRadius="20dp"
-            app:cardElevation="14dp">
+            app:cardCornerRadius="10dp"
+            app:cardElevation="10dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -226,18 +230,34 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="6dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="6dp"
                     android:layout_marginEnd="6dp"
                     app:cardCornerRadius="6dp">
 
-                    <TextView
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@color/white"
-                        android:hint="User Name"
-                        android:padding="12dp"
-                        android:text="Name  :-  ABC Sharma"
-                        android:textColor="@color/black" />
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@color/white"
+                            android:padding="10dp"
+                            android:text="User Name  :-"
+                            android:textColor="@color/black" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@color/white"
+                            android:hint="User Name"
+                            android:padding="10dp"
+                            android:textColor="@color/black" />
+
+                    </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
 
@@ -247,31 +267,48 @@
                     android:layout_margin="6dp"
                     app:cardCornerRadius="6dp">
 
-                    <TextView
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@color/white"
-                        android:hint="User Mobile Number"
-                        android:padding="12dp"
-                        android:text="Mobile Number  :-  9862XXXXXX"
-                        android:textColor="@color/black" />
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@color/white"
+                            android:padding="10dp"
+                            android:text="Mobile Number  :-"
+                            android:textColor="@color/black" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@color/white"
+                            android:hint="User Mobile Number"
+                            android:padding="10dp"
+                            android:textColor="@color/black" />
+
+                    </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="80dp"
                     android:layout_marginStart="6dp"
                     android:layout_marginEnd="6dp"
                     app:cardCornerRadius="6dp">
 
                     <EditText
+                        android:id="@+id/address_bottom_sheet"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@color/white"
                         android:hint="Delivery Address"
-                        android:padding="12dp"
-                        android:text="House No. 12/A Near Xyz School, Abc, Pincode 231276"
+                        android:padding="8dp"
+                        android:gravity="top"
                         android:textSize="16sp" />
 
                 </androidx.cardview.widget.CardView>

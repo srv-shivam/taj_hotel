@@ -65,7 +65,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         selectedProfileImage = getIntent().getIntExtra("Selected Avatar", R.drawable.profile_img);
         selectedProfileImage(selectedProfileImage);
-
     }
 
     /**

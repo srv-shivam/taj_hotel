@@ -1,29 +1,24 @@
 package com.example.tajhotel.Fragments;
 
 import android.database.Cursor;
-import android.media.Image;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import com.example.tajhotel.Adapters.CartFoodItemsAdapter;
-import com.example.tajhotel.CustomClasses.OrderedFood;
 import com.example.tajhotel.CustomClasses.Recipe_Model;
 import com.example.tajhotel.LocalDataBase.DataBaseHelper;
 import com.example.tajhotel.R;
-
-import java.math.BigDecimal;
 import java.util.ArrayList;
+
+import pl.droidsonroids.gif.GifImageView;
 
 public class CartFragment extends Fragment {
 
@@ -33,6 +28,7 @@ public class CartFragment extends Fragment {
     DataBaseHelper db;
     Cursor cursor;
     ArrayList<Recipe_Model> foodList;
+    GifImageView gifImageView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -41,7 +37,9 @@ public class CartFragment extends Fragment {
 
         payNowButton = rootView.findViewById(R.id.cart_pay_now_btn);
         recyclerView = rootView.findViewById(R.id.cart_food_list);
+        gifImageView = rootView.findViewById(R.id.gif_animation);
         foodList = new ArrayList<>();
+
 
         displayFoodListFromDB();
 
@@ -62,9 +60,14 @@ public class CartFragment extends Fragment {
         cursor = db.retrieveData();
 
         if (cursor.getCount() == 0) {
+            payNowButton.setEnabled(Boolean.FALSE);
             Toast.makeText(getContext(), "No item in cart", Toast.LENGTH_SHORT).show();
             return;
         }
+
+        payNowButton.setEnabled(Boolean.TRUE);
+        gifImageView.setVisibility(View.GONE);
+        recyclerView.setVisibility(View.VISIBLE);
 
         while (cursor.moveToNext()) {
             foodList.add(new Recipe_Model(cursor.getInt(2), cursor.getString(0),
