@@ -13,9 +13,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
 import com.example.tajhotel.CustomClasses.Recipe_Model;
 import com.example.tajhotel.LocalDataBase.DataBaseHelper;
+import com.example.tajhotel.MainActivity;
 import com.example.tajhotel.R;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.List;
 
@@ -31,6 +34,8 @@ public class Recipe_Adapter extends RecyclerView.Adapter<Recipe_Adapter.FoodHold
         this.data = data;
         this.db = dataBaseHelper;
     }
+
+//    public Recipe_Adapter(){}
 
 
     @NonNull

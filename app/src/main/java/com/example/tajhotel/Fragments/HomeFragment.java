@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.models.SlideModel;
+import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
 import com.example.tajhotel.Adapters.HomeCategoriesAdapter;
 import com.example.tajhotel.Adapters.Recipe_Adapter;
 import com.example.tajhotel.CustomClasses.FoodCategories;
@@ -35,7 +36,7 @@ public class HomeFragment extends Fragment {
     private RecyclerView recyclerViewFoodList;
     private TextView topPicks, customerReviews;
     private Recipe_Adapter recipe_adapter;
-    private int Ordered_Count = 0, RECYCLER_VISIBILITY0 = 0, RECYCLER_VISIBILITY1 = 0, RECYCLER_VISIBILITY2 = 0, RECYCLER_VISIBILITY3 = 0;
+    private int RECYCLER_VISIBILITY0 = 0, RECYCLER_VISIBILITY1 = 0, RECYCLER_VISIBILITY2 = 0, RECYCLER_VISIBILITY3 = 0;
     private Animation slideLEFT;
 
     @Override
@@ -128,6 +129,8 @@ public class HomeFragment extends Fragment {
                 RECYCLER_VISIBILITY1 = 0;
                 RECYCLER_VISIBILITY2 = 0;
                 break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + pos);
         }
     }
 

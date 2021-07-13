@@ -3,8 +3,7 @@
 
     <item
         android:id="@+id/home_navg"
-        android:title="Home"
-        android:icon="@drawable/ic_home_svgrepo_com"/>
+        android:title="Home" />
 
     <item
         android:id="@+id/cart_navg"

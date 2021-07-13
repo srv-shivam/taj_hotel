@@ -6,133 +6,138 @@
     android:orientation="vertical"
     app:stickyFooter="@id/footer_payment_detail">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/order_summmary_txt"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_alignParentTop="true"
-            android:layout_margin="4dp"
-            android:background="#ADE3DFDF"
-            android:elevation="30dp"
-            android:fontFamily="@font/mclaren"
-            android:gravity="center_vertical"
-            android:paddingStart="20dp"
-            android:text="Order Summary"
-            android:textColor="@color/black"
-            android:textSize="20sp" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/order_summmary_txt"
-            android:layout_marginStart="20dp"
-            android:layout_marginBottom="-8dp"
-            android:elevation="30dp"
-            android:src="@drawable/ic_minus_line_svgrepo_com" />
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cart_offer_card_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/order_summmary_txt"
-            android:layout_margin="10dp"
-            android:background="@drawable/custom_button"
-            app:cardBackgroundColor="@color/backgroundBottomColor"
-            app:cardCornerRadius="10dp">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:text="Exciting offers waiting for you"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/cart_view_offers_txt_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:layout_margin="10dp"
-                android:text="View Offers -> "
-                android:textColor="@color/yellow"
-                android:textStyle="bold" />
-
-        </androidx.cardview.widget.CardView>
-
-        <Space
-            android:id="@+id/space"
-            android:layout_width="match_parent"
-            android:layout_height="10dp"
-            android:layout_below="@id/cart_offer_card_view"
-            android:elevation="50dp" />
-
-        <pl.droidsonroids.gif.GifImageView
-            android:id="@+id/gif_animation"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_above="@id/footer_payment_detail"
-            android:layout_below="@id/space"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_gravity="center"
-            android:layout_marginTop="40dp"
-            android:src="@drawable/empty_cart" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/cart_food_list"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/space"
-            android:layout_marginStart="6dp"
-            android:layout_marginEnd="6dp"
-            android:padding="8dp"
-            android:visibility="gone" />
-
-        <RelativeLayout
-            android:id="@+id/footer_payment_detail"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_below="@id/cart_food_list"
-            android:layout_alignParentBottom="true"
-            android:layout_gravity="bottom"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="6dp"
-            android:layout_marginEnd="10dp"
-            android:background="@drawable/custom_button"
-            android:elevation="60dp">
-
-            <TextView
-                android:id="@+id/cart_fragment_total_price"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:id="@+id/order_summmary_txt"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_alignParentTop="true"
+                android:layout_margin="4dp"
+                android:background="#ADE3DFDF"
+                android:elevation="30dp"
                 android:fontFamily="@font/mclaren"
-                android:gravity="center"
-                android:hint="NIL"
+                android:gravity="center_vertical"
                 android:paddingStart="20dp"
+                android:text="Order Summary"
                 android:textColor="@color/black"
-                android:textSize="30sp" />
+                android:textSize="20sp" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/cart_pay_now_btn"
-                android:layout_width="160dp"
-                android:layout_height="match_parent"
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/order_summmary_txt"
+                android:layout_marginStart="20dp"
+                android:layout_marginBottom="-8dp"
+                android:elevation="30dp"
+                android:src="@drawable/ic_minus_line_svgrepo_com" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cart_offer_card_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/order_summmary_txt"
+                android:layout_margin="10dp"
+                android:background="@drawable/custom_button"
+                app:cardBackgroundColor="@color/backgroundBottomColor"
+                app:cardCornerRadius="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:text="Exciting offers waiting for you"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/cart_view_offers_txt_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_margin="10dp"
+                    android:text="View Offers -> "
+                    android:textColor="@color/yellow"
+                    android:textStyle="bold" />
+
+            </androidx.cardview.widget.CardView>
+
+            <Space
+                android:id="@+id/space"
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:layout_below="@id/cart_offer_card_view"
+                android:elevation="50dp" />
+
+            <pl.droidsonroids.gif.GifImageView
+                android:id="@+id/gif_animation"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_above="@id/footer_payment_detail"
+                android:layout_below="@id/space"
+                android:layout_alignParentStart="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginTop="4dp"
-                android:layout_marginEnd="15dp"
-                android:layout_marginBottom="4dp"
-                android:backgroundTint="@color/yellow"
-                android:elevation="60dp"
-                android:text="Pay Now" />
+                android:layout_gravity="center"
+                android:layout_marginTop="40dp"
+                android:src="@drawable/empty_cart" />
 
-        </RelativeLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/cart_food_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/space"
+                android:layout_marginStart="6dp"
+                android:layout_marginEnd="6dp"
+                android:padding="8dp"
+                android:visibility="gone" />
 
-    </LinearLayout>
+            <RelativeLayout
+                android:id="@+id/footer_payment_detail"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_below="@id/cart_food_list"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="bottom"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/custom_button"
+                android:elevation="60dp">
+
+                <TextView
+                    android:id="@+id/cart_fragment_total_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/mclaren"
+                    android:gravity="center"
+                    android:hint="NIL"
+                    android:paddingStart="20dp"
+                    android:textColor="@color/black"
+                    android:textSize="30sp" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/cart_pay_now_btn"
+                    android:layout_width="160dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginBottom="4dp"
+                    android:backgroundTint="@color/yellow"
+                    android:elevation="60dp"
+                    android:text="Pay Now" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+    </RelativeLayout>
 
 </com.amar.library.ui.StickyScrollView>
 

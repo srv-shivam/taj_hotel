@@ -16,6 +16,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
+import com.example.tajhotel.Adapters.Recipe_Adapter;
 import com.example.tajhotel.Fragments.CartFragment;
 import com.example.tajhotel.Fragments.HomeFragment;
 import com.example.tajhotel.Fragments.ProfileFragment;
@@ -138,14 +139,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         bottomNavigation.setOnClickMenuListener(new MeowBottomNavigation.ClickListener() {
             @Override
             public void onClickItem(MeowBottomNavigation.Model item) {
-                Toast.makeText(getApplicationContext(), "You Clicked " + item.getId(), Toast.LENGTH_SHORT).show();
             }
         });
 
         bottomNavigation.setOnReselectListener(new MeowBottomNavigation.ReselectListener() {
             @Override
             public void onReselectItem(MeowBottomNavigation.Model item) {
-                Toast.makeText(getApplicationContext(), "You ReClicked " + item.getId(), Toast.LENGTH_SHORT).show();
             }
         });
     }
