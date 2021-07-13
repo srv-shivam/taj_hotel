@@ -189,12 +189,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         switch (item.getItemId()) {
             case R.id.my_profile:
-                Toast.makeText(this, "Profile Navigation Clicked", Toast.LENGTH_SHORT).show();
-                ;
+                bottomNavigation.show(1, true);
                 break;
 
             case R.id.cart:
-                Toast.makeText(this, "Cart Navigation Clicked", Toast.LENGTH_SHORT).show();
+                bottomNavigation.show(3, true);
                 break;
 
             case R.id.my_orders:

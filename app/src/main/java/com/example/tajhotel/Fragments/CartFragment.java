@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.tajhotel.Adapters.CartFoodItemsAdapter;
+import com.example.tajhotel.Adapters.HomeCategoriesAdapter;
 import com.example.tajhotel.CustomClasses.Recipe_Model;
 import com.example.tajhotel.LocalDataBase.DataBaseHelper;
 import com.example.tajhotel.R;
