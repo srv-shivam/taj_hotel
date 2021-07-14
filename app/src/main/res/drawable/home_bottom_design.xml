@@ -8,5 +8,6 @@
         android:bottomRightRadius="140dp"
         />
     <solid
-        android:color="#FFDF00"/>
+        android:color="@color/yellow"/>
 </shape>
+<!--#FFDF00-->

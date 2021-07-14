@@ -79,6 +79,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/favorl"
+                        android:textColor="@color/grey"
                         android:layout_centerHorizontal="true"
                         android:text="Favorites" />
 
@@ -115,6 +116,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/paymnt"
+                        android:textColor="@color/grey"
                         android:layout_centerHorizontal="true"
                         android:text="Payments" />
 
@@ -157,6 +159,7 @@
                         android:layout_alignParentEnd="true"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="4dp"
+                        android:textColor="@color/grey"
                         android:layout_marginEnd="0dp"
                         android:text="  Notifications" />
 
@@ -170,6 +173,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/tabs"
             android:layout_marginStart="20dp"
+            android:elevation="30dp"
             android:layout_marginEnd="20dp"
             app:cardCornerRadius="5dp">
 
