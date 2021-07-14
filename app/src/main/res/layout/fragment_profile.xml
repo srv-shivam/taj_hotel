@@ -1,14 +1,387 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/grey">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Profile Fragment"
-        android:textColor="@color/backgroundBottomColor"
-        android:textSize="36sp" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-</RelativeLayout>
+        <FrameLayout
+            android:id="@+id/banner"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@drawable/login_signup" />
+
+        <ImageView
+            android:id="@+id/profile_pic"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="150dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/profile_img" />
+
+        <TextView
+            android:id="@+id/user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:layout_alignBottom="@+id/banner"
+            android:layout_marginBottom="-50dp"
+            android:text="Prince Kumar"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:layout_centerHorizontal="true"/>
+
+        <LinearLayout
+            android:id="@+id/tabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/user_name"
+            android:layout_marginTop="40dp"
+            android:orientation="horizontal"
+            android:paddingStart="10dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="10dp">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/fav"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:clickable="true">
+
+                <RelativeLayout
+                    android:id="@+id/favr"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/yellow"
+                    android:clickable="true"
+                    android:padding="5dp">
+
+                    <ImageView
+                        android:id="@+id/favorl"
+                        android:layout_width="28dp"
+                        android:layout_height="23dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginEnd="34dp"
+                        android:src="@drawable/ic_heart_svgrepo_com__1_"
+                        app:tint="@color/pink" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/favorl"
+                        android:layout_centerHorizontal="true"
+                        android:text="Favorites" />
+
+                </RelativeLayout>
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/payments"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:clickable="true">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/yellow"
+                    android:clickable="true"
+                    android:padding="5dp">
+
+                    <ImageView
+                        android:id="@+id/paymnt"
+                        android:layout_width="27dp"
+                        android:layout_height="31dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/payment"
+                        app:tint="@color/pink" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/paymnt"
+                        android:layout_centerHorizontal="true"
+                        android:text="Payments" />
+
+                </RelativeLayout>
+
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/settings"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:clickable="true">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clickable="true"
+                    android:background="@color/yellow"
+                    android:padding="5dp">
+
+                    <ImageView
+                        android:id="@+id/settingima"
+                        android:layout_width="27dp"
+                        android:layout_height="21dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginEnd="30dp"
+                        android:src="@drawable/notification"
+                        app:tint="@color/pink" />
+
+                    <TextView
+                        android:layout_width="96dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/settingima"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginEnd="0dp"
+                        android:text="  Notifications" />
+
+                </RelativeLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/order_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tabs"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            app:cardCornerRadius="5dp">
+
+            <ImageView
+                android:id="@+id/order_img"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_margin="20dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/orders" />
+
+            <TextView
+                android:id="@+id/oder_tab"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="55dp"
+                android:layout_marginTop="10dp"
+                android:text="Orders"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/ordert2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/oder_tab"
+                android:textColor="@color/grey"
+                android:layout_marginStart="55dp"
+                android:layout_marginTop="35dp"
+                android:text="Check your orders here"
+                android:textSize="12sp" />
+
+            <ImageView
+                android:id="@+id/order_go"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="end"
+                android:layout_margin="20dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/arrow_btn" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/address_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/order_card"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            app:cardCornerRadius="5dp">
+
+            <ImageView
+                android:id="@+id/location_img"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_margin="20dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/location" />
+
+            <TextView
+                android:id="@+id/addr_txt1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="55dp"
+                android:layout_marginTop="10dp"
+                android:text="Address"
+                android:textColor="#DA151414"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/addr_txt2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/oder_tab"
+                android:textColor="@color/grey"
+                android:layout_marginStart="55dp"
+                android:layout_marginTop="35dp"
+                android:text="Save addresses for a hassle-free checkout"
+                android:textSize="12sp" />
+
+            <ImageView
+                android:id="@+id/addr_go"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="end"
+                android:layout_margin="20dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/arrow_btn" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/payment_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/address_card"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            app:cardCornerRadius="5dp">
+
+            <ImageView
+                android:id="@+id/payment_img"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_margin="20dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/cradit_cards" />
+
+            <TextView
+                android:id="@+id/payment_txt1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="55dp"
+                android:layout_marginTop="10dp"
+                android:text="Saved Payment"
+                android:textColor="#DA151414"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/payment_txt2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/oder_tab"
+                android:textColor="@color/grey"
+                android:layout_marginStart="55dp"
+                android:layout_marginTop="35dp"
+                android:text="Save your cards for faster checkout"
+                android:textSize="12sp" />
+
+            <ImageView
+                android:id="@+id/payment_go"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="end"
+                android:layout_margin="20dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/arrow_btn" />
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/help_center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/payment_card"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            app:cardCornerRadius="5dp">
+
+            <ImageView
+                android:id="@+id/help_center_img"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_margin="20dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/help_center" />
+
+            <TextView
+                android:id="@+id/help_center_txt1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="55dp"
+                android:layout_marginTop="10dp"
+                android:text="Help Center "
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/help_center_txt2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/oder_tab"
+                android:textColor="@color/grey"
+                android:layout_marginStart="55dp"
+                android:layout_marginTop="35dp"
+                android:text="Check your orders here"
+                android:textSize="12sp" />
+
+            <ImageView
+                android:id="@+id/help_center_go"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="end"
+                android:layout_margin="20dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/arrow_btn" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:layout_width="190dp"
+            android:layout_height="40dp"
+            android:layout_below="@id/help_center"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="60dp"
+            android:layout_marginEnd="60dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
+            android:background="@drawable/otp_background"
+            android:backgroundTint="@color/pink"
+            android:gravity="center"
+            android:text="Sign Out"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:paddingStart="20dp"
+            android:drawableStart="@drawable/ic_logout"
+            app:drawableTint="@color/white" />
+    </RelativeLayout>
+</ScrollView>
