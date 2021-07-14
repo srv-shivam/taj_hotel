@@ -19,7 +19,7 @@ public class HomeCategoriesAdapter extends RecyclerView.Adapter<HomeCategoriesAd
 
     Context context;
     ArrayList<FoodCategories> foodCategories;
-    int selectedCategory = 0;
+    int selectedCategory = -1;
     OnCategoryClick onCategoryClick;
 
     public HomeCategoriesAdapter(Context context, ArrayList<FoodCategories> foodCategories, OnCategoryClick onCategoryClick) {
@@ -70,7 +70,7 @@ public class HomeCategoriesAdapter extends RecyclerView.Adapter<HomeCategoriesAd
 
             cardView.setOnClickListener(v -> {
                 selectedCategory = getAdapterPosition();
-                //reset items, so that color changes when we click on card
+
                 if (onCategoryClick != null) {
                     onCategoryClick.onClick(getAdapterPosition());
                 }

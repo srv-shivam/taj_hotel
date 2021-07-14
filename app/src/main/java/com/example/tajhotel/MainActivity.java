@@ -1,7 +1,6 @@
 package com.example.tajhotel;
 
 import android.content.Intent;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,11 +15,9 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
-import com.example.tajhotel.Adapters.Recipe_Adapter;
 import com.example.tajhotel.Fragments.CartFragment;
 import com.example.tajhotel.Fragments.HomeFragment;
 import com.example.tajhotel.Fragments.ProfileFragment;
-import com.example.tajhotel.LocalDataBase.DataBaseHelper;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -121,11 +118,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 loadFragment(selectedFragment);
             }
         });
-
-        DataBaseHelper db = new DataBaseHelper(this);
-        Cursor cursor = db.retrieveData();
-
-        bottomNavigation.setCount(3, String.valueOf(cursor.getCount()));
 
         // By default Home Fragment will Open
         bottomNavigation.show(2, true);

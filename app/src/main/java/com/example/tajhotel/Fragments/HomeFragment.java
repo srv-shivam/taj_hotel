@@ -171,55 +171,55 @@ public class HomeFragment extends Fragment {
 
         switch (pos) {
             case 0:
-                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Cheese Burger", "This is Cheese Burger", Boolean.FALSE, "10", 4));
-                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Caramelized Onion Burger", "This is Caramelized Onion Burger", Boolean.FALSE, "3", 4));
-                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Chicken Burger", "This is USA burgger", Boolean.FALSE, "10", 1));
-                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Mushroom Burger", "This is Mushroom Burger", Boolean.FALSE, "22", 5));
-                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Aloo Tikki Burger", "This is Aloo Tikki Burger", Boolean.FALSE, "6", 2));
-                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Paneer Burger", "This is Paneer Burger", Boolean.FALSE, "20", 3));
-                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Red Chilli Burger", "This is Red Chilli Burger", Boolean.FALSE, "13", 4));
-                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Hamburger", "This is Hamburger", Boolean.FALSE, "4", 2));
-                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Double Cheese Burger", "This is Cheese Burger", Boolean.FALSE, "3", 5));
-                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Double-Decker Burgers", "This is Double-Decker Burgers", Boolean.FALSE, "10", 5));
+                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Cheese Burger", "This is Cheese Burger", Boolean.FALSE, "100", 4));
+                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Caramelized Onion Burger", "This is Caramelized Onion Burger", Boolean.FALSE, "60", 4));
+                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Chicken Burger", "This is USA burgger", Boolean.FALSE, "112", 3.5f));
+                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Mushroom Burger", "This is Mushroom Burger", Boolean.FALSE, "92", 5));
+                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Aloo Tikki Burger", "This is Aloo Tikki Burger", Boolean.FALSE, "40", 4));
+                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Paneer Burger", "This is Paneer Burger", Boolean.FALSE, "80", 3));
+                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Red Chilli Burger", "This is Red Chilli Burger", Boolean.FALSE, "46", 4));
+                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Hamburger", "This is Hamburger", Boolean.FALSE, "80", 2.5f));
+                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Double Cheese Burger", "This is Cheese Burger", Boolean.FALSE, "30", 4.5f));
+                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Double-Decker Burgers", "This is Double-Decker Burgers", Boolean.FALSE, "80", 5));
                 break;
 
             case 1:
-                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Spicy Noodles", "This is Spicy Noodles", Boolean.FALSE, "3", 4));
-                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Soup Noodles", "This is Soup Noodles", Boolean.FALSE, "3", 4));
-                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Cheese Noodles", "This is Cheese Noodles", Boolean.FALSE, "10", 1));
-                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Italian Noodles", "This is Italian Noodles", Boolean.FALSE, "22", 5));
-                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Chicken Noodles", "This is Chicken Noodles", Boolean.FALSE, "3", 2));
-                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Masala Noodles", "This is Masala Noodles", Boolean.FALSE, "3", 3));
-                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Simple Noodles", "This is Simple Noodles", Boolean.FALSE, "3", 4));
-                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Double Cheese Noodles", "This is Double Cheese Noodles", Boolean.FALSE, "3", 2));
-                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Paneer Noodles", "This is Paneer Noodles", Boolean.FALSE, "3", 5));
-                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Corn Noodles", "This is Corn Noodles", Boolean.FALSE, "3", 5));
+                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Spicy Noodles", "This is Spicy Noodles", Boolean.FALSE, "50", 4));
+                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Soup Noodles", "This is Soup Noodles", Boolean.FALSE, "82", 4));
+                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Cheese Noodles", "This is Cheese Noodles", Boolean.FALSE, "30", 3));
+                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Italian Noodles", "This is Italian Noodles", Boolean.FALSE, "122", 5));
+                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Chicken Noodles", "This is Chicken Noodles", Boolean.FALSE, "160", 2));
+                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Masala Noodles", "This is Masala Noodles", Boolean.FALSE, "36", 3));
+                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Simple Noodles", "This is Simple Noodles", Boolean.FALSE, "50", 4));
+                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Double Cheese Noodles", "This is Double Cheese Noodles", Boolean.FALSE, "32", 2));
+                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Paneer Noodles", "This is Paneer Noodles", Boolean.FALSE, "40", 5));
+                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Corn Noodles", "This is Corn Noodles", Boolean.FALSE, "30", 5));
                 break;
 
             case 2:
-                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Butter Chicken", "This is Butter Chicken", Boolean.FALSE, "6", 4));
-                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Chicken Dum Biryani", "This is Chicken Dum Biryani", Boolean.FALSE, "3", 4));
-                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Roasted Chicken Masala", "This is Roasted Chicken Masala", Boolean.FALSE, "10", 1));
-                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Spicy Chicken 65", "This is Spicy Chicken 65", Boolean.FALSE, "22", 5));
-                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Tandoori Chicken", "This is Tandoori Chicken", Boolean.FALSE, "3", 2));
-                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Chicken Tikka Masala", "This is Chicken Tikka Masala", Boolean.FALSE, "3", 3));
-                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Mughlai Chicken", "This is Mughlai Chicken", Boolean.FALSE, "3", 4));
-                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Spicy Chicken Curry", "This is Spicy Chicken Curry", Boolean.FALSE, "3", 2));
-                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Chicken Biryani", "This is Chicken Biryani", Boolean.FALSE, "3", 5));
-                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Chicken Kebab", "This is Chicken Kebab", Boolean.FALSE, "3", 5));
+                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Butter Chicken", "This is Butter Chicken", Boolean.FALSE, "250", 4));
+                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Chicken Dum Biryani", "This is Chicken Dum Biryani", Boolean.FALSE, "300", 4.5f));
+                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Roasted Chicken Masala", "This is Roasted Chicken Masala", Boolean.FALSE, "120", 4));
+                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Spicy Chicken 65", "This is Spicy Chicken 65", Boolean.FALSE, "280", 5));
+                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Tandoori Chicken", "This is Tandoori Chicken", Boolean.FALSE, "220", 3));
+                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Chicken Tikka Masala", "This is Chicken Tikka Masala", Boolean.FALSE, "100", 3));
+                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Mughlai Chicken", "This is Mughlai Chicken", Boolean.FALSE, "90", 4));
+                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Spicy Chicken Curry", "This is Spicy Chicken Curry", Boolean.FALSE, "110", 3.5f));
+                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Chicken Biryani", "This is Chicken Biryani", Boolean.FALSE, "180", 5));
+                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Chicken Kebab", "This is Chicken Kebab", Boolean.FALSE, "50", 5));
                 break;
 
             case 3:
-                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Pepperoni Pizza", "This is Pepperoni Pizza", Boolean.FALSE, "12", 4));
-                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Multigrain Pizza", "This is Multigrain Pizza", Boolean.FALSE, "3", 4));
-                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Chicken Pizza", "This is Chicken Pizza", Boolean.FALSE, "10", 1));
-                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Margherita Pizza", "This is Margherita Pizza", Boolean.FALSE, "22", 5));
-                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Cheese Burst Pizza", "This is JCheese Burst Pizza", Boolean.FALSE, "3", 2));
-                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Mushroom Pizza", "This is Mushroom Pizza", Boolean.FALSE, "3", 3));
-                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Mozzarella Pizza", "This is Mozzarella Pizza", Boolean.FALSE, "3", 4));
-                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Hawaiian Pizza", "This is Hawaiian Pizza", Boolean.FALSE, "3", 2));
-                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Paneer Top Pizza", "This is Paneer Top Pizza", Boolean.FALSE, "3", 5));
-                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Extra Cheese Pizza", "This is Extra Cheese Pizza", Boolean.FALSE, "3", 5));
+                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Pepperoni Pizza", "This is Pepperoni Pizza", Boolean.FALSE, "120", 4));
+                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Multigrain Pizza", "This is Multigrain Pizza", Boolean.FALSE, "80", 4));
+                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Chicken Pizza", "This is Chicken Pizza", Boolean.FALSE, "100", 3));
+                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Margherita Pizza", "This is Margherita Pizza", Boolean.FALSE, "62", 5));
+                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Cheese Burst Pizza", "This is JCheese Burst Pizza", Boolean.FALSE, "100", 2));
+                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Mushroom Pizza", "This is Mushroom Pizza", Boolean.FALSE, "50", 3));
+                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Mozzarella Pizza", "This is Mozzarella Pizza", Boolean.FALSE, "60", 4));
+                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Hawaiian Pizza", "This is Hawaiian Pizza", Boolean.FALSE, "110", 2));
+                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Paneer Top Pizza", "This is Paneer Top Pizza", Boolean.FALSE, "50", 5));
+                list.add(new Recipe_Model(R.drawable.mutton_biriyani, "Extra Cheese Pizza", "This is Extra Cheese Pizza", Boolean.FALSE, "130", 5));
                 break;
         }
 

@@ -35,8 +35,8 @@
                 android:layout_height="wrap_content"
                 android:layout_alignBottom="@+id/order_summmary_txt"
                 android:layout_marginStart="20dp"
-                android:layout_marginBottom="-8dp"
-                android:elevation="30dp"
+                android:layout_marginTop="-30dp"
+                android:elevation="40dp"
                 android:src="@drawable/ic_minus_line_svgrepo_com" />
 
             <androidx.cardview.widget.CardView
@@ -75,6 +75,49 @@
                 android:layout_height="10dp"
                 android:layout_below="@id/cart_offer_card_view"
                 android:elevation="50dp" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/change_address_card_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:elevation="60dp"
+                app:cardCornerRadius="2dp"
+                android:layout_marginEnd="10dp"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:background="@drawable/custom_button"
+                    android:padding="2dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="10dp"
+                        android:padding="8dp"
+                        android:fontFamily="@font/mclaren"
+                        android:textStyle="italic"
+                        android:background="#ADE3DFDF"
+                        android:text="Table Number"
+                        android:textSize="18sp"
+                        android:textColor="@color/black"/>
+
+                    <TextView
+                        android:id="@+id/table_number"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:fontFamily="serif-monospace"
+                        android:background="@color/white"
+                        android:text="12"
+                        android:gravity="center"
+                        android:textSize="56sp"
+                        android:textStyle="bold"
+                        android:textColor="#077C0D"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
             <pl.droidsonroids.gif.GifImageView
                 android:id="@+id/gif_animation"
@@ -140,21 +183,3 @@
     </RelativeLayout>
 
 </com.amar.library.ui.StickyScrollView>
-
-    <!--<androidx.recyclerview.widget.RecyclerView-->
-    <!--android:id="@+id/cart_food_list"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:layout_below="@id/space"-->
-    <!--android:layout_marginStart="6dp"-->
-    <!--android:layout_marginEnd="6dp"-->
-    <!--android:padding="8dp" />-->
-
-    <!--<RelativeLayout-->
-    <!--android:id="@+id/footer_payment_detail"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="60dp"-->
-    <!--android:layout_below="@id/cart_food_list"-->
-    <!--android:layout_margin="10dp"-->
-    <!--android:background="@drawable/custom_button"-->
-    <!--android:elevation="60dp">-->

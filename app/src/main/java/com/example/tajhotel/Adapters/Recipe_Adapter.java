@@ -13,12 +13,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
 import com.example.tajhotel.CustomClasses.Recipe_Model;
 import com.example.tajhotel.LocalDataBase.DataBaseHelper;
-import com.example.tajhotel.MainActivity;
 import com.example.tajhotel.R;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.List;
 
@@ -66,7 +63,7 @@ public class Recipe_Adapter extends RecyclerView.Adapter<Recipe_Adapter.FoodHold
                     /** here we are keeping track of whether the particular food item is added to cart or not **/
                     keepsCheckOfOrderedFood(position);
 
-                    Toast.makeText(context, "Food Added to cart : " + position, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "Food Added to cart", Toast.LENGTH_SHORT).show();
                     holder.addToCartBtn.setText("ADDED TO CART");
                     ADD_TO_CART_FLAG = 1;
                 } else {
@@ -115,7 +112,7 @@ public class Recipe_Adapter extends RecyclerView.Adapter<Recipe_Adapter.FoodHold
                 data.get(position).getPic(), data.get(position).getFood_summery(), data.get(position).getRating());
 
         if (insertCheck == false) {
-            Toast.makeText(context, "Enable to save into cart", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Already added to cart", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -130,7 +127,7 @@ public class Recipe_Adapter extends RecyclerView.Adapter<Recipe_Adapter.FoodHold
         boolean removeCheck = db.removeData(data.get(position).getFood_name());
 
         if (removeCheck == false) {
-            Toast.makeText(context, "Enable to remove from cart", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Already removed from cart", Toast.LENGTH_SHORT).show();
         }
         Toast.makeText(context, data.get(position).getFood_name(), Toast.LENGTH_LONG).show();
     }

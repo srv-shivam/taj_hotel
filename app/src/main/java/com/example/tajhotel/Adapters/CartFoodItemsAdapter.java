@@ -3,17 +3,14 @@ package com.example.tajhotel.Adapters;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.text.InputType;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RatingBar;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,12 +21,18 @@ import com.example.tajhotel.LocalDataBase.DataBaseHelper;
 import com.example.tajhotel.R;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class CartFoodItemsAdapter extends RecyclerView.Adapter<CartFoodItemsAdapter.ViewHolder> {
 
     Context context;
     ArrayList<Recipe_Model> foodList;
     DataBaseHelper db;
+    int sum = 0;
+    Map<Integer, Integer> quantityMap;
+    ArrayList<Integer> valuesList;
 
     public CartFoodItemsAdapter(Context context, ArrayList<Recipe_Model> foodList) {
         this.context = context;
@@ -40,8 +43,14 @@ public class CartFoodItemsAdapter extends RecyclerView.Adapter<CartFoodItemsAdap
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View view  = layoutInflater.inflate(R.layout.cart_orders_list_view, parent, false);
+        View view = layoutInflater.inflate(R.layout.cart_orders_list_view, parent, false);
         db = new DataBaseHelper(context);
+        quantityMap = new HashMap<>(foodList.size());
+
+        for (int i = 0; i < foodList.size(); i++) {
+            quantityMap.put(i, 1);
+        }
+
         return new ViewHolder(view);
     }
 
@@ -51,7 +60,7 @@ public class CartFoodItemsAdapter extends RecyclerView.Adapter<CartFoodItemsAdap
         holder.foodImage.setImageResource(foodList.get(position).getPic());
         holder.foodName.setText(foodList.get(position).getFood_name());
         holder.foodDescription.setText(foodList.get(position).getFood_summery());
-        holder.foodPrice.setText(foodList.get(position).getFood_price());
+        holder.foodPrice.setText("₹" + foodList.get(position).getFood_price());
         holder.foodRatings.setRating(foodList.get(position).getRating());
 
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
@@ -68,7 +77,7 @@ public class CartFoodItemsAdapter extends RecyclerView.Adapter<CartFoodItemsAdap
 
                         // called deleteData method to remove data from database
                         boolean checkDelete = db.removeData(foodList.get(position).getFood_name());
-                        if(checkDelete==true) {
+                        if (checkDelete == true) {
                             foodList.remove(position);
                             notifyItemRemoved(position);
                             notifyItemRangeChanged(position, foodList.size());
@@ -103,11 +112,27 @@ public class CartFoodItemsAdapter extends RecyclerView.Adapter<CartFoodItemsAdap
             }
         });
 
+
+        holder.foodQuantity.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                quantityMap.replace(position, Integer.parseInt(holder.foodQuantity.getText().toString()));
+            }
+        });
+
     }
 
     private void decreaseFoodQuantity(TextView foodQuantity) {
         int i = Integer.parseInt(foodQuantity.getText().toString().trim());
-        if (i<2) {
+        if (i < 2) {
             Toast.makeText(context, "You cannot have less than 1 quantity", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -117,7 +142,7 @@ public class CartFoodItemsAdapter extends RecyclerView.Adapter<CartFoodItemsAdap
 
     private void increaseFoodQuantity(TextView foodQuantity) {
         int i = Integer.parseInt(foodQuantity.getText().toString().trim());
-        if (i>100) {
+        if (i > 100) {
             Toast.makeText(context, "You cannot have more than 100 quantity", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -131,12 +156,43 @@ public class CartFoodItemsAdapter extends RecyclerView.Adapter<CartFoodItemsAdap
         return foodList.size();
     }
 
+    /**
+     * This method is used to calculate the total quantity and then return it back to the desired place
+     *
+     * @return sum
+     */
+    public int returnTotalQuantity() {
+        valuesList = (ArrayList<Integer>) quantityMap.values().stream().collect(Collectors.toList());
+        sum = 0;
+        for (int i = 0; i < valuesList.size(); i++) {
+            sum += valuesList.get(i);
+        }
+
+        return sum;
+    }
+
+    /**
+     * This method is used to calculate price with quantity multiplied to it and return back to desired place
+     *
+     * @return price
+     */
+    public int returnPrice() {
+        int price = 0;
+
+        for (int i = 0; i < foodList.size(); i++) {
+            int p = Integer.parseInt(foodList.get(i).getFood_price().trim());
+            price += price = p * valuesList.get(i);
+        }
+        return price;
+    }
+
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         ImageView foodImage, deleteImage;
         TextView foodName, foodDescription, foodPrice, foodQuantity;
         RatingBar foodRatings;
         Button plusButton, minusButton;
+
         public ViewHolder(View itemView) {
             super(itemView);
 
@@ -151,4 +207,5 @@ public class CartFoodItemsAdapter extends RecyclerView.Adapter<CartFoodItemsAdap
             this.minusButton = itemView.findViewById(R.id.cart_food_item_minus_btn);
         }
     }
+
 }

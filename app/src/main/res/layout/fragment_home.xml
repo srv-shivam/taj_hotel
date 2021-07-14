@@ -18,7 +18,20 @@
             android:layout_alignParentTop="true"
             android:background="@drawable/home_bottom_design"
             android:orientation="vertical"
-            android:padding="8dp">
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/welcome_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Welcome, Shivam"
+                android:gravity="center_vertical"
+                android:paddingStart="10dp"
+                android:textSize="20sp"
+                android:textColor="@color/backgroundBottomColor"
+                android:textStyle="bold"
+                android:fontFamily="@font/mclaren"
+                android:layout_marginBottom="6dp"/>
 
             <com.denzcoskun.imageslider.ImageSlider
                 android:id="@+id/banner_slider"
@@ -39,16 +52,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/home_top_recycler"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:text="Categories"
+                android:fontFamily="@font/mclaren"
                 android:textColor="@color/black"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/categories_recycler_view"
                 android:layout_width="match_parent"
                 android:layout_height="110dp"
+                android:layout_gravity="center_horizontal"
                 android:layout_below="@id/categories_txt"
                 android:layout_marginTop="10dp" />
 
@@ -57,13 +72,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="8dp"
-                android:fontFamily="casual"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/mclaren"
                 android:padding="2dp"
                 android:text="Choose the Food that you Love"
                 android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textSize="16sp" />
 
         </LinearLayout>
 
@@ -76,12 +90,12 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="20dp"
-            android:drawableLeft="@drawable/ic_like_svgrepo_com"
             android:fontFamily="@font/atma_semibold"
-            android:text="   Top Picks For You"
+            android:text="@string/top_picks_for_you"
             android:textColor="@color/black"
             android:textSize="20sp"
-            android:visibility="gone" />
+            android:visibility="gone"
+            app:drawableLeftCompat="@drawable/ic_like_svgrepo_com" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/food_item_display_recycler_view"
@@ -99,17 +113,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/food_item_display_recycler_view"
-            android:layout_margin="20dp"
-            android:fontFamily="casual"
-            android:text="Customer Reviews"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/mclaren"
+            android:text="@string/customer_reviews"
             android:textColor="@color/black"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            android:layout_marginBottom="8dp"/>
 
         <com.denzcoskun.imageslider.ImageSlider
             android:id="@+id/banner_slider_down"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="190dp"
             android:layout_below="@id/customer_reviews"
             android:layout_marginStart="5dp"
             android:layout_marginEnd="5dp"

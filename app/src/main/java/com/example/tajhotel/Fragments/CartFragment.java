@@ -6,17 +6,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.tajhotel.Adapters.CartFoodItemsAdapter;
-import com.example.tajhotel.Adapters.HomeCategoriesAdapter;
 import com.example.tajhotel.CustomClasses.Recipe_Model;
 import com.example.tajhotel.LocalDataBase.DataBaseHelper;
 import com.example.tajhotel.R;
+
 import java.util.ArrayList;
 
 import pl.droidsonroids.gif.GifImageView;
@@ -30,6 +32,9 @@ public class CartFragment extends Fragment {
     Cursor cursor;
     ArrayList<Recipe_Model> foodList;
     GifImageView gifImageView;
+    CardView changeCardView;
+    TextView mainPrice, tableNumber;
+    private int q, price;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -39,20 +44,32 @@ public class CartFragment extends Fragment {
         payNowButton = rootView.findViewById(R.id.cart_pay_now_btn);
         recyclerView = rootView.findViewById(R.id.cart_food_list);
         gifImageView = rootView.findViewById(R.id.gif_animation);
+        changeCardView = rootView.findViewById(R.id.change_address_card_view);
+        mainPrice = rootView.findViewById(R.id.cart_fragment_total_price);
+        tableNumber = rootView.findViewById(R.id.table_number);
         foodList = new ArrayList<>();
-
 
         displayFoodListFromDB();
 
         payNowButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CartBottomSheetFragment cartBottomSheetFragment = new CartBottomSheetFragment();
-                cartBottomSheetFragment.show(getParentFragmentManager(), cartBottomSheetFragment.getTag());
+                q = cartFoodItemsAdapter.returnTotalQuantity();
+                price = cartFoodItemsAdapter.returnPrice();
+                mainPrice.setText("₹" + String.valueOf(price));
+
+                Bundle bundle = new Bundle();
+                bundle.putInt("Total Items", q);
+                bundle.putInt("Price", price);
+                CartBottomSheetFragment cartBottom = new CartBottomSheetFragment();
+                cartBottom.setArguments(bundle);
+                cartBottom.show(getParentFragmentManager(), cartBottom.getTag());
             }
         });
+
         return rootView;
     }
+
 
     private void displayFoodListFromDB() {
 
@@ -69,10 +86,12 @@ public class CartFragment extends Fragment {
         payNowButton.setEnabled(Boolean.TRUE);
         gifImageView.setVisibility(View.GONE);
         recyclerView.setVisibility(View.VISIBLE);
+        changeCardView.setVisibility(View.VISIBLE);
+
 
         while (cursor.moveToNext()) {
             foodList.add(new Recipe_Model(cursor.getInt(2), cursor.getString(0),
-                    cursor.getString(3), Boolean.TRUE, "₹"+cursor.getString(1), cursor.getFloat(4)));
+                    cursor.getString(3), Boolean.TRUE, cursor.getString(1), cursor.getFloat(4)));
         }
 
         cartFoodItemsAdapter = new CartFoodItemsAdapter(getContext(), foodList);
