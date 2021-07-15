@@ -108,6 +108,8 @@ public class LoginWithPhoneFragment extends Fragment {
                                 progressBar.setVisibility(View.INVISIBLE);
                                 ph_loginbtn.setVisibility(View.VISIBLE);
 
+                                Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+
                                 if (ph_num.getText().toString().length() < 10) {
                                     Toast.makeText(getContext(), "Number should be 10 digit", Toast.LENGTH_SHORT).show();
                                 }

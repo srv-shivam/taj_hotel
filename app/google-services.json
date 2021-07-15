@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "1034715935340-pqbb2v00ll70eg5geqa5n19gjq9m2tir.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.tajhotel",
+            "certificate_hash": "be7777e5611d06131a3c44575754034c2bca281d"
+          }
+        },
+        {
           "client_id": "1034715935340-lnp3fvijijf77stvhju1p6f1d3a7u0bk.apps.googleusercontent.com",
           "client_type": 3
         }

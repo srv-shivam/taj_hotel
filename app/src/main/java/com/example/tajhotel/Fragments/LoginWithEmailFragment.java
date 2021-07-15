@@ -37,7 +37,7 @@ public class LoginWithEmailFragment extends Fragment {
 
     FirebaseFirestore db;
     DatabaseId databaseId;
-    ProgressBar progressDialog;
+    ProgressDialog progressDialog;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
