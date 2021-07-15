@@ -7,14 +7,14 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1034715935340:android:c12683041016532b7d1e49",
+        "mobilesdk_app_id": "1:1034715935340:android:82964795c30a8dda7d1e49",
         "android_client_info": {
           "package_name": "com.example.tajhotel"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1034715935340-pqbb2v00ll70eg5geqa5n19gjq9m2tir.apps.googleusercontent.com",
+          "client_id": "1034715935340-ie81svad9f0fdsc0s6a0e7p4cvd7pjbb.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.tajhotel",

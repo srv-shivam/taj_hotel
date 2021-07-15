@@ -188,19 +188,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
 
             case R.id.my_orders:
-                Toast.makeText(this, "My Orders Navigation Clicked", Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.offers:
-                Toast.makeText(this, "Offers Navigation Clicked", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.notifications:
                 Intent intent = new Intent(MainActivity.this, Notifications.class);
                 startActivity(intent);
-                Toast.makeText(this, "Notifications Navigation Clicked", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.log_out:
-                Toast.makeText(this, "Log Out Navigation Clicked", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.exit:
                 finish();

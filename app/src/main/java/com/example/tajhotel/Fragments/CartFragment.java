@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,6 +36,7 @@ public class CartFragment extends Fragment {
     CardView changeCardView;
     TextView mainPrice, tableNumber;
     private int q, price;
+    private RelativeLayout footer_payment_detail;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -50,6 +52,7 @@ public class CartFragment extends Fragment {
         changeCardView = rootView.findViewById(R.id.change_address_card_view);
         mainPrice = rootView.findViewById(R.id.cart_fragment_total_price);
         tableNumber = rootView.findViewById(R.id.table_number);
+        footer_payment_detail = rootView.findViewById(R.id.footer_payment_detail);
         foodList = new ArrayList<>();
 
         tableNumber.setText(String.valueOf(table));
@@ -84,7 +87,6 @@ public class CartFragment extends Fragment {
 
         if (cursor.getCount() == 0) {
             payNowButton.setEnabled(Boolean.FALSE);
-            Toast.makeText(getContext(), "No item in cart", Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -92,6 +94,7 @@ public class CartFragment extends Fragment {
         gifImageView.setVisibility(View.GONE);
         recyclerView.setVisibility(View.VISIBLE);
         changeCardView.setVisibility(View.VISIBLE);
+        footer_payment_detail.setVisibility(View.VISIBLE);
 
 
         while (cursor.moveToNext()) {

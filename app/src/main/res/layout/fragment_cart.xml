@@ -1,19 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.amar.library.ui.StickyScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    app:stickyFooter="@id/footer_payment_detail">
+    android:layout_height="match_parent">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="match_parent">
 
             <TextView
                 android:id="@+id/order_summmary_txt"
@@ -80,50 +77,50 @@
                 android:id="@+id/change_address_card_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/space"
                 android:layout_marginStart="10dp"
-                android:elevation="60dp"
-                app:cardCornerRadius="2dp"
                 android:layout_marginEnd="10dp"
-                android:visibility="gone">
+                android:elevation="60dp"
+                android:visibility="gone"
+                app:cardCornerRadius="2dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical"
                     android:background="@drawable/custom_button"
+                    android:orientation="vertical"
                     android:padding="2dp">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingStart="10dp"
-                        android:padding="8dp"
-                        android:fontFamily="@font/mclaren"
-                        android:textStyle="italic"
                         android:background="#ADE3DFDF"
+                        android:fontFamily="@font/mclaren"
+                        android:padding="8dp"
+                        android:paddingStart="10dp"
                         android:text="Table Number"
+                        android:textColor="@color/black"
                         android:textSize="18sp"
-                        android:textColor="@color/black"/>
+                        android:textStyle="italic" />
 
                     <TextView
                         android:id="@+id/table_number"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:fontFamily="serif-monospace"
                         android:background="@color/white"
-                        android:text="12"
+                        android:fontFamily="serif-monospace"
                         android:gravity="center"
+                        android:text="12"
+                        android:textColor="#077C0D"
                         android:textSize="56sp"
-                        android:textStyle="bold"
-                        android:textColor="#077C0D"/>
+                        android:textStyle="bold" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
             <pl.droidsonroids.gif.GifImageView
                 android:id="@+id/gif_animation"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_above="@id/footer_payment_detail"
+                android:layout_height="260dp"
                 android:layout_below="@id/space"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentEnd="true"
@@ -135,9 +132,10 @@
                 android:id="@+id/cart_food_list"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/space"
+                android:layout_below="@id/change_address_card_view"
                 android:layout_marginStart="6dp"
                 android:layout_marginEnd="6dp"
+                android:layout_marginTop="20dp"
                 android:padding="8dp"
                 android:visibility="gone" />
 
@@ -146,13 +144,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_below="@id/cart_food_list"
-                android:layout_alignParentBottom="true"
                 android:layout_gravity="bottom"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="6dp"
                 android:layout_marginEnd="10dp"
                 android:background="@drawable/custom_button"
-                android:elevation="60dp">
+                android:elevation="60dp"
+                android:visibility="gone">
 
                 <TextView
                     android:id="@+id/cart_fragment_total_price"
@@ -171,15 +169,192 @@
                     android:layout_height="match_parent"
                     android:layout_alignParentEnd="true"
                     android:layout_marginTop="4dp"
-                    android:layout_marginEnd="15dp"
+                    android:layout_marginEnd="14dp"
                     android:layout_marginBottom="4dp"
                     android:backgroundTint="@color/yellow"
                     android:elevation="60dp"
                     android:text="Pay Now" />
 
             </RelativeLayout>
-
-        </LinearLayout>
+        </RelativeLayout>
     </RelativeLayout>
 
-</com.amar.library.ui.StickyScrollView>
+</ScrollView>
+
+
+    <!--<RelativeLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent">-->
+
+    <!--<LinearLayout-->
+    <!--    android:layout_width="match_parent"-->
+    <!--    android:layout_height="match_parent"-->
+    <!--    android:orientation="vertical">-->
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/order_summmary_txt"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="60dp"-->
+    <!--        android:layout_alignParentTop="true"-->
+    <!--        android:layout_margin="4dp"-->
+    <!--        android:background="#ADE3DFDF"-->
+    <!--        android:elevation="30dp"-->
+    <!--        android:fontFamily="@font/mclaren"-->
+    <!--        android:gravity="center_vertical"-->
+    <!--        android:paddingStart="20dp"-->
+    <!--        android:text="Order Summary"-->
+    <!--        android:textColor="@color/black"-->
+    <!--        android:textSize="20sp" />-->
+
+    <!--    <ImageView-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_alignBottom="@+id/order_summmary_txt"-->
+    <!--        android:layout_marginStart="20dp"-->
+    <!--        android:layout_marginTop="-30dp"-->
+    <!--        android:elevation="40dp"-->
+    <!--        android:src="@drawable/ic_minus_line_svgrepo_com" />-->
+
+    <!--    <androidx.cardview.widget.CardView-->
+    <!--        android:id="@+id/cart_offer_card_view"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_below="@id/order_summmary_txt"-->
+    <!--        android:layout_margin="10dp"-->
+    <!--        android:background="@drawable/custom_button"-->
+    <!--        app:cardBackgroundColor="@color/backgroundBottomColor"-->
+    <!--        app:cardCornerRadius="10dp">-->
+
+    <!--        <TextView-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_margin="10dp"-->
+    <!--            android:text="Exciting offers waiting for you"-->
+    <!--            android:textColor="@color/white"-->
+    <!--            android:textSize="16sp" />-->
+
+    <!--        <TextView-->
+    <!--            android:id="@+id/cart_view_offers_txt_view"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_gravity="end"-->
+    <!--            android:layout_margin="10dp"-->
+    <!--            android:text="View Offers -> "-->
+    <!--            android:textColor="@color/yellow"-->
+    <!--            android:textStyle="bold" />-->
+
+    <!--    </androidx.cardview.widget.CardView>-->
+
+    <!--    <Space-->
+    <!--        android:id="@+id/space"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="10dp"-->
+    <!--        android:layout_below="@id/cart_offer_card_view"-->
+    <!--        android:elevation="50dp" />-->
+
+    <!--    <androidx.cardview.widget.CardView-->
+    <!--        android:id="@+id/change_address_card_view"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginStart="10dp"-->
+    <!--        android:elevation="60dp"-->
+    <!--        app:cardCornerRadius="2dp"-->
+    <!--        android:layout_marginEnd="10dp"-->
+    <!--        android:visibility="gone">-->
+
+    <!--        <LinearLayout-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="match_parent"-->
+    <!--            android:orientation="vertical"-->
+    <!--            android:background="@drawable/custom_button"-->
+    <!--            android:padding="2dp">-->
+
+    <!--            <TextView-->
+    <!--                android:layout_width="match_parent"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:paddingStart="10dp"-->
+    <!--                android:padding="8dp"-->
+    <!--                android:fontFamily="@font/mclaren"-->
+    <!--                android:textStyle="italic"-->
+    <!--                android:background="#ADE3DFDF"-->
+    <!--                android:text="Table Number"-->
+    <!--                android:textSize="18sp"-->
+    <!--                android:textColor="@color/black"/>-->
+
+    <!--            <TextView-->
+    <!--                android:id="@+id/table_number"-->
+    <!--                android:layout_width="match_parent"-->
+    <!--                android:layout_height="match_parent"-->
+    <!--                android:fontFamily="serif-monospace"-->
+    <!--                android:background="@color/white"-->
+    <!--                android:text="12"-->
+    <!--                android:gravity="center"-->
+    <!--                android:textSize="56sp"-->
+    <!--                android:textStyle="bold"-->
+    <!--                android:textColor="#077C0D"/>-->
+    <!--        </LinearLayout>-->
+    <!--    </androidx.cardview.widget.CardView>-->
+
+    <!--    <pl.droidsonroids.gif.GifImageView-->
+    <!--        android:id="@+id/gif_animation"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="200dp"-->
+    <!--        android:layout_above="@id/footer_payment_detail"-->
+    <!--        android:layout_below="@id/space"-->
+    <!--        android:layout_alignParentStart="true"-->
+    <!--        android:layout_alignParentEnd="true"-->
+    <!--        android:layout_gravity="center"-->
+    <!--        android:layout_marginTop="40dp"-->
+    <!--        android:src="@drawable/empty_cart" />-->
+
+    <!--    <androidx.recyclerview.widget.RecyclerView-->
+    <!--        android:id="@+id/cart_food_list"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_below="@id/space"-->
+    <!--        android:layout_marginStart="6dp"-->
+    <!--        android:layout_marginEnd="6dp"-->
+    <!--        android:padding="8dp"-->
+    <!--        android:visibility="gone" />-->
+
+    <!--    <RelativeLayout-->
+    <!--        android:id="@+id/footer_payment_detail"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="60dp"-->
+    <!--        android:layout_below="@id/cart_food_list"-->
+    <!--        android:layout_alignParentBottom="true"-->
+    <!--        android:layout_gravity="bottom"-->
+    <!--        android:layout_marginStart="10dp"-->
+    <!--        android:layout_marginTop="6dp"-->
+    <!--        android:layout_marginEnd="10dp"-->
+    <!--        android:background="@drawable/custom_button"-->
+    <!--        android:elevation="60dp">-->
+
+    <!--        <TextView-->
+    <!--            android:id="@+id/cart_fragment_total_price"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="match_parent"-->
+    <!--            android:fontFamily="@font/mclaren"-->
+    <!--            android:gravity="center"-->
+    <!--            android:hint="NIL"-->
+    <!--            android:paddingStart="20dp"-->
+    <!--            android:textColor="@color/black"-->
+    <!--            android:textSize="30sp" />-->
+
+    <!--        <androidx.appcompat.widget.AppCompatButton-->
+    <!--            android:id="@+id/cart_pay_now_btn"-->
+    <!--            android:layout_width="160dp"-->
+    <!--            android:layout_height="match_parent"-->
+    <!--            android:layout_alignParentEnd="true"-->
+    <!--            android:layout_marginTop="4dp"-->
+    <!--            android:layout_marginEnd="15dp"-->
+    <!--            android:layout_marginBottom="4dp"-->
+    <!--            android:backgroundTint="@color/yellow"-->
+    <!--            android:elevation="60dp"-->
+    <!--            android:text="Pay Now" />-->
+
+    <!--    </RelativeLayout>-->
+
+    <!--</LinearLayout>-->
+    <!--</RelativeLayout>-->
+

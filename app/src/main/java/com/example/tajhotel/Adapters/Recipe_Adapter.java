@@ -32,8 +32,6 @@ public class Recipe_Adapter extends RecyclerView.Adapter<Recipe_Adapter.FoodHold
         this.db = dataBaseHelper;
     }
 
-//    public Recipe_Adapter(){}
-
 
     @NonNull
     @Override
@@ -62,13 +60,10 @@ public class Recipe_Adapter extends RecyclerView.Adapter<Recipe_Adapter.FoodHold
 
                     /** here we are keeping track of whether the particular food item is added to cart or not **/
                     keepsCheckOfOrderedFood(position);
-
-                    Toast.makeText(context, "Food Added to cart", Toast.LENGTH_SHORT).show();
                     holder.addToCartBtn.setText("ADDED TO CART");
                     ADD_TO_CART_FLAG = 1;
                 } else {
                     keepsCheckOfRemovedOrderedFood(position);
-                    Toast.makeText(context, "Food Removed from cart", Toast.LENGTH_SHORT).show();
                     holder.addToCartBtn.setText("ADD TO CART");
                     ADD_TO_CART_FLAG = 0;
                 }
@@ -112,7 +107,6 @@ public class Recipe_Adapter extends RecyclerView.Adapter<Recipe_Adapter.FoodHold
                 data.get(position).getPic(), data.get(position).getFood_summery(), data.get(position).getRating());
 
         if (insertCheck == false) {
-            Toast.makeText(context, "Already added to cart", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -127,7 +121,6 @@ public class Recipe_Adapter extends RecyclerView.Adapter<Recipe_Adapter.FoodHold
         boolean removeCheck = db.removeData(data.get(position).getFood_name());
 
         if (removeCheck == false) {
-            Toast.makeText(context, "Already removed from cart", Toast.LENGTH_SHORT).show();
         }
         Toast.makeText(context, data.get(position).getFood_name(), Toast.LENGTH_LONG).show();
     }
@@ -160,11 +153,9 @@ public class Recipe_Adapter extends RecyclerView.Adapter<Recipe_Adapter.FoodHold
                 public void onClick(View v) {
 
                     if (HEART_FLAG == 0) {
-                        Toast.makeText(context, "Added to WishList", Toast.LENGTH_SHORT).show();
                         heartImage.setImageResource(R.drawable.ic_filled_heart_com);
                         HEART_FLAG = 1;
                     } else {
-                        Toast.makeText(context, "Removed from WishList", Toast.LENGTH_SHORT).show();
                         heartImage.setImageResource(R.drawable.ic_heart_svgrepo_com__1_);
                         HEART_FLAG = 0;
                     }
