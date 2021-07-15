@@ -191,7 +191,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
 
             case R.id.offers:
+                Intent offersIntent = new Intent(MainActivity.this, Offers.class);
+                startActivity(offersIntent);
                 break;
+
             case R.id.notifications:
                 Intent intent = new Intent(MainActivity.this, Notifications.class);
                 startActivity(intent);

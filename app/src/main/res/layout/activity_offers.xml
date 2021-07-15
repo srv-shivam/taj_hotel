@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Offers"
+    android:orientation="vertical"
+    android:background="@color/grey">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:text="Offers"
+        android:gravity="center"
+        android:layout_margin="20dp"
+        android:textSize="30sp"
+        android:textColor="@color/yellow"
+        android:fontFamily="@font/mclaren"/>
+
+    <com.denzcoskun.imageslider.ImageSlider
+        android:id="@+id/offers_banners"
+        android:layout_width="match_parent"
+        android:layout_height="450dp"
+        android:layout_margin="20dp"
+        android:animateLayoutChanges="true"
+        android:elevation="50dp"
+        android:outlineAmbientShadowColor="@color/white"
+        app:auto_cycle="true"
+        android:layout_gravity="center"
+        app:corner_radius="30"
+        app:delay="10"
+        app:error_image="@drawable/background_grey_img"
+        app:period="1000"
+        app:placeholder="@drawable/home_card_image1" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Let's Grab The Deals"
+        android:layout_margin="20dp"
+        android:textSize="26sp"
+        android:gravity="center"
+        android:padding="10dp"
+        android:textColor="@color/yellow"
+        android:fontFamily="@font/mclaren"/>
+
+</LinearLayout>

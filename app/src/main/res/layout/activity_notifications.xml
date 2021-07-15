@@ -3,450 +3,914 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="60dp"
-        android:background="#C3F3ECEC">
+        android:orientation="vertical"
+        android:padding="20dp"
+        android:background="@color/grey">
 
-        <LinearLayout
-            android:id="@+id/linearLayoutN"
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="20dp"
-            android:background="#43F6EEEE"
-            android:orientation="vertical">
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:text="Notifications"
+            android:textSize="26sp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:fontFamily="@font/mclaren"
+            android:textColor="@color/yellow"
+            android:background="@drawable/food_list_background_design"/>
 
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/notimc1"
-                android:layout_width="356dp"
-                android:layout_height="92dp"
-                android:layout_margin="5dp"
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/notimc1"
+            android:layout_width="356dp"
+            android:layout_height="92dp"
+            android:layout_margin="5dp"
+            android:padding="5dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/notiim1"
+                    android:layout_width="153dp"
+                    android:layout_height="85dp"
+                    android:layout_margin="4dp"
+                    android:background="@drawable/noti2" />
+
+                <TextView
+                    android:id="@+id/notitxt1"
+                    android:layout_width="185dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/notiim1"
+                    android:layout_marginLeft="156dp"
+                    android:fontFamily="@font/mclaren"
+                    android:text="Come spend your lunchtime with us!"
+                    android:textAlignment="center"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/notitxt11"
+                    android:layout_width="39dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/notitxt1"
+                    android:layout_alignLeft="@id/notiim1"
+                    android:layout_marginLeft="305dp"
+                    android:layout_marginTop="26dp"
+                    android:text="*T＆C"
+                    android:textSize="10dp" />
+
+                <TextView
+                    android:id="@+id/notitxt111"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@id/notiim1"
+                    android:layout_alignBottom="@id/notitxt11"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="199dp"
+                    android:layout_marginBottom="14dp"
+                    android:fontFamily="monospace"
+                    android:foregroundGravity="center_vertical|clip_horizontal"
+                    android:gravity="center"
+                    android:text="Starting @199"
+                    android:textColor="@color/black"
+                    android:textSize="12sp" />
+            </RelativeLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/notimc2"
+            android:layout_width="356dp"
+            android:layout_height="92dp"
+            android:layout_margin="5dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#00E4B823"
                 android:padding="5dp">
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                <ImageView
+                    android:id="@+id/notiim2"
+                    android:layout_width="145dp"
+                    android:layout_height="83dp"
+                    android:background="@drawable/noti1" />
 
-                    <ImageView
-                        android:id="@+id/notiim1"
-                        android:layout_width="153dp"
-                        android:layout_height="85dp"
-                        android:layout_margin="1dp"
-                        android:background="@drawable/noti2" />
+                <TextView
+                    android:id="@+id/notitxt2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="44dp"
+                    android:layout_alignLeft="@+id/notiim2"
+                    android:layout_marginLeft="151dp"
+                    android:fontFamily="@font/mclaren"
+                    android:text="Meal with best deal!"
+                    android:textAlignment="center"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
 
-                    <TextView
-                        android:id="@+id/notitxt1"
-                        android:layout_width="185dp"
-                        android:layout_height="wrap_content"
-                        android:layout_alignLeft="@+id/notiim1"
-                        android:layout_marginLeft="156dp"
-                        android:fontFamily="@font/nixie_one"
-                        android:text="Come spend your lunchtime with us!"
-                        android:textAlignment="center"
-                        android:textSize="18dp"
-                        android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/notitxt22"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/notitxt2"
+                    android:layout_alignLeft="@id/notiim2"
+                    android:layout_marginLeft="296dp"
+                    android:layout_marginTop="25dp"
+                    android:text="*T＆C"
+                    android:textSize="10dp" />
 
-                    <TextView
-                        android:id="@+id/notitxt11"
-                        android:layout_width="39dp"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/notitxt1"
-                        android:layout_alignLeft="@id/notiim1"
-                        android:layout_marginLeft="305dp"
-                        android:layout_marginTop="26dp"
-                        android:text="*T＆C"
-                        android:textSize="10dp" />
-
-                    <TextView
-                        android:id="@+id/notitxt111"
-                        android:layout_width="86dp"
-                        android:layout_height="wrap_content"
-                        android:layout_alignLeft="@id/notiim1"
-                        android:layout_alignBottom="@id/notitxt11"
-                        android:layout_centerInParent="true"
-                        android:layout_marginLeft="160dp"
-                        android:layout_marginBottom="9dp"
-                        android:fontFamily="cursive"
-                        android:foregroundGravity="center_vertical|clip_horizontal"
-                        android:gravity="center"
-                        android:text="Starting @199"
-                        android:textColor="#4C4848" />
-                </RelativeLayout>
+                <TextView
+                    android:id="@+id/notitxt222"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@id/notiim2"
+                    android:layout_alignBottom="@id/notitxt2"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="182dp"
+                    android:layout_marginBottom="-21dp"
+                    android:fontFamily="monospace"
+                    android:foregroundGravity="center_vertical|clip_horizontal"
+                    android:gravity="center"
+                    android:text="PromoCode- Taj50"
+                    android:textColor="@color/black"
+                    android:textSize="12sp" />
+            </RelativeLayout>
 
 
-            </com.google.android.material.card.MaterialCardView>
+        </com.google.android.material.card.MaterialCardView>
 
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/notimc2"
-                android:layout_width="356dp"
-                android:layout_height="92dp"
-                android:layout_margin="5dp">
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/notimc3"
+            android:layout_width="356dp"
+            android:layout_height="92dp"
+            android:layout_margin="5dp">
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="#00E4B823"
-                    android:padding="5dp">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-                    <ImageView
-                        android:id="@+id/notiim2"
-                        android:layout_width="145dp"
-                        android:layout_height="83dp"
-                        android:background="@drawable/noti1" />
+                <ImageView
+                    android:id="@+id/notiim3"
+                    android:layout_width="153dp"
+                    android:layout_height="97dp"
+                    android:background="@drawable/delboy" />
 
-                    <TextView
-                        android:id="@+id/notitxt2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="44dp"
-                        android:layout_alignLeft="@+id/notiim2"
-                        android:layout_marginLeft="151dp"
-                        android:fontFamily="@font/nixie_one"
-                        android:text="Meal with best deal!"
-                        android:textAlignment="center"
-                        android:textSize="18dp"
-                        android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/notitxt3"
+                    android:layout_width="173dp"
+                    android:layout_height="50dp"
+                    android:layout_alignLeft="@+id/notiim3"
+                    android:layout_marginLeft="156dp"
+                    android:fontFamily="@font/mclaren"
+                    android:text="Your order is on its way!"
+                    android:textAlignment="center"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
 
-                    <TextView
-                        android:id="@+id/notitxt22"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/notitxt2"
-                        android:layout_alignLeft="@id/notiim2"
-                        android:layout_marginLeft="296dp"
-                        android:layout_marginTop="25dp"
-                        android:text="*T＆C"
-                        android:textSize="10dp" />
-
-                    <TextView
-                        android:id="@+id/notitxt222"
-                        android:layout_width="108dp"
-                        android:layout_height="wrap_content"
-                        android:layout_alignLeft="@id/notiim2"
-                        android:layout_alignBottom="@id/notitxt2"
-                        android:layout_centerInParent="true"
-                        android:layout_marginLeft="154dp"
-                        android:layout_marginBottom="-31dp"
-                        android:fontFamily="cursive"
-                        android:foregroundGravity="center_vertical|clip_horizontal"
-                        android:gravity="center"
-                        android:text="PromoCode- Taj50"
-                        android:textColor="#4C4848" />
-                </RelativeLayout>
+                <TextView
+                    android:id="@+id/notitxt333"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@id/notiim3"
+                    android:layout_alignBottom="@id/notitxt3"
+                    android:layout_centerInParent="true"
+                    android:textSize="12sp"
+                    android:layout_marginLeft="175dp"
+                    android:layout_marginBottom="-33dp"
+                    android:fontFamily="monospace"
+                    android:gravity="center"
+                    android:foregroundGravity="center_vertical|clip_horizontal"
+                    android:text="Delivery Code -7845"
+                    android:textColor="@color/black"
+                    android:textColorHint="#B5FFFFFF" />
+            </RelativeLayout>
 
 
-            </com.google.android.material.card.MaterialCardView>
+        </com.google.android.material.card.MaterialCardView>
 
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/notimc3"
-                android:layout_width="356dp"
-                android:layout_height="92dp"
-                android:layout_margin="5dp">
-                android:layout_marginStart="00dp">
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/notimc4"
+            android:layout_width="356dp"
+            android:layout_height="92dp"
+            android:layout_margin="5dp">
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#00E4B823"
+                android:padding="5dp">
 
-                    <ImageView
-                        android:id="@+id/notiim3"
-                        android:layout_width="153dp"
-                        android:layout_height="97dp"
-                        android:background="@drawable/delboy" />
+                <ImageView
+                    android:id="@+id/notiim4"
+                    android:layout_width="149dp"
+                    android:layout_height="87dp"
+                    android:background="@drawable/noti3" />
 
-                    <TextView
-                        android:id="@+id/notitxt3"
-                        android:layout_width="173dp"
-                        android:layout_height="46dp"
-                        android:layout_alignLeft="@+id/notiim3"
-                        android:layout_marginLeft="156dp"
-                        android:fontFamily="@font/nixie_one"
-                        android:text="Your order is on its way!"
-                        android:textAlignment="center"
-                        android:textSize="18dp"
-                        android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/notitxt4"
+                    android:layout_width="162dp"
+                    android:layout_height="51dp"
+                    android:layout_alignLeft="@+id/notiim4"
+                    android:layout_marginLeft="156dp"
+                    android:fontFamily="@font/mclaren"
+                    android:text="Your Cart Is Waiting..."
+                    android:textAlignment="center"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
 
-                    <TextView
-                        android:id="@+id/notitxt333"
-                        android:layout_width="165dp"
-                        android:layout_height="wrap_content"
-                        android:layout_alignLeft="@id/notiim3"
-                        android:layout_alignBottom="@id/notitxt3"
-                        android:layout_centerInParent="true"
-                        android:layout_marginLeft="164dp"
-                        android:layout_marginBottom="-26dp"
-                        android:fontFamily="cursive"
-                        android:foregroundGravity="center_vertical|clip_horizontal"
-                        android:text="Delivery Code -7845."
-                        android:textColor="#4C4848"
-                        android:textColorHint="#B5FFFFFF" />
-                </RelativeLayout>
+                <TextView
+                    android:id="@+id/notitxt44"
+                    android:layout_width="39dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/notitxt4"
+                    android:layout_alignLeft="@id/notiim4"
+                    android:layout_marginLeft="301dp"
+                    android:layout_marginTop="11dp"
+                    android:text="*T＆C"
+                    android:textSize="10dp" />
 
+                <TextView
+                    android:id="@+id/notitxt444"
+                    android:layout_width="wrap_content"
+                    android:layout_height="27dp"
+                    android:layout_alignLeft="@id/notiim4"
+                    android:layout_alignBottom="@id/notitxt4"
+                    android:textSize="12sp"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="180dp"
+                    android:layout_marginBottom="-26dp"
+                    android:fontFamily="monospace"
+                    android:foregroundGravity="center_vertical|clip_horizontal"
+                    android:gravity="center"
+                    android:text="Place your order now"
+                    android:textColor="@color/black" />
+            </RelativeLayout>
+        </com.google.android.material.card.MaterialCardView>
 
-            </com.google.android.material.card.MaterialCardView>
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/notimc5"
+            android:layout_width="356dp"
+            android:layout_height="92dp"
+            android:layout_margin="5dp">
 
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/notimc4"
-                android:layout_width="356dp"
-                android:layout_height="92dp"
-                android:layout_margin="5dp">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#00E4B823"
+                android:padding="5dp">
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="#00E4B823"
-                    android:padding="5dp">
+                <ImageView
+                    android:id="@+id/notiim5"
+                    android:layout_width="153dp"
+                    android:layout_height="85dp"
+                    android:background="@drawable/notii3" />
 
-                    <ImageView
-                        android:id="@+id/notiim4"
-                        android:layout_width="149dp"
-                        android:layout_height="87dp"
-                        android:background="@drawable/noti3" />
+                <TextView
+                    android:id="@+id/notitxt5"
+                    android:layout_width="154dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/notiim5"
+                    android:layout_marginLeft="164dp"
+                    android:fontFamily="@font/mclaren"
+                    android:text="Good Morning Sleepyhead!"
+                    android:textAlignment="center"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
 
-                    <TextView
-                        android:id="@+id/notitxt4"
-                        android:layout_width="162dp"
-                        android:layout_height="51dp"
-                        android:layout_alignLeft="@+id/notiim4"
-                        android:layout_marginLeft="156dp"
-                        android:fontFamily="@font/nixie_one"
-                        android:text="Your Cart Is Waiting..."
-                        android:textAlignment="center"
-                        android:textSize="18dp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/notitxt44"
-                        android:layout_width="39dp"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/notitxt4"
-                        android:layout_alignLeft="@id/notiim4"
-                        android:layout_marginLeft="301dp"
-                        android:layout_marginTop="11dp"
-                        android:text="*T＆C"
-                        android:textSize="10dp" />
-
-                    <TextView
-                        android:id="@+id/notitxt444"
-                        android:layout_width="124dp"
-                        android:layout_height="27dp"
-                        android:layout_alignLeft="@id/notiim4"
-                        android:layout_alignBottom="@id/notitxt4"
-                        android:layout_centerInParent="true"
-                        android:layout_marginLeft="148dp"
-                        android:layout_marginBottom="-21dp"
-                        android:fontFamily="cursive"
-                        android:foregroundGravity="center_vertical|clip_horizontal"
-                        android:gravity="center"
-                        android:text="Place your order now"
-                        android:textColor="#4C4848" />
-                </RelativeLayout>
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/notimc5"
-                android:layout_width="356dp"
-                android:layout_height="92dp"
-                android:layout_margin="5dp">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="#00E4B823"
-                    android:padding="5dp">
-
-                    <ImageView
-                        android:id="@+id/notiim5"
-                        android:layout_width="153dp"
-                        android:layout_height="85dp"
-                        android:background="@drawable/notii3" />
-
-                    <TextView
-                        android:id="@+id/notitxt5"
-                        android:layout_width="154dp"
-                        android:layout_height="wrap_content"
-                        android:layout_alignLeft="@+id/notiim5"
-                        android:layout_marginLeft="164dp"
-                        android:fontFamily="@font/nixie_one"
-                        android:text="Good Morning Sleepyhead!"
-                        android:textAlignment="center"
-                        android:textSize="18dp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/notitxt555"
-                        android:layout_width="wrap_content"
-                        android:layout_height="37dp"
-                        android:layout_alignLeft="@id/notiim5"
-                        android:layout_alignBottom="@id/notitxt5"
-                        android:layout_centerInParent="true"
-                        android:layout_marginLeft="161dp"
-                        android:layout_marginBottom="-37dp"
-                        android:fontFamily="cursive"
-                        android:foregroundGravity="center_vertical|clip_horizontal"
-                        android:gravity="center"
-                        android:text="Order your breakfast now."
-                        android:textColor="#4C4848" />
-                </RelativeLayout>
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/notimc6"
-                android:layout_width="356dp"
-                android:layout_height="92dp"
-                android:layout_margin="5dp">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="#00E4B823"
-                    android:padding="5dp">
-
-                    <ImageView
-                        android:id="@+id/notiim6"
-                        android:layout_width="153dp"
-                        android:layout_height="85dp"
-                        android:background="@drawable/burger2" />
-
-                    <TextView
-                        android:id="@+id/notitxt6"
-                        android:layout_width="154dp"
-                        android:layout_height="52dp"
-                        android:layout_alignLeft="@+id/notiim6"
-                        android:layout_marginLeft="164dp"
-                        android:fontFamily="@font/nixie_one"
-                        android:text="Hey, did you say burger?"
-                        android:textAlignment="center"
-                        android:textSize="18dp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/notitxt66"
-                        android:layout_width="39dp"
-                        android:layout_height="wrap_content"
-                        android:layout_alignLeft="@id/notiim6"
-                        android:layout_alignBottom="@+id/notitxt6"
-                        android:layout_marginLeft="298dp"
-                        android:layout_marginBottom="-30dp"
-                        android:text="*T＆C"
-                        android:textSize="10dp" />
-
-                    <TextView
-                        android:id="@+id/notitxt666"
-                        android:layout_width="124dp"
-                        android:layout_height="40dp"
-                        android:layout_alignLeft="@id/notiim6"
-                        android:layout_alignBottom="@id/notitxt6"
-                        android:layout_centerInParent="true"
-                        android:layout_marginLeft="156dp"
-                        android:layout_marginBottom="-35dp"
-                        android:fontFamily="cursive"
-                        android:foregroundGravity="center_vertical|clip_horizontal"
-                        android:gravity="center"
-                        android:text="Fries are free for you"
-                        android:textColor="#4C4848" />
-                </RelativeLayout>
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/notimc7"
-                android:layout_width="356dp"
-                android:layout_height="92dp"
-                android:layout_margin="5dp">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="#00E4B823"
-                    android:padding="5dp">
-
-                    <ImageView
-                        android:id="@+id/notiim7"
-                        android:layout_width="153dp"
-                        android:layout_height="85dp"
-                        android:background="@drawable/notii4" />
-
-                    <TextView
-                        android:id="@+id/notitxt7"
-                        android:layout_width="154dp"
-                        android:layout_height="52dp"
-                        android:layout_alignLeft="@+id/notiim7"
-                        android:layout_marginLeft="164dp"
-                        android:fontFamily="@font/nixie_one"
-                        android:text="Order Now!"
-                        android:textAlignment="center"
-                        android:textSize="18dp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/notitxt777"
-                        android:layout_width="124dp"
-                        android:layout_height="40dp"
-                        android:layout_alignLeft="@id/notiim7"
-                        android:layout_alignBottom="@id/notitxt7"
-                        android:layout_centerInParent="true"
-                        android:layout_marginLeft="159dp"
-                        android:layout_marginBottom="-28dp"
-                        android:fontFamily="cursive"
-                        android:foregroundGravity="center_vertical|clip_horizontal"
-                        android:text="Save upto 40%"
-                        android:textColor="#4C4848" />
-
-                </RelativeLayout>
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/notimc8"
-                android:layout_width="356dp"
-                android:layout_height="92dp"
-                android:layout_margin="5dp"
-                android:layout_marginBottom="50dp">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="#00E4B823"
-                    android:padding="5dp">
-
-                    <ImageView
-                        android:id="@+id/notiim8"
-                        android:layout_width="153dp"
-                        android:layout_height="85dp"
-                        android:background="@drawable/login_signup" />
-
-                    <TextView
-                        android:id="@+id/notitxt8"
-                        android:layout_width="154dp"
-                        android:layout_height="52dp"
-                        android:layout_alignLeft="@+id/notiim8"
-                        android:layout_marginLeft="164dp"
-                        android:fontFamily="@font/nixie_one"
-                        android:text="Order Now!"
-                        android:textAlignment="center"
-                        android:textSize="17dp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/notitxt888"
-                        android:layout_width="124dp"
-                        android:layout_height="40dp"
-                        android:layout_alignLeft="@id/notiim8"
-                        android:layout_alignBottom="@id/notitxt8"
-                        android:layout_centerInParent="true"
-                        android:layout_marginLeft="166dp"
-                        android:layout_marginBottom="-25dp"
-                        android:fontFamily="cursive"
-                        android:foregroundGravity="center_vertical|clip_horizontal"
-                        android:gravity="center"
-                        android:text="The authenic taste of India"
-                        android:textColor="#4C4848" />
-                </RelativeLayout>
-            </com.google.android.material.card.MaterialCardView>
+                <TextView
+                    android:id="@+id/notitxt555"
+                    android:layout_width="wrap_content"
+                    android:layout_height="37dp"
+                    android:layout_alignLeft="@id/notiim5"
+                    android:layout_alignBottom="@id/notitxt5"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="160dp"
+                    android:layout_marginBottom="-35dp"
+                    android:fontFamily="monospace"
+                    android:foregroundGravity="center_vertical|clip_horizontal"
+                    android:gravity="center"
+                    android:text="Order your breakfast now."
+                    android:textColor="@color/black"
+                    android:textSize="12sp" />
+            </RelativeLayout>
+        </com.google.android.material.card.MaterialCardView>
 
 
-        </LinearLayout>
-    </RelativeLayout>
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/notimc6"
+            android:layout_width="356dp"
+            android:layout_height="92dp"
+            android:layout_margin="5dp">
 
-</ScrollView>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#00E4B823"
+                android:padding="5dp">
+
+                <ImageView
+                    android:id="@+id/notiim6"
+                    android:layout_width="153dp"
+                    android:layout_height="85dp"
+                    android:background="@drawable/burger2" />
+
+                <TextView
+                    android:id="@+id/notitxt6"
+                    android:layout_width="154dp"
+                    android:layout_height="52dp"
+                    android:layout_alignLeft="@+id/notiim6"
+                    android:layout_marginLeft="164dp"
+                    android:fontFamily="@font/mclaren"
+                    android:text="Hey, did you say burger?"
+                    android:textAlignment="center"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/notitxt66"
+                    android:layout_width="39dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@id/notiim6"
+                    android:layout_alignBottom="@+id/notitxt6"
+                    android:layout_marginLeft="298dp"
+                    android:layout_marginBottom="-30dp"
+                    android:text="*T＆C"
+                    android:textSize="10dp" />
+
+                <TextView
+                    android:id="@+id/notitxt666"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_alignLeft="@id/notiim6"
+                    android:layout_alignBottom="@id/notitxt6"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="169dp"
+                    android:layout_marginBottom="-35dp"
+                    android:fontFamily="monospace"
+                    android:foregroundGravity="center_vertical|clip_horizontal"
+                    android:gravity="center"
+                    android:text="Fries are free for you"
+                    android:textColor="@color/black"
+                    android:textSize="12sp" />
+            </RelativeLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/notimc7"
+            android:layout_width="356dp"
+            android:layout_height="92dp"
+            android:layout_margin="5dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#00E4B823"
+                android:padding="5dp">
+
+                <ImageView
+                    android:id="@+id/notiim7"
+                    android:layout_width="153dp"
+                    android:layout_height="85dp"
+                    android:background="@drawable/notii4" />
+
+                <TextView
+                    android:id="@+id/notitxt7"
+                    android:layout_width="154dp"
+                    android:layout_height="52dp"
+                    android:layout_alignLeft="@+id/notiim7"
+                    android:layout_marginLeft="164dp"
+                    android:fontFamily="@font/mclaren"
+                    android:text="Order Now!"
+                    android:textAlignment="center"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/notitxt777"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_alignLeft="@id/notiim7"
+                    android:layout_alignBottom="@id/notitxt7"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="184dp"
+                    android:layout_marginBottom="-25dp"
+                    android:fontFamily="monospace"
+                    android:gravity="center"
+                    android:padding="4dp"
+                    android:text="Save upto 40%"
+                    android:textColor="@color/black" />
+
+            </RelativeLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/notimc8"
+            android:layout_width="356dp"
+            android:layout_height="92dp"
+            android:layout_margin="5dp"
+            android:layout_marginBottom="50dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#00E4B823"
+                android:padding="5dp">
+
+                <ImageView
+                    android:id="@+id/notiim8"
+                    android:layout_width="153dp"
+                    android:layout_height="85dp"
+                    android:background="@drawable/login_signup" />
+
+                <TextView
+                    android:id="@+id/notitxt8"
+                    android:layout_width="154dp"
+                    android:layout_height="52dp"
+                    android:layout_alignLeft="@+id/notiim8"
+                    android:layout_marginLeft="164dp"
+                    android:fontFamily="@font/mclaren"
+                    android:text="Order Now!"
+                    android:textAlignment="center"
+                    android:textSize="17dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/notitxt888"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_alignLeft="@id/notiim8"
+                    android:layout_alignBottom="@id/notitxt8"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="169dp"
+                    android:layout_marginBottom="-28dp"
+                    android:fontFamily="monospace"
+                    android:foregroundGravity="center_vertical|clip_horizontal"
+                    android:gravity="center"
+                    android:text="The authenic taste of India"
+                    android:textColor="@color/black" />
+            </RelativeLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+
+    </LinearLayout>
+
+
+</ScrollView><!--<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--    android:layout_width="match_parent"-->
+    <!--    android:layout_height="match_parent">-->
+
+    <!--    <RelativeLayout-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent"-->
+    <!--        android:layout_marginTop="60dp"-->
+    <!--        android:background="#C3F3ECEC">-->
+
+    <!--        <LinearLayout-->
+    <!--            android:id="@+id/linearLayoutN"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="match_parent"-->
+    <!--            android:layout_marginStart="20dp"-->
+    <!--            android:layout_marginTop="5dp"-->
+    <!--            android:layout_marginEnd="20dp"-->
+    <!--            android:background="#43F6EEEE"-->
+    <!--            android:orientation="vertical">-->
+
+    <!--            <com.google.android.material.card.MaterialCardView-->
+    <!--                android:id="@+id/notimc1"-->
+    <!--                android:layout_width="356dp"-->
+    <!--                android:layout_height="92dp"-->
+    <!--                android:layout_margin="5dp"-->
+    <!--                android:padding="5dp">-->
+
+    <!--                <RelativeLayout-->
+    <!--                    android:layout_width="match_parent"-->
+    <!--                    android:layout_height="match_parent">-->
+
+    <!--                    <ImageView-->
+    <!--                        android:id="@+id/notiim1"-->
+    <!--                        android:layout_width="153dp"-->
+    <!--                        android:layout_height="85dp"-->
+    <!--                        android:layout_margin="1dp"-->
+    <!--                        android:background="@drawable/noti2" />-->
+
+    <!--                    <TextView-->
+    <!--                        android:id="@+id/notitxt1"-->
+    <!--                        android:layout_width="185dp"-->
+    <!--                        android:layout_height="wrap_content"-->
+    <!--                        android:layout_alignLeft="@+id/notiim1"-->
+    <!--                        android:layout_marginLeft="156dp"-->
+    <!--                        android:fontFamily="@font/nixie_one"-->
+    <!--                        android:text="Come spend your lunchtime with us!"-->
+    <!--                        android:textAlignment="center"-->
+    <!--                        android:textSize="18dp"-->
+    <!--                        android:textStyle="bold" />-->
+
+    <!--                    <TextView-->
+    <!--                        android:id="@+id/notitxt11"-->
+    <!--                        android:layout_width="39dp"-->
+    <!--                        android:layout_height="wrap_content"-->
+    <!--                        android:layout_below="@id/notitxt1"-->
+    <!--                        android:layout_alignLeft="@id/notiim1"-->
+    <!--                        android:layout_marginLeft="305dp"-->
+    <!--                        android:layout_marginTop="26dp"-->
+    <!--                        android:text="*T＆C"-->
+    <!--                        android:textSize="10dp" />-->
+
+    <!--                    <TextView-->
+    <!--                        android:id="@+id/notitxt111"-->
+    <!--                        android:layout_width="86dp"-->
+    <!--                        android:layout_height="wrap_content"-->
+    <!--                        android:layout_alignLeft="@id/notiim1"-->
+    <!--                        android:layout_alignBottom="@id/notitxt11"-->
+    <!--                        android:layout_centerInParent="true"-->
+    <!--                        android:layout_marginLeft="160dp"-->
+    <!--                        android:layout_marginBottom="9dp"-->
+    <!--                        android:fontFamily="cursive"-->
+    <!--                        android:foregroundGravity="center_vertical|clip_horizontal"-->
+    <!--                        android:gravity="center"-->
+    <!--                        android:text="Starting @199"-->
+    <!--                        android:textColor="#4C4848" />-->
+    <!--                </RelativeLayout>-->
+
+
+    <!--            </com.google.android.material.card.MaterialCardView>-->
+
+    <!--            <com.google.android.material.card.MaterialCardView-->
+    <!--                android:id="@+id/notimc2"-->
+    <!--                android:layout_width="356dp"-->
+    <!--                android:layout_height="92dp"-->
+    <!--                android:layout_margin="5dp">-->
+
+    <!--                <RelativeLayout-->
+    <!--                    android:layout_width="match_parent"-->
+    <!--                    android:layout_height="match_parent"-->
+    <!--                    android:background="#00E4B823"-->
+    <!--                    android:padding="5dp">-->
+
+    <!--                    <ImageView-->
+    <!--                        android:id="@+id/notiim2"-->
+    <!--                        android:layout_width="145dp"-->
+    <!--                        android:layout_height="83dp"-->
+    <!--                        android:background="@drawable/noti1" />-->
+
+    <!--                    <TextView-->
+    <!--                        android:id="@+id/notitxt2"-->
+    <!--                        android:layout_width="wrap_content"-->
+    <!--                        android:layout_height="44dp"-->
+    <!--                        android:layout_alignLeft="@+id/notiim2"-->
+    <!--                        android:layout_marginLeft="151dp"-->
+    <!--                        android:fontFamily="@font/nixie_one"-->
+    <!--                        android:text="Meal with best deal!"-->
+    <!--                        android:textAlignment="center"-->
+    <!--                        android:textSize="18dp"-->
+    <!--                        android:textStyle="bold" />-->
+
+    <!--                    <TextView-->
+    <!--                        android:id="@+id/notitxt22"-->
+    <!--                        android:layout_width="wrap_content"-->
+    <!--                        android:layout_height="wrap_content"-->
+    <!--                        android:layout_below="@id/notitxt2"-->
+    <!--                        android:layout_alignLeft="@id/notiim2"-->
+    <!--                        android:layout_marginLeft="296dp"-->
+    <!--                        android:layout_marginTop="25dp"-->
+    <!--                        android:text="*T＆C"-->
+    <!--                        android:textSize="10dp" />-->
+
+    <!--                    <TextView-->
+    <!--                        android:id="@+id/notitxt222"-->
+    <!--                        android:layout_width="108dp"-->
+    <!--                        android:layout_height="wrap_content"-->
+    <!--                        android:layout_alignLeft="@id/notiim2"-->
+    <!--                        android:layout_alignBottom="@id/notitxt2"-->
+    <!--                        android:layout_centerInParent="true"-->
+    <!--                        android:layout_marginLeft="154dp"-->
+    <!--                        android:layout_marginBottom="-31dp"-->
+    <!--                        android:fontFamily="cursive"-->
+    <!--                        android:foregroundGravity="center_vertical|clip_horizontal"-->
+    <!--                        android:gravity="center"-->
+    <!--                        android:text="PromoCode- Taj50"-->
+    <!--                        android:textColor="#4C4848" />-->
+    <!--                </RelativeLayout>-->
+
+
+    <!--            </com.google.android.material.card.MaterialCardView>-->
+    <!--
+                        <com.google.android.material.card.MaterialCardView&ndash;&gt;-->
+    <!--                android:id="@+id/notimc3"-->
+    <!--                android:layout_width="356dp"-->
+    <!--                android:layout_height="92dp"-->
+    <!--                android:layout_margin="5dp">-->
+    <!--                android:layout_marginStart="00dp">-->
+
+    <!--                <RelativeLayout-->
+    <!--                    android:layout_width="match_parent"-->
+    <!--                    android:layout_height="match_parent">-->
+
+    <!--                    <ImageView-->
+    <!--                        android:id="@+id/notiim3"-->
+    <!--                        android:layout_width="153dp"-->
+    <!--                        android:layout_height="97dp"-->
+    <!--                        android:background="@drawable/delboy" />-->
+
+    <!--                    <TextView-->
+    <!--                        android:id="@+id/notitxt3"-->
+    <!--                        android:layout_width="173dp"-->
+    <!--                        android:layout_height="46dp"-->
+    <!--                        android:layout_alignLeft="@+id/notiim3"-->
+    <!--                        android:layout_marginLeft="156dp"-->
+    <!--                        android:fontFamily="@font/nixie_one"-->
+    <!--                        android:text="Your order is on its way!"-->
+    <!--                        android:textAlignment="center"-->
+    <!--                        android:textSize="18dp"-->
+    <!--                        android:textStyle="bold" />-->
+
+    <!--                    <TextView-->
+    <!--                        android:id="@+id/notitxt333"-->
+    <!--                        android:layout_width="165dp"-->
+    <!--                        android:layout_height="wrap_content"-->
+    <!--                        android:layout_alignLeft="@id/notiim3"-->
+    <!--                        android:layout_alignBottom="@id/notitxt3"-->
+    <!--                        android:layout_centerInParent="true"-->
+    <!--                        android:layout_marginLeft="164dp"-->
+    <!--                        android:layout_marginBottom="-26dp"-->
+    <!--                        android:fontFamily="cursive"-->
+    <!--                        android:foregroundGravity="center_vertical|clip_horizontal"-->
+    <!--                        android:text="Delivery Code -7845."-->
+    <!--                        android:textColor="#4C4848"-->
+    <!--                        android:textColorHint="#B5FFFFFF" />-->
+    <!--                </RelativeLayout>-->
+
+
+    <!--            </com.google.android.material.card.MaterialCardView>-->
+
+
+    <!--            <com.google.android.material.card.MaterialCardView-->
+    <!--                android:id="@+id/notimc4"-->
+    <!--                android:layout_width="356dp"-->
+    <!--                android:layout_height="92dp"-->
+    <!--                android:layout_margin="5dp">-->
+
+    <!--                <RelativeLayout-->
+    <!--                    android:layout_width="match_parent"-->
+    <!--                    android:layout_height="match_parent"-->
+    <!--                    android:background="#00E4B823"-->
+    <!--                    android:padding="5dp">-->
+
+    <!--                    <ImageView-->
+    <!--                        android:id="@+id/notiim4"-->
+    <!--                        android:layout_width="149dp"-->
+    <!--                        android:layout_height="87dp"-->
+    <!--                        android:background="@drawable/noti3" />-->
+
+    <!--                    <TextView-->
+    <!--                        android:id="@+id/notitxt4"-->
+    <!--                        android:layout_width="162dp"-->
+    <!--                        android:layout_height="51dp"-->
+    <!--                        android:layout_alignLeft="@+id/notiim4"-->
+    <!--                        android:layout_marginLeft="156dp"-->
+    <!--                        android:fontFamily="@font/nixie_one"-->
+    <!--                        android:text="Your Cart Is Waiting..."-->
+    <!--                        android:textAlignment="center"-->
+    <!--                        android:textSize="18dp"-->
+    <!--                        android:textStyle="bold" />-->
+
+    <!--                    <TextView-->
+    <!--                        android:id="@+id/notitxt44"-->
+    <!--                        android:layout_width="39dp"-->
+    <!--                        android:layout_height="wrap_content"-->
+    <!--                        android:layout_below="@id/notitxt4"-->
+    <!--                        android:layout_alignLeft="@id/notiim4"-->
+    <!--                        android:layout_marginLeft="301dp"-->
+    <!--                        android:layout_marginTop="11dp"-->
+    <!--                        android:text="*T＆C"-->
+    <!--                        android:textSize="10dp" />-->
+
+    <!--                    <TextView-->
+    <!--                        android:id="@+id/notitxt444"-->
+    <!--                        android:layout_width="124dp"-->
+    <!--                        android:layout_height="27dp"-->
+    <!--                        android:layout_alignLeft="@id/notiim4"-->
+    <!--                        android:layout_alignBottom="@id/notitxt4"-->
+    <!--                        android:layout_centerInParent="true"-->
+    <!--                        android:layout_marginLeft="148dp"-->
+    <!--                        android:layout_marginBottom="-21dp"-->
+    <!--                        android:fontFamily="cursive"-->
+    <!--                        android:foregroundGravity="center_vertical|clip_horizontal"-->
+    <!--                        android:gravity="center"-->
+    <!--                        android:text="Place your order now"-->
+    <!--                        android:textColor="#4C4848" />-->
+    <!--                </RelativeLayout>-->
+    <!--            </com.google.android.material.card.MaterialCardView>-->
+
+    <!--            <com.google.android.material.card.MaterialCardView-->
+    <!--                android:id="@+id/notimc5"-->
+    <!--                android:layout_width="356dp"-->
+    <!--                android:layout_height="92dp"-->
+    <!--                android:layout_margin="5dp">-->
+
+    <!--                <RelativeLayout-->
+    <!--                    android:layout_width="match_parent"-->
+    <!--                    android:layout_height="match_parent"-->
+    <!--                    android:background="#00E4B823"-->
+    <!--                    android:padding="5dp">-->
+
+    <!--                    <ImageView-->
+    <!--                        android:id="@+id/notiim5"-->
+    <!--                        android:layout_width="153dp"-->
+    <!--                        android:layout_height="85dp"-->
+    <!--                        android:background="@drawable/notii3" />-->
+
+    <!--                    <TextView-->
+    <!--                        android:id="@+id/notitxt5"-->
+    <!--                        android:layout_width="154dp"-->
+    <!--                        android:layout_height="wrap_content"-->
+    <!--                        android:layout_alignLeft="@+id/notiim5"-->
+    <!--                        android:layout_marginLeft="164dp"-->
+    <!--                        android:fontFamily="@font/nixie_one"-->
+    <!--                        android:text="Good Morning Sleepyhead!"-->
+    <!--                        android:textAlignment="center"-->
+    <!--                        android:textSize="18dp"-->
+    <!--                        android:textStyle="bold" />-->
+
+    <!--                    <TextView-->
+    <!--                        android:id="@+id/notitxt555"-->
+    <!--                        android:layout_width="wrap_content"-->
+    <!--                        android:layout_height="37dp"-->
+    <!--                        android:layout_alignLeft="@id/notiim5"-->
+    <!--                        android:layout_alignBottom="@id/notitxt5"-->
+    <!--                        android:layout_centerInParent="true"-->
+    <!--                        android:layout_marginLeft="161dp"-->
+    <!--                        android:layout_marginBottom="-37dp"-->
+    <!--                        android:fontFamily="cursive"-->
+    <!--                        android:foregroundGravity="center_vertical|clip_horizontal"-->
+    <!--                        android:gravity="center"-->
+    <!--                        android:text="Order your breakfast now."-->
+    <!--                        android:textColor="#4C4848" />-->
+    <!--                </RelativeLayout>-->
+    <!--            </com.google.android.material.card.MaterialCardView>-->
+
+
+    <!--            <com.google.android.material.card.MaterialCardView-->
+    <!--                android:id="@+id/notimc6"-->
+    <!--                android:layout_width="356dp"-->
+    <!--                android:layout_height="92dp"-->
+    <!--                android:layout_margin="5dp">-->
+
+    <!--                <RelativeLayout-->
+    <!--                    android:layout_width="match_parent"-->
+    <!--                    android:layout_height="match_parent"-->
+    <!--                    android:background="#00E4B823"-->
+    <!--                    android:padding="5dp">-->
+
+    <!--                    <ImageView-->
+    <!--                        android:id="@+id/notiim6"-->
+    <!--                        android:layout_width="153dp"-->
+    <!--                        android:layout_height="85dp"-->
+    <!--                        android:background="@drawable/burger2" />-->
+
+    <!--                    <TextView-->
+    <!--                        android:id="@+id/notitxt6"-->
+    <!--                        android:layout_width="154dp"-->
+    <!--                        android:layout_height="52dp"-->
+    <!--                        android:layout_alignLeft="@+id/notiim6"-->
+    <!--                        android:layout_marginLeft="164dp"-->
+    <!--                        android:fontFamily="@font/nixie_one"-->
+    <!--                        android:text="Hey, did you say burger?"-->
+    <!--                        android:textAlignment="center"-->
+    <!--                        android:textSize="18dp"-->
+    <!--                        android:textStyle="bold" />-->
+
+    <!--                    <TextView-->
+    <!--                        android:id="@+id/notitxt66"-->
+    <!--                        android:layout_width="39dp"-->
+    <!--                        android:layout_height="wrap_content"-->
+    <!--                        android:layout_alignLeft="@id/notiim6"-->
+    <!--                        android:layout_alignBottom="@+id/notitxt6"-->
+    <!--                        android:layout_marginLeft="298dp"-->
+    <!--                        android:layout_marginBottom="-30dp"-->
+    <!--                        android:text="*T＆C"-->
+    <!--                        android:textSize="10dp" />-->
+
+    <!--                    <TextView-->
+    <!--                        android:id="@+id/notitxt666"-->
+    <!--                        android:layout_width="124dp"-->
+    <!--                        android:layout_height="40dp"-->
+    <!--                        android:layout_alignLeft="@id/notiim6"-->
+    <!--                        android:layout_alignBottom="@id/notitxt6"-->
+    <!--                        android:layout_centerInParent="true"-->
+    <!--                        android:layout_marginLeft="156dp"-->
+    <!--                        android:layout_marginBottom="-35dp"-->
+    <!--                        android:fontFamily="cursive"-->
+    <!--                        android:foregroundGravity="center_vertical|clip_horizontal"-->
+    <!--                        android:gravity="center"-->
+    <!--                        android:text="Fries are free for you"-->
+    <!--                        android:textColor="#4C4848" />-->
+    <!--                </RelativeLayout>-->
+    <!--            </com.google.android.material.card.MaterialCardView>-->
+
+
+    <!--            <com.google.android.material.card.MaterialCardView-->
+    <!--                android:id="@+id/notimc7"-->
+    <!--                android:layout_width="356dp"-->
+    <!--                android:layout_height="92dp"-->
+    <!--                android:layout_margin="5dp">-->
+
+    <!--                <RelativeLayout-->
+    <!--                    android:layout_width="match_parent"-->
+    <!--                    android:layout_height="match_parent"-->
+    <!--                    android:background="#00E4B823"-->
+    <!--                    android:padding="5dp">-->
+
+    <!--                    <ImageView-->
+    <!--                        android:id="@+id/notiim7"-->
+    <!--                        android:layout_width="153dp"-->
+    <!--                        android:layout_height="85dp"-->
+    <!--                        android:background="@drawable/notii4" />-->
+
+    <!--                    <TextView-->
+    <!--                        android:id="@+id/notitxt7"-->
+    <!--                        android:layout_width="154dp"-->
+    <!--                        android:layout_height="52dp"-->
+    <!--                        android:layout_alignLeft="@+id/notiim7"-->
+    <!--                        android:layout_marginLeft="164dp"-->
+    <!--                        android:fontFamily="@font/nixie_one"-->
+    <!--                        android:text="Order Now!"-->
+    <!--                        android:textAlignment="center"-->
+    <!--                        android:textSize="18dp"-->
+    <!--                        android:textStyle="bold" />-->
+
+    <!--                    <TextView-->
+    <!--                        android:id="@+id/notitxt777"-->
+    <!--                        android:layout_width="124dp"-->
+    <!--                        android:layout_height="40dp"-->
+    <!--                        android:layout_alignLeft="@id/notiim7"-->
+    <!--                        android:layout_alignBottom="@id/notitxt7"-->
+    <!--                        android:layout_centerInParent="true"-->
+    <!--                        android:layout_marginLeft="159dp"-->
+    <!--                        android:layout_marginBottom="-28dp"-->
+    <!--                        android:fontFamily="cursive"-->
+    <!--                        android:foregroundGravity="center_vertical|clip_horizontal"-->
+    <!--                        android:text="Save upto 40%"-->
+    <!--                        android:textColor="#4C4848" />-->
+
+    <!--                </RelativeLayout>-->
+    <!--            </com.google.android.material.card.MaterialCardView>-->
+
+
+    <!--            <com.google.android.material.card.MaterialCardView-->
+    <!--                android:id="@+id/notimc8"-->
+    <!--                android:layout_width="356dp"-->
+    <!--                android:layout_height="92dp"-->
+    <!--                android:layout_margin="5dp"-->
+    <!--                android:layout_marginBottom="50dp">-->
+
+    <!--                <RelativeLayout-->
+    <!--                    android:layout_width="match_parent"-->
+    <!--                    android:layout_height="match_parent"-->
+    <!--                    android:background="#00E4B823"-->
+    <!--                    android:padding="5dp">-->
+
+    <!--                    <ImageView-->
+    <!--                        android:id="@+id/notiim8"-->
+    <!--                        android:layout_width="153dp"-->
+    <!--                        android:layout_height="85dp"-->
+    <!--                        android:background="@drawable/login_signup" />-->
+
+    <!--                    <TextView-->
+    <!--                        android:id="@+id/notitxt8"-->
+    <!--                        android:layout_width="154dp"-->
+    <!--                        android:layout_height="52dp"-->
+    <!--                        android:layout_alignLeft="@+id/notiim8"-->
+    <!--                        android:layout_marginLeft="164dp"-->
+    <!--                        android:fontFamily="@font/nixie_one"-->
+    <!--                        android:text="Order Now!"-->
+    <!--                        android:textAlignment="center"-->
+    <!--                        android:textSize="17dp"-->
+    <!--                        android:textStyle="bold" />-->
+
+    <!--                    <TextView-->
+    <!--                        android:id="@+id/notitxt888"-->
+    <!--                        android:layout_width="124dp"-->
+    <!--                        android:layout_height="40dp"-->
+    <!--                        android:layout_alignLeft="@id/notiim8"-->
+    <!--                        android:layout_alignBottom="@id/notitxt8"-->
+    <!--                        android:layout_centerInParent="true"-->
+    <!--                        android:layout_marginLeft="166dp"-->
+    <!--                        android:layout_marginBottom="-25dp"-->
+    <!--                        android:fontFamily="cursive"-->
+    <!--                        android:foregroundGravity="center_vertical|clip_horizontal"-->
+    <!--                        android:gravity="center"-->
+    <!--                        android:text="The authenic taste of India"-->
+    <!--                        android:textColor="#4C4848" />-->
+    <!--                </RelativeLayout>-->
+    <!--            </com.google.android.material.card.MaterialCardView>-->
+
+
+    <!--        </LinearLayout>-->
+    <!--    </RelativeLayout>-->
+
+    <!--</ScrollView>-->
