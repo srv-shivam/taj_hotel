@@ -11,17 +11,22 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.example.tajhotel.MainActivity;
+import com.example.tajhotel.AvatarPractice;
 import com.example.tajhotel.R;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.firestore.model.DatabaseId;
+
+import org.jetbrains.annotations.NotNull;
 
 public class LoginWithEmailFragment extends Fragment {
     View view;
@@ -48,7 +53,7 @@ public class LoginWithEmailFragment extends Fragment {
 
         ProgressDialog progressDialog = new ProgressDialog(getContext());
         progressDialog.setTitle("Taking you to your Account");
-        progressDialog.setTitle("Please wait while we process");
+        progressDialog.setMessage("Please wait while we process");
 
         loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,6 +63,21 @@ public class LoginWithEmailFragment extends Fragment {
                     Toast.makeText(getContext(), "Fill it up", Toast.LENGTH_SHORT).show();
                 } else {
                     progressDialog.show();
+
+//                    db.collection("users").get()
+//                            .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+//                                @Override
+//                                public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+//
+//                                }
+//                            })
+//                            .addOnFailureListener(new OnFailureListener() {
+//                                @Override
+//                                public void onFailure(@NonNull @NotNull Exception e) {
+//                                }
+//                            });
+
+
                     db.collection("users")
                             .get()
                             .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -67,9 +87,13 @@ public class LoginWithEmailFragment extends Fragment {
                                         for (QueryDocumentSnapshot document : task.getResult()) {
                                             String email = document.getString("email");
                                             String pasword = document.getString("password");
-                                            String FName = document.getString("fame");
-                                            String LName = document.getString("name");
-                                            Log.d("TAG", document.getId() + " => " + document.getData());
+
+                                            if (email.isEmpty() || pasword.isEmpty()) {
+                                                Log.e("Email", "strings are null");
+                                            }
+//                                            String FName = document.getString("fame");
+//                                            String LName = document.getString("name");
+//                                            Log.d("TAG", document.getId() + " => " + document.getData());
 
 
                                             String usr_email = unametxt.getText().toString().trim();
@@ -77,11 +101,11 @@ public class LoginWithEmailFragment extends Fragment {
 
                                             if (email.equalsIgnoreCase(usr_email) && pasword.equalsIgnoreCase(usr_password)) {
                                                 verified = true;
-                                                Intent intent = new Intent(getContext(), MainActivity.class);
-                                                intent.putExtra("FName", FName);
-                                                intent.putExtra("LName", LName);
+                                                Intent intent = new Intent(getContext(), AvatarPractice.class);
+//                                                intent.putExtra("FName", FName);
+//                                                intent.putExtra("LName", LName);
                                                 startActivity(intent);
-                                                Toast.makeText(getContext(), "welcome " + FName + LName, Toast.LENGTH_SHORT).show();
+//                                                Toast.makeText(getContext(), "welcome " + FName + LName, Toast.LENGTH_SHORT).show();
                                                 progressDialog.dismiss();
 
                                             }
@@ -91,7 +115,12 @@ public class LoginWithEmailFragment extends Fragment {
                                         Log.w("Login", "Error getting documents.", task.getException());
                                     }
                                 }
-                            });
+                            }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull @NotNull Exception e) {
+                            Log.d("Email", e.getMessage());
+                        }
+                    });
 
 
                 }

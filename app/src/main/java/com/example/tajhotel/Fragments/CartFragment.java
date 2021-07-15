@@ -1,5 +1,6 @@
 package com.example.tajhotel.Fragments;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -18,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.tajhotel.Adapters.CartFoodItemsAdapter;
 import com.example.tajhotel.CustomClasses.Recipe_Model;
 import com.example.tajhotel.LocalDataBase.DataBaseHelper;
+import com.example.tajhotel.Offers;
 import com.example.tajhotel.R;
 
 import java.util.ArrayList;
@@ -34,7 +36,7 @@ public class CartFragment extends Fragment {
     ArrayList<Recipe_Model> foodList;
     GifImageView gifImageView;
     CardView changeCardView;
-    TextView mainPrice, tableNumber;
+    TextView mainPrice, tableNumber, cart_view_offers_txt_view;
     private int q, price;
     private RelativeLayout footer_payment_detail;
 
@@ -53,9 +55,19 @@ public class CartFragment extends Fragment {
         mainPrice = rootView.findViewById(R.id.cart_fragment_total_price);
         tableNumber = rootView.findViewById(R.id.table_number);
         footer_payment_detail = rootView.findViewById(R.id.footer_payment_detail);
+        cart_view_offers_txt_view = rootView.findViewById(R.id.cart_view_offers_txt_view);
         foodList = new ArrayList<>();
 
         tableNumber.setText(String.valueOf(table));
+
+        cart_view_offers_txt_view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), Offers.class);
+                startActivity(intent);
+            }
+        });
+
 
         displayFoodListFromDB();
 

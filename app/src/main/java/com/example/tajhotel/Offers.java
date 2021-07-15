@@ -21,12 +21,10 @@ public class Offers extends AppCompatActivity {
         ArrayList<SlideModel> slideModels = new ArrayList<>();
 
         slideModels.add(new SlideModel("https://images.template.net/wp-content/uploads/2017/01/18032640/Burgers-Offer-Food-Menu-Flyer.jpg"));
-        slideModels.add(new SlideModel("https://images.template.net/wp-content/uploads/2017/01/18032640/Burgers-Offer-Food-Menu-Flyer.jpg"));
-        slideModels.add(new SlideModel("https://images.template.net/wp-content/uploads/2017/01/18032640/Burgers-Offer-Food-Menu-Flyer.jpg"));
-        slideModels.add(new SlideModel("https://images.template.net/wp-content/uploads/2017/01/18032640/Burgers-Offer-Food-Menu-Flyer.jpg"));
-        slideModels.add(new SlideModel("https://images.template.net/wp-content/uploads/2017/01/18032640/Burgers-Offer-Food-Menu-Flyer.jpg"));
-        slideModels.add(new SlideModel("https://images.template.net/wp-content/uploads/2017/01/18032640/Burgers-Offer-Food-Menu-Flyer.jpg"));
-        imageSlider.setImageList(slideModels, false);
+        slideModels.add(new SlideModel("https://i.ibb.co/rfHhPXT/exotic.png"));
+        slideModels.add(new SlideModel("https://i.ibb.co/0r22Tcj/Tasty.png"));
+        slideModels.add(new SlideModel("https://i.ibb.co/LN1LzHL/italian.png"));
+        imageSlider.setImageList(slideModels, true);
 
     }
 }

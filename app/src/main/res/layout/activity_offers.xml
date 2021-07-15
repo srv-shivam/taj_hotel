@@ -1,48 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Offers"
+    android:background="@color/grey"
     android:orientation="vertical"
-    android:background="@color/grey">
+    tools:context=".Offers">
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:text="Offers"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="@font/mclaren"
         android:gravity="center"
-        android:layout_margin="20dp"
-        android:textSize="30sp"
+        android:text="Offers"
         android:textColor="@color/yellow"
-        android:fontFamily="@font/mclaren"/>
+        android:textSize="30sp" />
+
 
     <com.denzcoskun.imageslider.ImageSlider
         android:id="@+id/offers_banners"
         android:layout_width="match_parent"
-        android:layout_height="450dp"
-        android:layout_margin="20dp"
+        android:layout_height="360dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="140dp"
+        android:layout_marginEnd="20dp"
         android:animateLayoutChanges="true"
         android:elevation="50dp"
-        android:outlineAmbientShadowColor="@color/white"
         app:auto_cycle="true"
-        android:layout_gravity="center"
         app:corner_radius="30"
         app:delay="10"
         app:error_image="@drawable/background_grey_img"
         app:period="1000"
         app:placeholder="@drawable/home_card_image1" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Let's Grab The Deals"
-        android:layout_margin="20dp"
-        android:textSize="26sp"
-        android:gravity="center"
-        android:padding="10dp"
-        android:textColor="@color/yellow"
-        android:fontFamily="@font/mclaren"/>
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="wrap_content"
+        android:layout_height="250dp"
+        android:layout_marginBottom="30dp"
+        android:layout_alignParentBottom="true"
+        android:scaleType="fitCenter"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="offer_anim.json"
+        app:lottie_loop="true" />
 
-</LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/mclaren"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="30dp"
+        android:layout_alignParentBottom="true"
+        android:padding="10dp"
+        android:text="Let's Grab The Deals"
+        android:textColor="@color/yellow"
+        android:textSize="26sp" />
+
+
+</RelativeLayout>

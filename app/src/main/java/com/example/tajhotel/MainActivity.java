@@ -53,6 +53,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(MainActivity.this);
 
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.container, new HomeFragment())
+                .commit();
+
+
         addItemsToBottomNavigation();
 
         selectFragment();

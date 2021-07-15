@@ -50,6 +50,14 @@ public class AvatarPractice extends AppCompatActivity {
 
         btn.setEnabled(false);
 
+        if (btn.isEnabled() == true) {
+            Intent intent = new Intent(AvatarPractice.this, MainActivity.class);
+            startActivity(intent);
+            finish();
+        }
+
+
+
         adapter = new AvatarProfileAdapter(AvatarPractice.this, arrayList, btn);
         profileRecyclerView.setHasFixedSize(true);
         adapter.notifyDataSetChanged();
@@ -69,11 +77,11 @@ public class AvatarPractice extends AppCompatActivity {
         });
     }
 
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        Intent intent = new Intent(AvatarPractice.this, MainActivity.class);
-        startActivity(intent);
-        finish();
-    }
+//    @Override
+//    public void onBackPressed() {
+//        super.onBackPressed();
+//        Intent intent = new Intent(AvatarPractice.this, MainActivity.class);
+//        startActivity(intent);
+//        finish();
+//    }
 }
