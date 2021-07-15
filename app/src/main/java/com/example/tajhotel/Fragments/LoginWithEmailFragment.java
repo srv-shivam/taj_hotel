@@ -58,16 +58,16 @@ public class LoginWithEmailFragment extends Fragment {
         loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                progressDialog.show();
 
                 if (unametxt.getText().toString().isEmpty() || passwdtxt.getText().toString().isEmpty()) {
                     Toast.makeText(getContext(), "Fill it up", Toast.LENGTH_SHORT).show();
                 } else {
+                    progressDialog.show();
                     db.collection("users")
                             .get()
                             .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                                 @Override
-                                public void onComplete(@NonNull @NotNull Task<QuerySnapshot> task) {
+                                public void onComplete(Task<QuerySnapshot> task) {
                                     if (task.isSuccessful()) {
                                         for (QueryDocumentSnapshot document : task.getResult()) {
                                             String email = document.getString("email");
@@ -80,8 +80,8 @@ public class LoginWithEmailFragment extends Fragment {
                                             String usr_email = unametxt.getText().toString().trim();
                                             String usr_password = passwdtxt.getText().toString().trim();
 
-                                            if (email.equalsIgnoreCase(usr_email) & pasword.equalsIgnoreCase(usr_password)) {
-                                                boolean verified = true;
+                                            if (email.equalsIgnoreCase(usr_email) && pasword.equalsIgnoreCase(usr_password)) {
+                                                verified = true;
                                                 Intent intent = new Intent(getContext(), MainActivity.class);
                                                 intent.putExtra("FName", FName);
                                                 intent.putExtra("LName", LName);

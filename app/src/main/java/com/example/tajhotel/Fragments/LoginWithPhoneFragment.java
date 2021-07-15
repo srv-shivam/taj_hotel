@@ -61,7 +61,7 @@ public class LoginWithPhoneFragment extends Fragment {
             }
         });
 
-        FirebaseAuth.getInstance();
+        mAuth = FirebaseAuth.getInstance();
         ph_loginbtn.setEnabled(false);
 
         ph_num.addTextChangedListener(new TextWatcher() {
