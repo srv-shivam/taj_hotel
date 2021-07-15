@@ -34,7 +34,7 @@ public class HomeFragment extends Fragment {
     private RecyclerView recyclerView;
     private ImageSlider imageSlider, imageSliderBottom;
     private RecyclerView recyclerViewFoodList;
-    private TextView topPicks, customerReviews;
+    private TextView topPicks, customerReviews,welcome_text;
     private Recipe_Adapter recipe_adapter;
     private int RECYCLER_VISIBILITY0 = 0, RECYCLER_VISIBILITY1 = 0, RECYCLER_VISIBILITY2 = 0, RECYCLER_VISIBILITY3 = 0;
     private Animation slideLEFT;
@@ -48,6 +48,7 @@ public class HomeFragment extends Fragment {
         recyclerView = rootView.findViewById(R.id.categories_recycler_view);
         recyclerViewFoodList = rootView.findViewById(R.id.food_item_display_recycler_view);
         topPicks = rootView.findViewById(R.id.top_picks);
+        welcome_text = rootView.findViewById(R.id.welcome_text);
         customerReviews = rootView.findViewById(R.id.customer_reviews);
 
         /** Initialization of Local database **/

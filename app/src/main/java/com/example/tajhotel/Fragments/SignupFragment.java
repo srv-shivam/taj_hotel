@@ -1,66 +1,145 @@
 package com.example.tajhotel.Fragments;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.example.tajhotel.CustomClasses.usr_data;
 import com.example.tajhotel.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link SignupFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class SignupFragment extends Fragment {
+    EditText fnametxt, lnametxt, emailtxt, passwdtxt, cpasswdtxt, codtxt, mobtxt;
+    TextView loginbtn;
+    boolean allFieldChecked = false;
+    CheckBox term;
+    RadioGroup genderradiogrop;
+    RadioButton rb;
+    Button signupbtn;
+    ProgressBar progressDialog;
+    FirebaseFirestore db;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public SignupFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment SignupFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static SignupFragment newInstance(String param1, String param2) {
-        SignupFragment fragment = new SignupFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
+    View view;
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        view=inflater.inflate(R.layout.fragment_signup, container, false);
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_signup, container, false);
+        fnametxt = view.findViewById(R.id.fnametxt);
+        lnametxt = view.findViewById(R.id.lnametxt);
+        mobtxt = view.findViewById(R.id.mobtxt);
+        codtxt = view.findViewById(R.id.codetxt);
+        emailtxt = view.findViewById(R.id.emailtxt);
+        passwdtxt = view.findViewById(R.id.passwdtxt);
+        cpasswdtxt = view.findViewById(R.id.cpasswdtxt);
+        genderradiogrop = view.findViewById(R.id.genderradiogrp);
+        term = view.findViewById(R.id.term_condition);
+        signupbtn = view.findViewById(R.id.signupbtn);
+        loginbtn = view.findViewById(R.id.loginbtn);
+
+        db = FirebaseFirestore.getInstance();
+        ProgressDialog progressDialog = new ProgressDialog(getContext());
+        progressDialog.setTitle("Creating Account");
+        progressDialog.setMessage("Please wait while we process");
+
+
+
+        genderradiogrop.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                rb = (RadioButton) view.findViewById(checkedId);
+            }
+        });
+        loginbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction fragmentTransaction= getFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.lsFragment,new LoginWithEmailFragment());
+                fragmentTransaction.commit();
+            }
+        });
+        signupbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                progressDialog.show();
+                allFieldChecked = checkAllFields();
+                if (allFieldChecked) {
+                    usr_data ud = new usr_data(
+                            fnametxt.getText().toString(),
+                            lnametxt.getText().toString(),
+                            emailtxt.getText().toString(),
+                            passwdtxt.getText().toString(),
+                            codtxt.getText().toString(),
+                            mobtxt.getText().toString(),
+                            rb.getText().toString());
+
+                    db.collection("users")
+                            .add(ud)
+                            .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                @Override
+                                public void onSuccess(DocumentReference documentReference) {
+                                    FragmentTransaction fragmentTransaction= getFragmentManager().beginTransaction();
+
+                                    fragmentTransaction.replace(R.id.lsFragment,new LoginWithEmailFragment());
+                                    fragmentTransaction.commit();
+                                    progressDialog.dismiss();
+
+                                }
+                            }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(getContext(), "Unsucessfull" + e.getMessage(), Toast.LENGTH_SHORT).show();
+
+                        }
+                    });
+
+                }
+            }
+
+            private boolean checkAllFields() {
+                if (fnametxt.length() == 0) {
+                    fnametxt.setError("This Field is required");
+                    return false;
+                } else if (lnametxt.length() == 0) {
+                    lnametxt.setError("This Field is required");
+                    return false;
+                } else if (emailtxt.length() == 0) {
+                    emailtxt.setError("This Field is required");
+                    return false;
+                } else if (mobtxt.length() == 0) {
+                    mobtxt.setError("This Field is required");
+                    return false;
+                } else if (passwdtxt.length() == 0) {
+                    fnametxt.setError("This Field is required");
+                    return false;
+                } else if (cpasswdtxt.length() == 0) {
+                    cpasswdtxt.setError("This Field is required");
+                    return false;
+                } else if (!term.isChecked()) {
+                    term.setError("This Field is required");
+                    return false;
+                }
+
+                return true;
+            }
+        });
+
+        return view;
     }
 }

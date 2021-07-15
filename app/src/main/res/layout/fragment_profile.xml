@@ -368,6 +368,7 @@
         </androidx.cardview.widget.CardView>
 
         <TextView
+            android:id="@+id/sign_out"
             android:layout_width="190dp"
             android:layout_height="40dp"
             android:layout_below="@id/help_center"
