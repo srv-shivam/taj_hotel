@@ -71,13 +71,16 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <EditText
+            <TextView
                 android:id="@+id/codetxt"
                 android:layout_width="70dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:backgroundTint="@color/yellow"
                 android:drawableLeft="@drawable/ic_baseline_phone_24"
                 android:hint="+91"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:textStyle="bold"
                 android:inputType="number"
                 android:textColor="@color/white"
                 android:textColorHint="@color/etxttint"

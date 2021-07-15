@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import com.example.tajhotel.R;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
@@ -14,6 +15,7 @@ import java.util.Random;
 public class CartBottomSheetFragment extends BottomSheetDialogFragment {
 
     TextView totalItems, price, deliveryCharges, totalPrice, userName, mobileNumber;
+    Button payNowButton;
     private int[] charges;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -29,6 +31,8 @@ public class CartBottomSheetFragment extends BottomSheetDialogFragment {
         totalPrice = rootView.findViewById(R.id.total_price_bottom_sheet);
         userName = rootView.findViewById(R.id.user_name_bottom_sheet);
         mobileNumber = rootView.findViewById(R.id.user_mobile_number_bottom_sheet);
+        payNowButton = rootView.findViewById(R.id.pay_now_bottom_sheet_btn);
+
 
         Bundle bundle = this.getArguments();
         int q = bundle.getInt("Total Items");

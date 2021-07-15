@@ -41,6 +41,9 @@ public class CartFragment extends Fragment {
 
         View rootView = inflater.inflate(R.layout.fragment_cart, container, false);
 
+        int table = (int) (Math.random() * (50 - 1) + 1);
+
+
         payNowButton = rootView.findViewById(R.id.cart_pay_now_btn);
         recyclerView = rootView.findViewById(R.id.cart_food_list);
         gifImageView = rootView.findViewById(R.id.gif_animation);
@@ -48,6 +51,8 @@ public class CartFragment extends Fragment {
         mainPrice = rootView.findViewById(R.id.cart_fragment_total_price);
         tableNumber = rootView.findViewById(R.id.table_number);
         foodList = new ArrayList<>();
+
+        tableNumber.setText(String.valueOf(table));
 
         displayFoodListFromDB();
 

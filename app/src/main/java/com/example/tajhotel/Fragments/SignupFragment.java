@@ -26,8 +26,8 @@ import com.example.tajhotel.CustomClasses.usr_data;
 import com.example.tajhotel.R;
 
 public class SignupFragment extends Fragment {
-    EditText fnametxt, lnametxt, emailtxt, passwdtxt, cpasswdtxt, codtxt, mobtxt;
-    TextView loginbtn;
+    EditText fnametxt, lnametxt, emailtxt, passwdtxt, cpasswdtxt, mobtxt;
+    TextView loginbtn, codtxt;
     boolean allFieldChecked = false;
     CheckBox term;
     RadioGroup genderradiogrop;

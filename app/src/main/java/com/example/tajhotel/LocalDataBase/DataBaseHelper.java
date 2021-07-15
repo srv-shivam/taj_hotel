@@ -58,4 +58,9 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
+    public void dropTable() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("drop table if exists CartFoods");
+    }
+
 }
