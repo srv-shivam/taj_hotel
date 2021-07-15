@@ -31,7 +31,7 @@ public class LoginWithPhoneFragment extends Fragment {
     TextView login_using_email, signup_btn;
     EditText ph_num, ph_country_code;
     Button ph_loginbtn;
-     FirebaseAuth mAuth;
+    FirebaseAuth mAuth;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

@@ -195,6 +195,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 Toast.makeText(this, "Offers Navigation Clicked", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.notifications:
+                Intent intent = new Intent(MainActivity.this, Notifications.class);
+                startActivity(intent);
                 Toast.makeText(this, "Notifications Navigation Clicked", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.log_out:

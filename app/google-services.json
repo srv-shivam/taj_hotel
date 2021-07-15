@@ -1,41 +1,33 @@
 {
   "project_info": {
-    "project_number": "630869154537",
-    "project_id": "taj-hotel-group",
-    "storage_bucket": "taj-hotel-group.appspot.com"
+    "project_number": "1034715935340",
+    "project_id": "taj-hotel-f2327",
+    "storage_bucket": "taj-hotel-f2327.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:630869154537:android:89219145e9045f12efee78",
+        "mobilesdk_app_id": "1:1034715935340:android:c12683041016532b7d1e49",
         "android_client_info": {
           "package_name": "com.example.tajhotel"
         }
       },
       "oauth_client": [
         {
-          "client_id": "630869154537-3ruk0dpkdgj1he9cqkos8ftibr4t3ua5.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.tajhotel",
-            "certificate_hash": "b0a389086652917231309a662eb10c8d9d9fade7"
-          }
-        },
-        {
-          "client_id": "630869154537-4gt1n22nu5j2lq003e4cc9snh7v3vb6q.apps.googleusercontent.com",
+          "client_id": "1034715935340-lnp3fvijijf77stvhju1p6f1d3a7u0bk.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCqlEnjpXdWkdVf9WVCQZarMFMZb_iBT-s"
+          "current_key": "AIzaSyAEDtfaZYA6hxb8pa62ODHEyavn7_z44r8"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "630869154537-4gt1n22nu5j2lq003e4cc9snh7v3vb6q.apps.googleusercontent.com",
+              "client_id": "1034715935340-lnp3fvijijf77stvhju1p6f1d3a7u0bk.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
