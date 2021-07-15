@@ -16,55 +16,55 @@ public class usr_data {
         return Fname;
     }
 
-    public void setFname(String Fname) {
-        this.Fname = Fname;
+    public void setFname(String fname) {
+        Fname = fname;
     }
 
     public String getLname() {
         return Lname;
     }
 
-    public void setLname(String Lname) {
-        this.Lname = Lname;
+    public void setLname(String lname) {
+        Lname = lname;
     }
 
     public String getEmail() {
         return Email;
     }
 
-    public void setEmail(String Email) {
-        this.Email = Email;
+    public void setEmail(String email) {
+        Email = email;
     }
 
     public String getPassword() {
         return Password;
     }
 
-    public void setPassword(String Password) {
-        this.Password = Password;
+    public void setPassword(String password) {
+        Password = password;
     }
 
     public String getCountry_code() {
         return Country_code;
     }
 
-    public void setCountry_code(String Country_code) {
-        this.Country_code = Country_code;
+    public void setCountry_code(String country_code) {
+        Country_code = country_code;
     }
 
     public String getPhnum() {
         return Phnum;
     }
 
-    public void setPhnum(String Phnum) {
-        this.Phnum = Phnum;
+    public void setPhnum(String phnum) {
+        Phnum = phnum;
     }
 
     public String getGander() {
         return Gander;
     }
 
-    public void setGander(String Gander) {
-        this.Gander = Gander;
+    public void setGander(String gander) {
+        Gander = gander;
     }
 }

@@ -22,7 +22,7 @@ public class LoginSignup extends AppCompatActivity {
         fragmentTransaction.replace(R.id.lsFragment,new LoginWithPhoneFragment());
         fragmentTransaction.commit();
 
-        getSupportActionBar().hide();
+        /*getSupportActionBar().hide();*/
 
         loginbtn_frag=findViewById(R.id.loginbtn_frag);
         signupbtn_frag=findViewById(R.id.signupbtn_frag);

@@ -1,66 +1,121 @@
 package com.example.tajhotel.Fragments;
 
+import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
+import android.provider.ContactsContract;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+
+import com.example.tajhotel.MainActivity;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.firestore.model.DatabaseId;
 import com.example.tajhotel.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link LoginWithEmailFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import org.jetbrains.annotations.NotNull;
+
 public class LoginWithEmailFragment extends Fragment {
+    View view;
+    EditText unametxt,passwdtxt;
+    TextView signupbtn;
+    Button loginbtn;
+    boolean verified=false;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public LoginWithEmailFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment LoginWithEmailFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static LoginWithEmailFragment newInstance(String param1, String param2) {
-        LoginWithEmailFragment fragment = new LoginWithEmailFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
+    FirebaseFirestore db;
+    DatabaseId databaseId;
+    ProgressBar progressDialog;
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        view = inflater.inflate(R.layout.fragment_login_with_email, container, false);
+        unametxt=view.findViewById(R.id.unametxt);
+        passwdtxt=view.findViewById(R.id.passwdtxt);
+        loginbtn=view.findViewById(R.id.loginbtn);
+
+
+        signupbtn=view.findViewById(R.id.signupbtn);
+        db = FirebaseFirestore.getInstance();
+
+        ProgressDialog progressDialog = new ProgressDialog(getContext());
+        progressDialog.setTitle("Taking you to your Account");
+        progressDialog.setTitle("Please wait while we process");
+
+        loginbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                progressDialog.show();
+
+                if(unametxt.getText().toString().isEmpty()||passwdtxt.getText().toString().isEmpty()){
+                    Toast.makeText(getContext(), "Fill it up", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    db.collection("users")
+                            .get()
+                            .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                                @Override
+                                public void onComplete(@NonNull @NotNull Task<QuerySnapshot> task) {
+                                    if(task.isSuccessful()) {
+                                        for (QueryDocumentSnapshot document : task.getResult())
+                                        {
+                                            String email= document.getString("email");
+                                            String pasword= document.getString("password");
+                                            String FName= document.getString("fame");
+                                            String LName= document.getString("name");
+                                            Log.d("TAG", document.getId() + " => " + document.getData());
+
+
+                                            String usr_email=unametxt.getText().toString().trim();
+                                            String usr_password=passwdtxt.getText().toString().trim();
+
+                                            if(email.equalsIgnoreCase(usr_email) & pasword.equalsIgnoreCase(usr_password)) {
+                                                boolean verified=true;
+                                                Intent intent= new Intent(getContext(), MainActivity.class);
+                                                intent.putExtra("FName",FName);
+                                                intent.putExtra("LName",LName);
+                                                startActivity(intent);
+                                                Toast.makeText(getContext(), "welcome "+FName +LName, Toast.LENGTH_SHORT).show();
+                                                progressDialog.dismiss();
+
+                                            }
+                                        }
+
+                                    }
+                                    else {
+                                        Log.w("Login", "Error getting documents.", task.getException());
+                                    }
+                                }
+                            });
+
+
+                }
+
+            }
+        });
+        signupbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction fragmentTransaction= getFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.lsFragment,new com.example.tajhotel.Fragments.SignupFragment());
+                fragmentTransaction.commit();
+            }
+        });
+        return view;
+
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_login_with_email, container, false);
-    }
 }
