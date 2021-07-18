@@ -163,9 +163,13 @@ public class LoginWithEmailFragment extends Fragment {
         signupbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.lsFragment, new com.example.tajhotel.Fragments.SignupFragment());
-                fragmentTransaction.commit();
+                getParentFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.lsFragment, new SignupFragment())
+                        .commit();
+//                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+//                fragmentTransaction.replace(R.id.lsFragment, new com.example.tajhotel.Fragments.SignupFragment());
+//                fragmentTransaction.commit();
             }
         });
         return view;

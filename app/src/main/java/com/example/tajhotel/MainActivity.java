@@ -1,11 +1,14 @@
 package com.example.tajhotel;
 
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.Toast;
+import android.widget.ProgressBar;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -55,7 +58,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.container, new HomeFragment())
+                .add(R.id.container, new HomeFragment())
                 .commit();
 
 
@@ -91,8 +94,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, AvatarPractice.class);
+                intent.putExtra("Msg", "Hello");
                 startActivity(intent);
-                MainActivity.this.finish();
             }
         });
     }
@@ -206,6 +209,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(intent);
                 break;
             case R.id.log_out:
+
+                userLogout();
+
                 break;
             case R.id.exit:
                 finish();
@@ -214,5 +220,28 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         drawerLayout.closeDrawer(GravityCompat.START);
         return false;
+    }
+
+    private void userLogout() {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        builder.setCancelable(false);
+        builder.setMessage("Do You Really want to log out?");
+
+        builder.setPositiveButton("Log Out", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                    startActivity(new Intent(MainActivity.this, LoginSignup.class));
+                    finish();
+            }
+        })
+                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+        builder.create();
+        builder.setTitle("Are You Sure").show();
     }
 }

@@ -77,11 +77,18 @@ public class AvatarPractice extends AppCompatActivity {
         });
     }
 
-//    @Override
-//    public void onBackPressed() {
-//        super.onBackPressed();
-//        Intent intent = new Intent(AvatarPractice.this, MainActivity.class);
-//        startActivity(intent);
-//        finish();
-//    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+        Intent i = getIntent();
+        String str = i.getStringExtra("Msg");
+
+        if (str.equalsIgnoreCase("Msg")) {
+            Intent intent = new Intent(AvatarPractice.this, MainActivity.class);
+            startActivity(intent);
+            finish();
+        }
+    }
 }

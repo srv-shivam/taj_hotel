@@ -17,6 +17,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import com.example.tajhotel.AvatarPractice;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -89,8 +90,8 @@ public class VerificationOtpFragment extends Fragment {
                         }).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                             @Override
                             public void onSuccess(AuthResult authResult) {
-                                Intent intent = new Intent(getActivity(), MainActivity.class);
-                                intent.setFlags(intent.FLAG_ACTIVITY_NEW_TASK | intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                Intent intent = new Intent(getActivity(), AvatarPractice.class);
+                                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                 startActivity(intent);
                             }
                         }).addOnFailureListener(new OnFailureListener() {
@@ -102,7 +103,7 @@ public class VerificationOtpFragment extends Fragment {
                         });
                     }
                 } else {
-                    Toast.makeText(getContext(), "Please fill valid Otp", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Please fill valid OTP", Toast.LENGTH_SHORT).show();
                 }
             }
         });
