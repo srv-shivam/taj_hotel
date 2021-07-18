@@ -102,7 +102,7 @@
         </FrameLayout>
 
         <EditText
-            android:id="@+id/passwdtxt"
+            android:id="@+id/passtxt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/yellow"

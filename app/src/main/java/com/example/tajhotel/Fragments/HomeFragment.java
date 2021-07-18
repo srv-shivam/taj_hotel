@@ -92,7 +92,16 @@ public class HomeFragment extends Fragment {
         slideModels.add(new SlideModel("https://images.creativemarket.com/0.1.0/ps/3379855/910/647/m2/fpnw/wm1/q8mbhyffbveq5rn80tfc6z1glvbvwspe2ztxajpe3pkhgvitci56eo9qjscpvj7s-.jpg?1507495664&s=9f9420263f473c06dffd55135d685013", "Explore More, Eat More"));
         slideModels.add(new SlideModel("https://shilpaahuja.com/wp-content/uploads/2017/08/best-vegetarian-food-chennai-india-tamil-nadu-indian-tasty.jpg", "Authentic foods for your loved ones"));
         imageSlider.setImageList(slideModels, true);
-        imageSliderBottom.setImageList(slideModels, true);
+
+        ArrayList<SlideModel> models = new ArrayList<>();
+
+        models.add(new SlideModel("https://i.ibb.co/T8mY2q4/review.png"));
+        models.add(new SlideModel("https://i.ibb.co/T8mY2q4/review.png"));
+        models.add(new SlideModel("https://i.ibb.co/T8mY2q4/review.png"));
+        models.add(new SlideModel("https://i.ibb.co/T8mY2q4/review.png"));
+        models.add(new SlideModel("https://i.ibb.co/T8mY2q4/review.png"));
+        models.add(new SlideModel("https://i.ibb.co/T8mY2q4/review.png"));
+        imageSliderBottom.setImageList(models, true);
 
 
         return rootView;

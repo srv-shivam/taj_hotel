@@ -21,6 +21,7 @@ import com.example.tajhotel.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -34,10 +35,11 @@ public class LoginWithEmailFragment extends Fragment {
     TextView signupbtn;
     Button loginbtn;
     boolean verified = false;
-
+    FirebaseAuth firebaseAuth;
     FirebaseFirestore db;
     DatabaseId databaseId;
     ProgressDialog progressDialog;
+    private String userID;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -46,10 +48,13 @@ public class LoginWithEmailFragment extends Fragment {
         unametxt = view.findViewById(R.id.unametxt);
         passwdtxt = view.findViewById(R.id.passwdtxt);
         loginbtn = view.findViewById(R.id.loginbtn);
-
-
         signupbtn = view.findViewById(R.id.signupbtn);
+
+        firebaseAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
+
+        /**** Getting User ID ****/
+        userID = firebaseAuth.getCurrentUser().getUid();
 
         ProgressDialog progressDialog = new ProgressDialog(getContext());
         progressDialog.setTitle("Taking you to your Account");
@@ -60,8 +65,10 @@ public class LoginWithEmailFragment extends Fragment {
             public void onClick(View v) {
 
                 if (unametxt.getText().toString().isEmpty() || passwdtxt.getText().toString().isEmpty()) {
-                    Toast.makeText(getContext(), "Fill it up", Toast.LENGTH_SHORT).show();
-                } else {
+
+                    Toast.makeText(getContext(), "Incomplete Details", Toast.LENGTH_SHORT).show();
+                }
+                else {
                     progressDialog.show();
 
 //                    db.collection("users").get()
@@ -77,10 +84,34 @@ public class LoginWithEmailFragment extends Fragment {
 //                                }
 //                            });
 
+//                    DocumentReference documentReference = db.collection("users").document(userID);
+//
+//                    documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+//                        @Override
+//                        public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+//                            String userEmail = value.get("email").toString();
+//                            String userPassword = value.get("password").toString();
+//
+//                            String enteredEmail = unametxt.getText().toString().trim();
+//                            String enteredPass = passwdtxt.getText().toString().trim();
+//
+//                            if (userEmail.equalsIgnoreCase(enteredEmail) && userPassword.equalsIgnoreCase(enteredPass)) {
+//                                verified = true;
+//                                Intent intent = new Intent(getContext(), AvatarPractice.class);
+//                                startActivity(intent);
+//                                progressDialog.dismiss();
+//                            }
+//                            else {
+//                                Toast.makeText(getContext(), "Wrong Details Entered", Toast.LENGTH_SHORT).show();
+//                            }
+//
+//                        }
+//                    });
+
 
                     db.collection("users")
                             .get()
-                            .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                            .addOnCompleteListener(getActivity(), new OnCompleteListener<QuerySnapshot>() {
                                 @Override
                                 public void onComplete(Task<QuerySnapshot> task) {
                                     if (task.isSuccessful()) {
@@ -91,9 +122,9 @@ public class LoginWithEmailFragment extends Fragment {
                                             if (email.isEmpty() || pasword.isEmpty()) {
                                                 Log.e("Email", "strings are null");
                                             }
-//                                            String FName = document.getString("fame");
-//                                            String LName = document.getString("name");
-//                                            Log.d("TAG", document.getId() + " => " + document.getData());
+                                            String FName = document.getString("fame");
+                                            String LName = document.getString("name");
+                                            Log.d("TAG", document.getId() + " => " + document.getData());
 
 
                                             String usr_email = unametxt.getText().toString().trim();
@@ -102,8 +133,8 @@ public class LoginWithEmailFragment extends Fragment {
                                             if (email.equalsIgnoreCase(usr_email) && pasword.equalsIgnoreCase(usr_password)) {
                                                 verified = true;
                                                 Intent intent = new Intent(getContext(), AvatarPractice.class);
-//                                                intent.putExtra("FName", FName);
-//                                                intent.putExtra("LName", LName);
+                                                intent.putExtra("FName", FName);
+                                                intent.putExtra("LName", LName);
                                                 startActivity(intent);
 //                                                Toast.makeText(getContext(), "welcome " + FName + LName, Toast.LENGTH_SHORT).show();
                                                 progressDialog.dismiss();
@@ -112,6 +143,7 @@ public class LoginWithEmailFragment extends Fragment {
                                         }
 
                                     } else {
+                                        Toast.makeText(getContext(), "Wrong Details", Toast.LENGTH_SHORT).show();
                                         Log.w("Login", "Error getting documents.", task.getException());
                                     }
                                 }
@@ -127,6 +159,7 @@ public class LoginWithEmailFragment extends Fragment {
 
             }
         });
+
         signupbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

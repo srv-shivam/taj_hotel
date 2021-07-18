@@ -33,7 +33,7 @@ public class SignupFragment extends Fragment {
     RadioGroup genderradiogrop;
     RadioButton rb;
     Button signupbtn;
-    ProgressBar progressDialog;
+    ProgressDialog progressDialog;
     FirebaseFirestore db;
 
     View view;
@@ -46,7 +46,7 @@ public class SignupFragment extends Fragment {
         mobtxt = view.findViewById(R.id.mobtxt);
         codtxt = view.findViewById(R.id.codetxt);
         emailtxt = view.findViewById(R.id.emailtxt);
-        passwdtxt = view.findViewById(R.id.passwdtxt);
+        passwdtxt = view.findViewById(R.id.passtxt);
         cpasswdtxt = view.findViewById(R.id.cpasswdtxt);
         genderradiogrop = view.findViewById(R.id.genderradiogrp);
         term = view.findViewById(R.id.term_condition);
@@ -54,7 +54,7 @@ public class SignupFragment extends Fragment {
         loginbtn = view.findViewById(R.id.loginbtn);
 
         db = FirebaseFirestore.getInstance();
-        ProgressDialog progressDialog = new ProgressDialog(getContext());
+        progressDialog = new ProgressDialog(getContext());
         progressDialog.setTitle("Creating Account");
         progressDialog.setMessage("Please wait while we process");
 
@@ -77,9 +77,11 @@ public class SignupFragment extends Fragment {
         signupbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                progressDialog.show();
+
                 allFieldChecked = checkAllFields();
+
                 if (allFieldChecked) {
+                    progressDialog.show();
                     usr_data ud = new usr_data(
                             fnametxt.getText().toString(),
                             lnametxt.getText().toString(),
@@ -104,7 +106,7 @@ public class SignupFragment extends Fragment {
                             }).addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(getContext(), "Unsucessfull" + e.getMessage(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getContext(), "Unsuccessful" + e.getMessage(), Toast.LENGTH_SHORT).show();
 
                         }
                     });
