@@ -35,11 +35,7 @@ public class LoginWithEmailFragment extends Fragment {
     TextView signupbtn;
     Button loginbtn;
     boolean verified = false;
-    FirebaseAuth firebaseAuth;
     FirebaseFirestore db;
-    DatabaseId databaseId;
-    ProgressDialog progressDialog;
-    private String userID;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -50,11 +46,8 @@ public class LoginWithEmailFragment extends Fragment {
         loginbtn = view.findViewById(R.id.loginbtn);
         signupbtn = view.findViewById(R.id.signupbtn);
 
-        firebaseAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
 
-        /**** Getting User ID ****/
-        userID = firebaseAuth.getCurrentUser().getUid();
 
         ProgressDialog progressDialog = new ProgressDialog(getContext());
         progressDialog.setTitle("Taking you to your Account");
@@ -70,19 +63,6 @@ public class LoginWithEmailFragment extends Fragment {
                 }
                 else {
                     progressDialog.show();
-
-//                    db.collection("users").get()
-//                            .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-//                                @Override
-//                                public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-//
-//                                }
-//                            })
-//                            .addOnFailureListener(new OnFailureListener() {
-//                                @Override
-//                                public void onFailure(@NonNull @NotNull Exception e) {
-//                                }
-//                            });
 
 //                    DocumentReference documentReference = db.collection("users").document(userID);
 //
@@ -167,9 +147,6 @@ public class LoginWithEmailFragment extends Fragment {
                         .beginTransaction()
                         .replace(R.id.lsFragment, new SignupFragment())
                         .commit();
-//                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-//                fragmentTransaction.replace(R.id.lsFragment, new com.example.tajhotel.Fragments.SignupFragment());
-//                fragmentTransaction.commit();
             }
         });
         return view;
