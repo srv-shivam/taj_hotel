@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -56,9 +57,27 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(MainActivity.this);
 
+        HomeFragment homeFragment =  new HomeFragment();
+
+//        Bundle bundle = new Bundle();
+//        bundle.putStringArray("User Name", userName);
+//        new HomeFragment().setArguments(bundle);
+
+        /**************** Getting User name from Login Fragment ****************/
+        Intent intent = getIntent();
+        String fName = intent.getStringExtra("FName");
+        String lName = intent.getStringExtra("LName");
+
+        Bundle bundle = new Bundle();
+        bundle.putString("FirstName", fName);
+        bundle.putString("LastName", lName);
+        homeFragment.setArguments(bundle);
+
+        Toast.makeText(this, fName, Toast.LENGTH_SHORT).show();
+
         getSupportFragmentManager()
                 .beginTransaction()
-                .add(R.id.container, new HomeFragment())
+                .add(R.id.container, homeFragment)
                 .commit();
 
 

@@ -4,7 +4,6 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,9 +18,12 @@ import androidx.fragment.app.Fragment;
 import com.example.tajhotel.MainActivity;
 import com.example.tajhotel.R;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+
+import org.jetbrains.annotations.NotNull;
 
 public class LoginWithEmailFragment extends Fragment {
     View view;
@@ -65,29 +67,33 @@ public class LoginWithEmailFragment extends Fragment {
                                         DocumentSnapshot doc = task.getResult();
                                         String email = doc.getString("email");
                                         String password = doc.getString("password");
-                                        String FName = doc.getString("Fame");
-                                        String LName = doc.getString("Name");
+                                        String FName = doc.getString("fname");
+                                        String LName = doc.getString("lname");
 
                                         if (email.equalsIgnoreCase(usr_email) && password.equalsIgnoreCase(usr_password)) {
                                             verified = true;
-                                            Intent intent = new Intent(getContext(), MainActivity.class);
+                                            Intent intent = new Intent(getActivity(), MainActivity.class);
+                                            intent.putExtra("FName", FName);
+                                            intent.putExtra("LName", LName);
+//                                            intent.putExtra("User Name", new String[]{FName, LName});
                                             startActivity(intent);
-                                            Toast.makeText(getContext(), "welcome " + FName + LName, Toast.LENGTH_SHORT).show();
+                                            getActivity().finish();
+//                                            Toast.makeText(getContext(), "welcome " + FName + LName, Toast.LENGTH_SHORT).show();
                                             progressDialog.dismiss();
 
-                                        }
-                                        else{
-                                            if (!email.equalsIgnoreCase(usr_email) || !password.equalsIgnoreCase((usr_password))){
-                                                Toast.makeText(getContext(), "Wrong Details", Toast.LENGTH_SHORT).show();
-                                            }
-                                            else{
-                                                Toast.makeText(getContext(), "Check connection", Toast.LENGTH_SHORT).show();
-
-                                            }
+                                        } else if (!email.equalsIgnoreCase(usr_email) || !password.equalsIgnoreCase((usr_password))) {
+                                            Toast.makeText(getContext(), "Wrong Details", Toast.LENGTH_SHORT).show();
                                             progressDialog.dismiss();
                                         }
                                     }
+                                }
+                            })
 
+                            .addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull @NotNull Exception e) {
+                                    Toast.makeText(getContext(), "Check your connection", Toast.LENGTH_SHORT).show();
+                                    progressDialog.dismiss();
                                 }
                             });
 

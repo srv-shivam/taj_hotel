@@ -8,6 +8,8 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -22,6 +24,16 @@ import com.example.tajhotel.CustomClasses.FoodCategories;
 import com.example.tajhotel.CustomClasses.Recipe_Model;
 import com.example.tajhotel.LocalDataBase.DataBaseHelper;
 import com.example.tajhotel.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,6 +69,10 @@ public class HomeFragment extends Fragment {
         // Animation for food list
         slideLEFT = AnimationUtils.loadAnimation(getContext(), R.anim.food_list_recycler_animation);
 
+//        String fName = getArguments().getString("FirstName");
+//        String lName = getArguments().getString("LastName");
+//        welcome_text.setText("Welcome, " + fName + " " + lName);
+
         //Adding different Food Categories in ArrayList
         categoriesArrayList.add(new FoodCategories(R.drawable.burger_categories, "Burger"));
         categoriesArrayList.add(new FoodCategories(R.drawable.noodles_categories, "Noodles"));
@@ -82,19 +98,29 @@ public class HomeFragment extends Fragment {
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(homeCategoriesAdapter);
 
-        imageSlider = rootView.findViewById(R.id.banner_slider);
-        imageSliderBottom = rootView.findViewById(R.id.banner_slider_down);
-        ArrayList<SlideModel> slideModels = new ArrayList<>();
 
+        imageSlider = rootView.findViewById(R.id.banner_slider);
+        ArrayList<SlideModel> slideModels = new ArrayList<>();
+        setBanner(slideModels);
+
+        imageSliderBottom = rootView.findViewById(R.id.banner_slider_down);
+        ArrayList<SlideModel> models = new ArrayList<>();
+        setCustomerReviews(models);
+
+
+        return rootView;
+    }
+
+    private void setBanner(ArrayList<SlideModel> slideModels) {
         slideModels.add(new SlideModel("https://pixelz.cc/wp-content/uploads/2018/12/hamburgers-with-fire-uhd-4k-wallpaper.jpg", "Let's explore the spices"));
         slideModels.add(new SlideModel("https://images.creativemarket.com/0.1.0/ps/5829524/1820/1213/m1/fpnw/wm1/awu82uoqwx3lgrsj2omlbzhzouszk713n45h7c4cpor2my2zlpqyb34pt2ogzhep-.jpg?1549379772&s=beb2804ea962fb49e6242654b23c6cd5", "Hunger station"));
         slideModels.add(new SlideModel("https://pluspng.com/img-png/restaurant-png-hd--1920.png", "Taj Hotel brings you more"));
         slideModels.add(new SlideModel("https://images.creativemarket.com/0.1.0/ps/3379855/910/647/m2/fpnw/wm1/q8mbhyffbveq5rn80tfc6z1glvbvwspe2ztxajpe3pkhgvitci56eo9qjscpvj7s-.jpg?1507495664&s=9f9420263f473c06dffd55135d685013", "Explore More, Eat More"));
         slideModels.add(new SlideModel("https://shilpaahuja.com/wp-content/uploads/2017/08/best-vegetarian-food-chennai-india-tamil-nadu-indian-tasty.jpg", "Authentic foods for your loved ones"));
         imageSlider.setImageList(slideModels, true);
+    }
 
-        ArrayList<SlideModel> models = new ArrayList<>();
-
+    private void setCustomerReviews(ArrayList<SlideModel> models) {
         models.add(new SlideModel("https://i.ibb.co/T8mY2q4/review.png"));
         models.add(new SlideModel("https://i.ibb.co/T8mY2q4/review.png"));
         models.add(new SlideModel("https://i.ibb.co/T8mY2q4/review.png"));
@@ -102,9 +128,6 @@ public class HomeFragment extends Fragment {
         models.add(new SlideModel("https://i.ibb.co/T8mY2q4/review.png"));
         models.add(new SlideModel("https://i.ibb.co/T8mY2q4/review.png"));
         imageSliderBottom.setImageList(models, true);
-
-
-        return rootView;
     }
 
 
