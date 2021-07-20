@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -18,12 +17,13 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.FirebaseFirestore;
 import com.example.tajhotel.CustomClasses.usr_data;
 import com.example.tajhotel.R;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import org.jetbrains.annotations.NotNull;
 
 public class SignupFragment extends Fragment {
     EditText fnametxt, lnametxt, emailtxt, passwdtxt, cpasswdtxt, mobtxt;
@@ -37,9 +37,10 @@ public class SignupFragment extends Fragment {
     FirebaseFirestore db;
 
     View view;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        view=inflater.inflate(R.layout.fragment_signup, container, false);
+        view = inflater.inflate(R.layout.fragment_signup, container, false);
 
         fnametxt = view.findViewById(R.id.fnametxt);
         lnametxt = view.findViewById(R.id.lnametxt);
@@ -59,7 +60,6 @@ public class SignupFragment extends Fragment {
         progressDialog.setMessage("Please wait while we process");
 
 
-
         genderradiogrop.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -69,8 +69,8 @@ public class SignupFragment extends Fragment {
         loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentTransaction fragmentTransaction= getFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.lsFragment,new LoginWithEmailFragment());
+                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.lsFragment, new LoginWithEmailFragment());
                 fragmentTransaction.commit();
             }
         });
@@ -91,26 +91,21 @@ public class SignupFragment extends Fragment {
                             mobtxt.getText().toString(),
                             rb.getText().toString());
 
-                    db.collection("users")
-                            .add(ud)
-                            .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                                @Override
-                                public void onSuccess(DocumentReference documentReference) {
-                                    FragmentTransaction fragmentTransaction= getFragmentManager().beginTransaction();
-
-                                    fragmentTransaction.replace(R.id.lsFragment,new LoginWithEmailFragment());
-                                    fragmentTransaction.commit();
-                                    progressDialog.dismiss();
-
-                                }
-                            }).addOnFailureListener(new OnFailureListener() {
+                    db.collection("users").document("details").set(ud).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(getContext(), "Unsuccessful" + e.getMessage(), Toast.LENGTH_SHORT).show();
+                        public void onSuccess(Void unused) {
+                            FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
 
+                            fragmentTransaction.replace(R.id.lsFragment, new LoginWithEmailFragment());
+                            fragmentTransaction.commit();
+                            progressDialog.dismiss();
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull @NotNull Exception e) {
+                            Toast.makeText(getContext(), "Something went wrong please try again after some time" + e.getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     });
-
                 }
             }
 

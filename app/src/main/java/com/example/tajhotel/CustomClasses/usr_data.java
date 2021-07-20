@@ -1,70 +1,70 @@
 package com.example.tajhotel.CustomClasses;
 public class usr_data {
-    String Fname, Lname, Email, Password,Country_code,  Phnum,  Gander;
+    String fname, lname, email, password,country_code,  ph_num,  gander;
 
-    public usr_data(String Fname, String Lname, String Email, String Password, String Country_code, String Phnum, String Gander) {
-        this.Fname = Fname;
-        this.Lname = Lname;
-        this.Email = Email;
-        this.Password = Password;
-        this.Country_code = Country_code;
-        this.Phnum = Phnum;
-        this.Gander = Gander;
+    public usr_data(String fname, String lname, String email, String password, String country_code, String ph_num, String gander) {
+        this.fname = fname;
+        this.lname = lname;
+        this.email = email;
+        this.password = password;
+        this.country_code = country_code;
+        this.ph_num = ph_num;
+        this.gander = gander;
     }
 
     public String getFname() {
-        return Fname;
+        return fname;
     }
 
     public void setFname(String fname) {
-        Fname = fname;
+        this.fname = fname;
     }
 
     public String getLname() {
-        return Lname;
+        return lname;
     }
 
     public void setLname(String lname) {
-        Lname = lname;
+        this.lname = lname;
     }
 
     public String getEmail() {
-        return Email;
+        return email;
     }
 
     public void setEmail(String email) {
-        Email = email;
+        this.email = email;
     }
 
     public String getPassword() {
-        return Password;
+        return password;
     }
 
     public void setPassword(String password) {
-        Password = password;
+        this.password = password;
     }
 
     public String getCountry_code() {
-        return Country_code;
+        return country_code;
     }
 
     public void setCountry_code(String country_code) {
-        Country_code = country_code;
+        this.country_code = country_code;
     }
 
-    public String getPhnum() {
-        return Phnum;
+    public String getPh_num() {
+        return ph_num;
     }
 
-    public void setPhnum(String phnum) {
-        Phnum = phnum;
+    public void setPh_num(String ph_num) {
+        this.ph_num = ph_num;
     }
 
     public String getGander() {
-        return Gander;
+        return gander;
     }
 
     public void setGander(String gander) {
-        Gander = gander;
+        this.gander = gander;
     }
 }

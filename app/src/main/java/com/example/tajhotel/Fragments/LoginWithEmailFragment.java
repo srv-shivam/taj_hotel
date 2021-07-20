@@ -3,6 +3,7 @@ package com.example.tajhotel.Fragments;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,20 +15,14 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
-import com.example.tajhotel.AvatarPractice;
+import com.example.tajhotel.MainActivity;
 import com.example.tajhotel.R;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
-import com.google.firebase.firestore.model.DatabaseId;
-
-import org.jetbrains.annotations.NotNull;
 
 public class LoginWithEmailFragment extends Fragment {
     View view;
@@ -35,7 +30,10 @@ public class LoginWithEmailFragment extends Fragment {
     TextView signupbtn;
     Button loginbtn;
     boolean verified = false;
-    FirebaseFirestore db;
+    FirebaseAuth firebaseAuth;
+    String userId;
+    FirebaseFirestore firebaseFirestore;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -46,7 +44,8 @@ public class LoginWithEmailFragment extends Fragment {
         loginbtn = view.findViewById(R.id.loginbtn);
         signupbtn = view.findViewById(R.id.signupbtn);
 
-        db = FirebaseFirestore.getInstance();
+        firebaseAuth = FirebaseAuth.getInstance();
+        firebaseFirestore = FirebaseFirestore.getInstance();
 
 
         ProgressDialog progressDialog = new ProgressDialog(getContext());
@@ -56,101 +55,70 @@ public class LoginWithEmailFragment extends Fragment {
         loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String usr_email = unametxt.getText().toString().trim();
+                String usr_password = passwdtxt.getText().toString().trim();
 
-                if (unametxt.getText().toString().isEmpty() || passwdtxt.getText().toString().isEmpty()) {
-
+                if (TextUtils.isEmpty(usr_email) || TextUtils.isEmpty(usr_password)) {
                     Toast.makeText(getContext(), "Incomplete Details", Toast.LENGTH_SHORT).show();
-                }
-                else {
+                } else {
                     progressDialog.show();
-
-//                    DocumentReference documentReference = db.collection("users").document(userID);
-//
-//                    documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
-//                        @Override
-//                        public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
-//                            String userEmail = value.get("email").toString();
-//                            String userPassword = value.get("password").toString();
-//
-//                            String enteredEmail = unametxt.getText().toString().trim();
-//                            String enteredPass = passwdtxt.getText().toString().trim();
-//
-//                            if (userEmail.equalsIgnoreCase(enteredEmail) && userPassword.equalsIgnoreCase(enteredPass)) {
-//                                verified = true;
-//                                Intent intent = new Intent(getContext(), AvatarPractice.class);
-//                                startActivity(intent);
-//                                progressDialog.dismiss();
-//                            }
-//                            else {
-//                                Toast.makeText(getContext(), "Wrong Details Entered", Toast.LENGTH_SHORT).show();
-//                            }
-//
-//                        }
-//                    });
-
-
-                    db.collection("users")
-                            .get()
-                            .addOnCompleteListener(getActivity(), new OnCompleteListener<QuerySnapshot>() {
+                    /*firebaseAuth.signInWithEmailAndPassword(usr_email,usr_password)
+                            .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
                                 @Override
-                                public void onComplete(Task<QuerySnapshot> task) {
-                                    if (task.isSuccessful()) {
-                                        for (QueryDocumentSnapshot document : task.getResult()) {
-                                            String email = document.getString("email");
-                                            String pasword = document.getString("password");
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    if(task.isSuccessful()){
 
-                                            if (email.isEmpty() || pasword.isEmpty()) {
-                                                Log.e("Email", "strings are null");
-                                            }
-                                            String FName = document.getString("fame");
-                                            String LName = document.getString("name");
-                                            Log.d("TAG", document.getId() + " => " + document.getData());
+                                    }
+                                    else{
 
-
-                                            String usr_email = unametxt.getText().toString().trim();
-                                            String usr_password = passwdtxt.getText().toString().trim();
-
-                                            if (email.equalsIgnoreCase(usr_email) && pasword.equalsIgnoreCase(usr_password)) {
-                                                verified = true;
-                                                Intent intent = new Intent(getContext(), AvatarPractice.class);
-                                                intent.putExtra("FName", FName);
-                                                intent.putExtra("LName", LName);
-                                                startActivity(intent);
-//                                                Toast.makeText(getContext(), "welcome " + FName + LName, Toast.LENGTH_SHORT).show();
-                                                progressDialog.dismiss();
-
-                                            }
-                                        }
-
-                                    } else {
-                                        Toast.makeText(getContext(), "Wrong Details", Toast.LENGTH_SHORT).show();
-                                        Log.w("Login", "Error getting documents.", task.getException());
                                     }
                                 }
-                            }).addOnFailureListener(new OnFailureListener() {
+                            });*/
+                    firebaseFirestore.collection("users").document("details")
+                            .get()
+                            .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                @Override
+                                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                    if (task.isSuccessful()) {
+                                        DocumentSnapshot doc = task.getResult();
+                                        String email = doc.getString("email");
+                                        Log.e("email", email);
+                                        String password = doc.getString("password");
+                                        Log.e("password", password);
+                                        String FName = doc.getString("Fame");
+                                        String LName = doc.getString("Name");
+
+
+                                        if (email.equalsIgnoreCase(usr_email) && password.equalsIgnoreCase(usr_password)) {
+                                            verified = true;
+                                            Intent intent = new Intent(getContext(), MainActivity.class);
+                                            startActivity(intent);
+                                            Toast.makeText(getContext(), "welcome " + FName + LName, Toast.LENGTH_SHORT).show();
+                                            progressDialog.dismiss();
+
+                                        }
+                                    } else {
+                                        Toast.makeText(getContext(), "Wrong Details", Toast.LENGTH_SHORT).show();
+                                        Log.w("Login", "Error getting documents.");
+                                    }
+
+                                }
+                            });
+
+                    signupbtn.setOnClickListener(new View.OnClickListener() {
                         @Override
-                        public void onFailure(@NonNull @NotNull Exception e) {
-                            Log.d("Email", e.getMessage());
+                        public void onClick(View v) {
+                            getParentFragmentManager()
+                                    .beginTransaction()
+                                    .replace(R.id.lsFragment, new SignupFragment())
+                                    .commit();
                         }
                     });
 
-
                 }
 
             }
         });
-
-        signupbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getParentFragmentManager()
-                        .beginTransaction()
-                        .replace(R.id.lsFragment, new SignupFragment())
-                        .commit();
-            }
-        });
         return view;
-
     }
-
 }
