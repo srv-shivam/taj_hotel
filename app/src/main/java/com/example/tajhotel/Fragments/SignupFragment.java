@@ -21,6 +21,8 @@ import com.example.tajhotel.CustomClasses.usr_data;
 import com.example.tajhotel.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import org.jetbrains.annotations.NotNull;
@@ -34,6 +36,7 @@ public class SignupFragment extends Fragment {
     RadioButton rb;
     Button signupbtn;
     ProgressDialog progressDialog;
+
     FirebaseFirestore db;
 
     View view;
@@ -55,6 +58,8 @@ public class SignupFragment extends Fragment {
         loginbtn = view.findViewById(R.id.loginbtn);
 
         db = FirebaseFirestore.getInstance();
+
+
         progressDialog = new ProgressDialog(getContext());
         progressDialog.setTitle("Creating Account");
         progressDialog.setMessage("Please wait while we process");
@@ -90,8 +95,8 @@ public class SignupFragment extends Fragment {
                             codtxt.getText().toString(),
                             mobtxt.getText().toString(),
                             rb.getText().toString());
-
-                    db.collection("users").document("details").set(ud).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    db.collection("users").document(emailtxt.getText().toString())
+                            .set(ud).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void unused) {
                             FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();

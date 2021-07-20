@@ -20,7 +20,6 @@ import com.example.tajhotel.MainActivity;
 import com.example.tajhotel.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -30,8 +29,6 @@ public class LoginWithEmailFragment extends Fragment {
     TextView signupbtn;
     Button loginbtn;
     boolean verified = false;
-    FirebaseAuth firebaseAuth;
-    String userId;
     FirebaseFirestore firebaseFirestore;
 
 
@@ -44,10 +41,7 @@ public class LoginWithEmailFragment extends Fragment {
         loginbtn = view.findViewById(R.id.loginbtn);
         signupbtn = view.findViewById(R.id.signupbtn);
 
-        firebaseAuth = FirebaseAuth.getInstance();
         firebaseFirestore = FirebaseFirestore.getInstance();
-
-
         ProgressDialog progressDialog = new ProgressDialog(getContext());
         progressDialog.setTitle("Taking you to your Account");
         progressDialog.setMessage("Please wait while we process");
@@ -62,19 +56,7 @@ public class LoginWithEmailFragment extends Fragment {
                     Toast.makeText(getContext(), "Incomplete Details", Toast.LENGTH_SHORT).show();
                 } else {
                     progressDialog.show();
-                    /*firebaseAuth.signInWithEmailAndPassword(usr_email,usr_password)
-                            .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
-                                @Override
-                                public void onComplete(@NonNull Task<AuthResult> task) {
-                                    if(task.isSuccessful()){
-
-                                    }
-                                    else{
-
-                                    }
-                                }
-                            });*/
-                    firebaseFirestore.collection("users").document("details")
+                    firebaseFirestore.collection("users").document(usr_email)
                             .get()
                             .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                                 @Override
@@ -82,12 +64,9 @@ public class LoginWithEmailFragment extends Fragment {
                                     if (task.isSuccessful()) {
                                         DocumentSnapshot doc = task.getResult();
                                         String email = doc.getString("email");
-                                        Log.e("email", email);
                                         String password = doc.getString("password");
-                                        Log.e("password", password);
                                         String FName = doc.getString("Fame");
                                         String LName = doc.getString("Name");
-
 
                                         if (email.equalsIgnoreCase(usr_email) && password.equalsIgnoreCase(usr_password)) {
                                             verified = true;
@@ -97,9 +76,16 @@ public class LoginWithEmailFragment extends Fragment {
                                             progressDialog.dismiss();
 
                                         }
-                                    } else {
-                                        Toast.makeText(getContext(), "Wrong Details", Toast.LENGTH_SHORT).show();
-                                        Log.w("Login", "Error getting documents.");
+                                        else{
+                                            if (!email.equalsIgnoreCase(usr_email) || !password.equalsIgnoreCase((usr_password))){
+                                                Toast.makeText(getContext(), "Wrong Details", Toast.LENGTH_SHORT).show();
+                                            }
+                                            else{
+                                                Toast.makeText(getContext(), "Check connection", Toast.LENGTH_SHORT).show();
+
+                                            }
+                                            progressDialog.dismiss();
+                                        }
                                     }
 
                                 }
