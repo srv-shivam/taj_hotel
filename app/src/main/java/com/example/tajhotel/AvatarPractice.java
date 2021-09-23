@@ -50,7 +50,7 @@ public class AvatarPractice extends AppCompatActivity {
 
         btn.setEnabled(false);
 
-        if (btn.isEnabled() == true) {
+        if (btn.isEnabled()) {
             Intent intent = new Intent(AvatarPractice.this, MainActivity.class);
             startActivity(intent);
             finish();

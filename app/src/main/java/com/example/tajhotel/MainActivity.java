@@ -59,9 +59,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         HomeFragment homeFragment =  new HomeFragment();
 
-//        Bundle bundle = new Bundle();
-//        bundle.putStringArray("User Name", userName);
-//        new HomeFragment().setArguments(bundle);
+        getSupportFragmentManager()
+                .beginTransaction()
+                .add(R.id.container, homeFragment)
+                .commit();
 
         /**************** Getting User name from Login Fragment ****************/
         Intent intent = getIntent();
@@ -73,13 +74,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         bundle.putString("LastName", lName);
         homeFragment.setArguments(bundle);
 
-        Toast.makeText(this, fName, Toast.LENGTH_SHORT).show();
-
-        getSupportFragmentManager()
-                .beginTransaction()
-                .add(R.id.container, homeFragment)
-                .commit();
-
+//        Toast.makeText(this, fName, Toast.LENGTH_SHORT).show();
 
         addItemsToBottomNavigation();
 
