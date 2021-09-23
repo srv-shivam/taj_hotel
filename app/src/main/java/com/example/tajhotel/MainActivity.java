@@ -256,6 +256,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     }
                 });
         builder.create();
-        builder.setTitle("Are You Sure").show();
+        builder.setTitle("Logout").show();
     }
 }
