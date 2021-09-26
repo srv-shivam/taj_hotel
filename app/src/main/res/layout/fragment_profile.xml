@@ -28,14 +28,14 @@
             android:id="@+id/user_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="5dp"
             android:layout_alignBottom="@+id/banner"
-            android:layout_marginBottom="-50dp"
-            android:text="Prince Kumar"
+            android:layout_marginBottom="-48dp"
+            android:padding="5dp"
+            android:layout_toRightOf="@id/profile_pic"
+            android:text="Shivam Srivastava"
             android:textColor="@color/white"
             android:textSize="25sp"
-            android:textStyle="bold"
-            android:layout_centerHorizontal="true"/>
+            android:textStyle="bold" />
 
         <LinearLayout
             android:id="@+id/tabs"
